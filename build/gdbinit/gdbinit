@@ -1,0 +1,2 @@
+source /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/gdbinit/symbols
+source /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/gdbinit/connect

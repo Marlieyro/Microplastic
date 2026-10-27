@@ -1,0 +1,8 @@
+//
+// Created by user on 27.10.26.
+//
+
+#ifndef MICROPLASTIC_APPMSGBUFFER_H
+#define MICROPLASTIC_APPMSGBUFFER_H
+
+#endif //MICROPLASTIC_APPMSGBUFFER_H

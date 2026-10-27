@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/CMakeFiles/bootloader
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/CMakeFiles/bootloader.rule
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/CMakeFiles/bootloader-complete.rule
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

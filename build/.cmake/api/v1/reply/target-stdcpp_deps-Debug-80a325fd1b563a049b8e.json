@@ -1,0 +1,63 @@
+{
+	"abstract" : true,
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"target_link_libraries"
+		],
+		"files" : 
+		[
+			"/home/user/esp/esp-idf/components/cxx/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 66,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 85,
+				"parent" : 0
+			}
+		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 11
+	},
+	"id" : "stdcpp_deps::@fc68b7334ac9a9392d41",
+	"interfaceLinkLibraries" : 
+	[
+		{
+			"backtrace" : 2,
+			"fragment" : "stdc++"
+		},
+		{
+			"backtrace" : 2,
+			"fragment" : "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/pthread/libpthread.a"
+		},
+		{
+			"backtrace" : 2,
+			"fragment" : "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_libc/libesp_libc.a"
+		}
+	],
+	"name" : "stdcpp_deps",
+	"paths" : 
+	{
+		"build" : "esp-idf/cxx",
+		"source" : "/home/user/esp/esp-idf/components/cxx"
+	},
+	"sources" : [],
+	"type" : "INTERFACE_LIBRARY"
+}

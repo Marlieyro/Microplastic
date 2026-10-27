@@ -1,0 +1,627 @@
+{
+	"backtrace" : 4,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"__ldgen_create_target",
+			"idf_build_executable",
+			"project"
+		],
+		"files" : 
+		[
+			"/home/user/esp/esp-idf/tools/cmake/ldgen.cmake",
+			"/home/user/esp/esp-idf/tools/cmake/build.cmake",
+			"/home/user/esp/esp-idf/tools/cmake/project.cmake",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 3
+			},
+			{
+				"command" : 3,
+				"file" : 3,
+				"line" : 6,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 1002,
+				"parent" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 809,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 198,
+				"parent" : 3
+			}
+		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 11
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "__idf_xtensa::@1daaaad7abe597e030f9"
+		},
+		{
+			"id" : "__idf_esp_driver_gptimer::@b8628cd9d7b32710339f"
+		},
+		{
+			"id" : "__idf_esp_driver_spi::@a108b58494cdd93e678c"
+		},
+		{
+			"id" : "__idf_unity::@fec746937506b5690992"
+		},
+		{
+			"id" : "__idf_cmock::@38f9eb59693b7394f54c"
+		},
+		{
+			"id" : "__idf_console::@4311ed8d271cc0ee1422"
+		},
+		{
+			"id" : "__idf_esp_hal_twai::@51ba563199ada2b3f0ba"
+		},
+		{
+			"id" : "__idf_driver::@76403182dd99a02c203e"
+		},
+		{
+			"id" : "__idf_esp_blockdev_util::@d23c2a3f92d58ca67124"
+		},
+		{
+			"id" : "__idf_esp_hal_cam::@d24b0bcdcbb973fa3966"
+		},
+		{
+			"id" : "__idf_esp_driver_cam::@d005630ea6316acc7c7d"
+		},
+		{
+			"id" : "__idf_esp_driver_i2c::@823c83e66a2d740aac64"
+		},
+		{
+			"id" : "__idf_esp_hal_ledc::@f7e0a64d676c21278c1e"
+		},
+		{
+			"id" : "__idf_esp_driver_ledc::@9a01f21f38f01238ca77"
+		},
+		{
+			"id" : "__idf_esp_hal_mcpwm::@c68ca8ee46f178963f61"
+		},
+		{
+			"id" : "__idf_esp_driver_mcpwm::@48ac72772582b222889a"
+		},
+		{
+			"id" : "__idf_esp_hal_pcnt::@ef149782a99a2bc767b6"
+		},
+		{
+			"id" : "__idf_esp_driver_pcnt::@7f5d6483ec7c43d22871"
+		},
+		{
+			"id" : "__idf_esp_hal_rmt::@de1b8987904643f454ff"
+		},
+		{
+			"id" : "__idf_esp_driver_rmt::@0efb206e593213c2b54a"
+		},
+		{
+			"id" : "__idf_esp_hal_sd::@1ada79c52e603a3e38c7"
+		},
+		{
+			"id" : "__idf_sdmmc::@89ed5bca1750ffbc7db6"
+		},
+		{
+			"id" : "__idf_esp_driver_sd_intf::@9cb2f063b9dd7d282253"
+		},
+		{
+			"id" : "__idf_esp_driver_sdm::@601b6ef28d63f823a7b4"
+		},
+		{
+			"id" : "__idf_esp_driver_sdmmc::@6ccb6c8602dfb90db4d7"
+		},
+		{
+			"id" : "__idf_esp_driver_sdspi::@c293af58c49fe790ac32"
+		},
+		{
+			"id" : "__idf_esp_driver_touch_sens::@834ec88eeea238586f95"
+		},
+		{
+			"id" : "__idf_esp_driver_tsens::@dad043442c4ac9e51f1a"
+		},
+		{
+			"id" : "__idf_esp_driver_twai::@0c7b27fa84c4efa2b2b9"
+		},
+		{
+			"id" : "__idf_esp_eth::@68140d310044213ed0bc"
+		},
+		{
+			"id" : "__idf_esp_hal_lcd::@f665e8e55ce613517df9"
+		},
+		{
+			"id" : "__idf_esp_hid::@15df40e16a5d8775dd9b"
+		},
+		{
+			"id" : "__idf_esp_https_server::@a47490a9e49b7eabdb18"
+		},
+		{
+			"id" : "__idf_esp_lcd::@d5a84597e1633c9ab0d3"
+		},
+		{
+			"id" : "__idf_protobuf-c::@b14513c4bd859268ec22"
+		},
+		{
+			"id" : "__idf_protocomm::@d76d01c8dec06205e1fc"
+		},
+		{
+			"id" : "__idf_esp_local_ctrl::@d6aad58d2946e56208ef"
+		},
+		{
+			"id" : "__idf_wear_levelling::@cb21b0d7c0815cff11c6"
+		},
+		{
+			"id" : "__idf_fatfs::@75ac1d9b25dacc8cc9e7"
+		},
+		{
+			"id" : "__idf_perfmon::@aac0f647c32bb8f54a67"
+		},
+		{
+			"id" : "__idf_rt::@c044be52929cb104e3c1"
+		},
+		{
+			"id" : "__idf_spiffs::@df881b71474064c86689"
+		},
+		{
+			"id" : "__idf_espressif__esp-dsp::@173cdc30d8d2ec42511f"
+		},
+		{
+			"id" : "__idf_espressif__esp_serial_slave_link::@61d61d3381b422a81aa4"
+		},
+		{
+			"id" : "__idf_espressif__eppp_link::@a7b517ceef1c876980b3"
+		},
+		{
+			"id" : "__idf_main::@7368607ed66887415643"
+		}
+	],
+	"id" : "__ldgen_output_sections.ld::@6890427a1f51a3e7e1df",
+	"name" : "__ldgen_output_sections.ld",
+	"orderDependencies" : 
+	[
+		{
+			"id" : "xtensa_xt_hal::@1daaaad7abe597e030f9"
+		},
+		{
+			"id" : "esp_wifi_core::@c33f1523799863800685"
+		},
+		{
+			"id" : "esp_wifi_espnow::@c33f1523799863800685"
+		},
+		{
+			"id" : "esp_wifi_mesh::@c33f1523799863800685"
+		},
+		{
+			"id" : "esp_wifi_net80211::@c33f1523799863800685"
+		},
+		{
+			"id" : "esp_wifi_pp::@c33f1523799863800685"
+		},
+		{
+			"id" : "esp_wifi_smartconfig::@c33f1523799863800685"
+		},
+		{
+			"id" : "esp_wifi_wapi::@c33f1523799863800685"
+		},
+		{
+			"id" : "__idf_xtensa::@1daaaad7abe597e030f9"
+		},
+		{
+			"id" : "__idf_esp_stdio::@d00d292f591bb0aad147"
+		},
+		{
+			"id" : "__idf_esp_hal_dma::@f4b833e26722ccc11f8a"
+		},
+		{
+			"id" : "__idf_esp_hal_gpspi::@d16508dabbfa00929b18"
+		},
+		{
+			"id" : "__idf_esp_hal_clock::@7df5f860d31a56433f44"
+		},
+		{
+			"id" : "__idf_esp_hal_mspi::@91a3d28e224bfd752ee2"
+		},
+		{
+			"id" : "__idf_esp_hal_security::@cf877d0c90cb84121b2e"
+		},
+		{
+			"id" : "__idf_esp_app_format::@08c2bdce7fd85cdbea06"
+		},
+		{
+			"id" : "__idf_esp_bootloader_format::@d2aa1b1547bed85670ee"
+		},
+		{
+			"id" : "__idf_app_update::@cc3b426666063acc9674"
+		},
+		{
+			"id" : "__idf_esp_partition::@d7cc29bd06eede980e19"
+		},
+		{
+			"id" : "__idf_efuse::@2da764c922f8b73e9c75"
+		},
+		{
+			"id" : "__idf_esp_security::@5b2a55663fe2034faa8b"
+		},
+		{
+			"id" : "__idf_esp_driver_gpio::@f5f60e7a3e445a08487c"
+		},
+		{
+			"id" : "__idf_esp_hal_uart::@ec2e30ced93796620e8c"
+		},
+		{
+			"id" : "__idf_esp_pm::@c93acdd4f72df5fa58db"
+		},
+		{
+			"id" : "__idf_esp_mm::@346d49dc35574b4eea7e"
+		},
+		{
+			"id" : "__idf_esp_driver_dma::@f165a0dae21b5d013545"
+		},
+		{
+			"id" : "__idf_mbedtls::@9d0b8d44c897d31e7973"
+		},
+		{
+			"id" : "tfpsacrypto::@a178143d93fb03652d8f"
+		},
+		{
+			"id" : "mbedx509::@12759e2a35724d846b97"
+		},
+		{
+			"id" : "mbedtls::@12759e2a35724d846b97"
+		},
+		{
+			"id" : "__idf_esp_hal_timg::@53c473d355018c2d467c"
+		},
+		{
+			"id" : "__idf_esp_hal_wdt::@b2961a5a9dc46e76b372"
+		},
+		{
+			"id" : "__idf_esp_hal_ana_conv::@39e8285db2db855a8cb3"
+		},
+		{
+			"id" : "__idf_bootloader_support::@d88583f91142925c6676"
+		},
+		{
+			"id" : "__idf_spi_flash::@6f8a8c72478269b2cd60"
+		},
+		{
+			"id" : "__idf_esp_system::@874df54e61e20112dfd4"
+		},
+		{
+			"id" : "__idf_esp_common::@5ba0aac035ae9b4e20a4"
+		},
+		{
+			"id" : "__idf_esp_rom::@c269e361cd87ad81e927"
+		},
+		{
+			"id" : "__idf_hal::@41c1a00f56cd1e9ede18"
+		},
+		{
+			"id" : "__idf_log::@d5e1aa0ef4e3c98c8a70"
+		},
+		{
+			"id" : "__idf_heap::@a3bf99b7c47be461ad9f"
+		},
+		{
+			"id" : "__idf_soc::@824f1541829f13857909"
+		},
+		{
+			"id" : "__idf_esp_hal_gpio::@bbad35e9a610d2a2af74"
+		},
+		{
+			"id" : "__idf_esp_hal_usb::@174fb55b93215b1d9f25"
+		},
+		{
+			"id" : "__idf_esp_hal_pmu::@51614fa8d9ee9aac6fda"
+		},
+		{
+			"id" : "__idf_esp_hal_touch_sens::@112b03c6041d968753f5"
+		},
+		{
+			"id" : "__idf_esp_hal_i2s::@139b5d4f8e04a8e7dd24"
+		},
+		{
+			"id" : "__idf_esp_hw_support::@ce4791f5a7554c569ddb"
+		},
+		{
+			"id" : "__idf_freertos::@7334568587001871092c"
+		},
+		{
+			"id" : "__idf_esp_libc::@076e7d0e3edaedfc2b27"
+		},
+		{
+			"id" : "__idf_pthread::@52b2aa0be8fa4ca9e52e"
+		},
+		{
+			"id" : "__idf_cxx::@fc68b7334ac9a9392d41"
+		},
+		{
+			"id" : "__idf_esp_timer::@08b57a33b2000f8ac4ee"
+		},
+		{
+			"id" : "__idf_esp_ringbuf::@ad62994b1ce98b81017d"
+		},
+		{
+			"id" : "__idf_esp_psram::@222fc793c25100a4848d"
+		},
+		{
+			"id" : "__idf_esp_driver_uart::@7494562dd0db45cfd3ba"
+		},
+		{
+			"id" : "__idf_esp_driver_gptimer::@b8628cd9d7b32710339f"
+		},
+		{
+			"id" : "__idf_esp_event::@1426f3cbfb4523713151"
+		},
+		{
+			"id" : "__idf_nvs_sec_provider::@06580cba064af97f59fd"
+		},
+		{
+			"id" : "__idf_nvs_flash::@b6cf96db3b320cf2c923"
+		},
+		{
+			"id" : "__idf_esp_phy::@c4472d8d68a6cb344214"
+		},
+		{
+			"id" : "__idf_esp_driver_usb_serial_jtag::@5e4d6994852a8ffd473c"
+		},
+		{
+			"id" : "__idf_vfs::@57481f90220bce4f7e1a"
+		},
+		{
+			"id" : "__idf_lwip::@72bd17b7eb336521f94d"
+		},
+		{
+			"id" : "__idf_esp_netif::@0dd2a33d00052a11574d"
+		},
+		{
+			"id" : "__idf_wpa_supplicant::@2124e86f93fbab1c8043"
+		},
+		{
+			"id" : "__idf_esp_coex::@63a11468974fcf3715f9"
+		},
+		{
+			"id" : "__idf_esp_wifi::@c33f1523799863800685"
+		},
+		{
+			"id" : "__idf_esp_driver_spi::@a108b58494cdd93e678c"
+		},
+		{
+			"id" : "__idf_esp_gdbstub::@377a8c6ee3088554e323"
+		},
+		{
+			"id" : "__idf_unity::@fec746937506b5690992"
+		},
+		{
+			"id" : "__idf_cmock::@38f9eb59693b7394f54c"
+		},
+		{
+			"id" : "__idf_console::@4311ed8d271cc0ee1422"
+		},
+		{
+			"id" : "__idf_esp_hal_i2c::@cd7aff4c62a8238bdb57"
+		},
+		{
+			"id" : "__idf_esp_hal_twai::@51ba563199ada2b3f0ba"
+		},
+		{
+			"id" : "__idf_driver::@76403182dd99a02c203e"
+		},
+		{
+			"id" : "__idf_http_parser::@358cb9c2b49fd348008f"
+		},
+		{
+			"id" : "__idf_esp-tls::@fec40229f530785b7d3e"
+		},
+		{
+			"id" : "__idf_esp_adc::@847b8318c687ffb50ebb"
+		},
+		{
+			"id" : "__idf_esp_blockdev_util::@d23c2a3f92d58ca67124"
+		},
+		{
+			"id" : "__idf_esp_hal_cam::@d24b0bcdcbb973fa3966"
+		},
+		{
+			"id" : "__idf_esp_driver_cam::@d005630ea6316acc7c7d"
+		},
+		{
+			"id" : "__idf_esp_driver_i2c::@823c83e66a2d740aac64"
+		},
+		{
+			"id" : "__idf_esp_driver_i2s::@5dbaceb9cb1526e2b88d"
+		},
+		{
+			"id" : "__idf_esp_hal_ledc::@f7e0a64d676c21278c1e"
+		},
+		{
+			"id" : "__idf_esp_driver_ledc::@9a01f21f38f01238ca77"
+		},
+		{
+			"id" : "__idf_esp_hal_mcpwm::@c68ca8ee46f178963f61"
+		},
+		{
+			"id" : "__idf_esp_driver_mcpwm::@48ac72772582b222889a"
+		},
+		{
+			"id" : "__idf_esp_hal_pcnt::@ef149782a99a2bc767b6"
+		},
+		{
+			"id" : "__idf_esp_driver_pcnt::@7f5d6483ec7c43d22871"
+		},
+		{
+			"id" : "__idf_esp_hal_rmt::@de1b8987904643f454ff"
+		},
+		{
+			"id" : "__idf_esp_driver_rmt::@0efb206e593213c2b54a"
+		},
+		{
+			"id" : "__idf_esp_hal_sd::@1ada79c52e603a3e38c7"
+		},
+		{
+			"id" : "__idf_sdmmc::@89ed5bca1750ffbc7db6"
+		},
+		{
+			"id" : "__idf_esp_driver_sd_intf::@9cb2f063b9dd7d282253"
+		},
+		{
+			"id" : "__idf_esp_driver_sdm::@601b6ef28d63f823a7b4"
+		},
+		{
+			"id" : "__idf_esp_driver_sdmmc::@6ccb6c8602dfb90db4d7"
+		},
+		{
+			"id" : "__idf_esp_driver_sdspi::@c293af58c49fe790ac32"
+		},
+		{
+			"id" : "__idf_esp_driver_touch_sens::@834ec88eeea238586f95"
+		},
+		{
+			"id" : "__idf_esp_driver_tsens::@dad043442c4ac9e51f1a"
+		},
+		{
+			"id" : "__idf_esp_driver_twai::@0c7b27fa84c4efa2b2b9"
+		},
+		{
+			"id" : "__idf_esp_eth::@68140d310044213ed0bc"
+		},
+		{
+			"id" : "__idf_esp_hal_lcd::@f665e8e55ce613517df9"
+		},
+		{
+			"id" : "__idf_esp_hid::@15df40e16a5d8775dd9b"
+		},
+		{
+			"id" : "__idf_tcp_transport::@2217ed266b3ca9834900"
+		},
+		{
+			"id" : "__idf_esp_http_client::@483ffd9ca1a06508c93f"
+		},
+		{
+			"id" : "__idf_esp_http_server::@1e8eede8f41363800887"
+		},
+		{
+			"id" : "__idf_esp_https_ota::@55ee5ec07370a5473c2b"
+		},
+		{
+			"id" : "__idf_esp_https_server::@a47490a9e49b7eabdb18"
+		},
+		{
+			"id" : "__idf_esp_lcd::@d5a84597e1633c9ab0d3"
+		},
+		{
+			"id" : "__idf_protobuf-c::@b14513c4bd859268ec22"
+		},
+		{
+			"id" : "__idf_protocomm::@d76d01c8dec06205e1fc"
+		},
+		{
+			"id" : "__idf_esp_local_ctrl::@d6aad58d2946e56208ef"
+		},
+		{
+			"id" : "__idf_wear_levelling::@cb21b0d7c0815cff11c6"
+		},
+		{
+			"id" : "__idf_fatfs::@75ac1d9b25dacc8cc9e7"
+		},
+		{
+			"id" : "__idf_perfmon::@aac0f647c32bb8f54a67"
+		},
+		{
+			"id" : "__idf_rt::@c044be52929cb104e3c1"
+		},
+		{
+			"id" : "__idf_spiffs::@df881b71474064c86689"
+		},
+		{
+			"id" : "__idf_espressif__esp-dsp::@173cdc30d8d2ec42511f"
+		},
+		{
+			"id" : "__idf_espressif__esp_serial_slave_link::@61d61d3381b422a81aa4"
+		},
+		{
+			"id" : "__idf_espressif__eppp_link::@a7b517ceef1c876980b3"
+		},
+		{
+			"id" : "__idf_espressif__esp_wifi_remote::@715e6e6303c912f35d8d"
+		},
+		{
+			"id" : "__idf_main::@7368607ed66887415643"
+		}
+	],
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1,
+				2
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 4,
+			"backtraces" : 
+			[
+				4
+			],
+			"isGenerated" : true,
+			"path" : "build/CMakeFiles/__ldgen_output_sections.ld",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"backtraces" : 
+			[
+				0
+			],
+			"isGenerated" : true,
+			"path" : "build/CMakeFiles/__ldgen_output_sections.ld.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"backtraces" : 
+			[
+				0
+			],
+			"isGenerated" : true,
+			"path" : "build/esp-idf/esp_system/ld/sections.ld.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

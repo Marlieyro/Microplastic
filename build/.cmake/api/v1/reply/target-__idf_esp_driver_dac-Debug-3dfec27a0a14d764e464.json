@@ -1,0 +1,266 @@
+{
+	"abstract" : true,
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"idf_component_register",
+			"set_property",
+			"__component_set_dependencies",
+			"__component_set_all_dependencies"
+		],
+		"files" : 
+		[
+			"/home/user/esp/esp-idf/tools/cmake/component.cmake",
+			"/home/user/esp/esp-idf/components/esp_driver_dac/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 28,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 501,
+				"parent" : 1
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 527,
+				"parent" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 368,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			}
+		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 11
+	},
+	"id" : "__idf_esp_driver_dac::@6bab4bf0460dba6b3d1f",
+	"interfaceCompileDependencies" : 
+	[
+		{
+			"backtrace" : 5,
+			"id" : "__idf_esp_hal_ana_conv::@39e8285db2db855a8cb3"
+		},
+		{
+			"backtrace" : 6,
+			"id" : "__idf_cxx::@fc68b7334ac9a9392d41"
+		},
+		{
+			"backtrace" : 7,
+			"id" : "__idf_esp_libc::@076e7d0e3edaedfc2b27"
+		},
+		{
+			"backtrace" : 8,
+			"id" : "__idf_freertos::@7334568587001871092c"
+		},
+		{
+			"backtrace" : 9,
+			"id" : "__idf_esp_hw_support::@ce4791f5a7554c569ddb"
+		},
+		{
+			"backtrace" : 10,
+			"id" : "__idf_heap::@a3bf99b7c47be461ad9f"
+		},
+		{
+			"backtrace" : 11,
+			"id" : "__idf_log::@d5e1aa0ef4e3c98c8a70"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "__idf_soc::@824f1541829f13857909"
+		},
+		{
+			"backtrace" : 13,
+			"id" : "__idf_hal::@41c1a00f56cd1e9ede18"
+		},
+		{
+			"backtrace" : 14,
+			"id" : "__idf_esp_rom::@c269e361cd87ad81e927"
+		},
+		{
+			"backtrace" : 15,
+			"id" : "__idf_esp_common::@5ba0aac035ae9b4e20a4"
+		},
+		{
+			"backtrace" : 16,
+			"id" : "__idf_esp_system::@874df54e61e20112dfd4"
+		},
+		{
+			"backtrace" : 17,
+			"id" : "__idf_esp_stdio::@d00d292f591bb0aad147"
+		},
+		{
+			"backtrace" : 18,
+			"id" : "__idf_xtensa::@1daaaad7abe597e030f9"
+		}
+	],
+	"interfaceLinkLibraries" : 
+	[
+		{
+			"backtrace" : 5,
+			"id" : "__idf_esp_hal_ana_conv::@39e8285db2db855a8cb3"
+		},
+		{
+			"backtrace" : 6,
+			"id" : "__idf_cxx::@fc68b7334ac9a9392d41"
+		},
+		{
+			"backtrace" : 7,
+			"id" : "__idf_esp_libc::@076e7d0e3edaedfc2b27"
+		},
+		{
+			"backtrace" : 8,
+			"id" : "__idf_freertos::@7334568587001871092c"
+		},
+		{
+			"backtrace" : 9,
+			"id" : "__idf_esp_hw_support::@ce4791f5a7554c569ddb"
+		},
+		{
+			"backtrace" : 10,
+			"id" : "__idf_heap::@a3bf99b7c47be461ad9f"
+		},
+		{
+			"backtrace" : 11,
+			"id" : "__idf_log::@d5e1aa0ef4e3c98c8a70"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "__idf_soc::@824f1541829f13857909"
+		},
+		{
+			"backtrace" : 13,
+			"id" : "__idf_hal::@41c1a00f56cd1e9ede18"
+		},
+		{
+			"backtrace" : 14,
+			"id" : "__idf_esp_rom::@c269e361cd87ad81e927"
+		},
+		{
+			"backtrace" : 15,
+			"id" : "__idf_esp_common::@5ba0aac035ae9b4e20a4"
+		},
+		{
+			"backtrace" : 16,
+			"id" : "__idf_esp_system::@874df54e61e20112dfd4"
+		},
+		{
+			"backtrace" : 17,
+			"id" : "__idf_esp_stdio::@d00d292f591bb0aad147"
+		},
+		{
+			"backtrace" : 18,
+			"id" : "__idf_xtensa::@1daaaad7abe597e030f9"
+		}
+	],
+	"name" : "__idf_esp_driver_dac",
+	"paths" : 
+	{
+		"build" : "esp-idf/esp_driver_dac",
+		"source" : "/home/user/esp/esp-idf/components/esp_driver_dac"
+	},
+	"sources" : [],
+	"type" : "INTERFACE_LIBRARY"
+}

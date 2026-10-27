@@ -1,0 +1,1878 @@
+Command: ninja all
+[1/10] Performing build step for 'bootloader'
+[1/1] cd /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/bootloader && /home/user/.espressif/python_env/idf6.0_py3.14_env/bin/python /home/user/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/bootloader/bootloader.bin
+Bootloader binary size 0x5240 bytes. 0x2dc0 bytes (36%) free.
+[2/10] No install step for 'bootloader'
+[3/10] Completed 'bootloader'
+[4/10] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+FAILED: esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj 
+/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc -DESP_PLATFORM -DESP_PSA_ITS_AVAILABLE -DIDF_VER=\"v6.0.2\" -DMBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\" -DMBEDTLS_MAJOR_VERSION=4 -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ -DTF_PSA_CRYPTO_USER_CONFIG_FILE=\"mbedtls/esp_config.h\" -D_GLIBCXX_HAVE_POSIX_SEMAPHORE -D_GLIBCXX_USE_POSIX_SEMAPHORE -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -D__STDC_WANT_LIB_EXT1__=0 -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/config -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appWiFi -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appDSP -I/home/user/esp/esp-idf/components/esp_libc/platform_include -I/home/user/esp/esp-idf/components/freertos/config/include -I/home/user/esp/esp-idf/components/freertos/config/include/freertos -I/home/user/esp/esp-idf/components/freertos/config/xtensa/include -I/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -I/home/user/esp/esp-idf/components/freertos/esp_additions/include -I/home/user/esp/esp-idf/components/esp_hw_support/include -I/home/user/esp/esp-idf/components/esp_hw_support/include/soc -I/home/user/esp/esp-idf/components/esp_hw_support/ldo/include -I/home/user/esp/esp-idf/components/esp_hw_support/debug_probe/include -I/home/user/esp/esp-idf/components/esp_hw_support/etm/include -I/home/user/esp/esp-idf/components/esp_hw_support/mspi_timing_tuning/include -I/home/user/esp/esp-idf/components/esp_hw_support/mspi_timing_tuning/tuning_scheme_impl/include -I/home/user/esp/esp-idf/components/esp_hw_support/power_supply/include -I/home/user/esp/esp-idf/components/esp_hw_support/modem/include -I/home/user/esp/esp-idf/components/esp_hw_support/include/soc/esp32s3 -I/home/user/esp/esp-idf/components/esp_hw_support/port/esp32s3/. -I/home/user/esp/esp-idf/components/esp_hw_support/port/esp32s3/include -I/home/user/esp/esp-idf/components/esp_hw_support/mspi_timing_tuning/port/esp32s3/. -I/home/user/esp/esp-idf/components/esp_hw_support/mspi_timing_tuning/port/esp32s3/include -I/home/user/esp/esp-idf/components/heap/include -I/home/user/esp/esp-idf/components/heap/tlsf -I/home/user/esp/esp-idf/components/log/include -I/home/user/esp/esp-idf/components/soc/include -I/home/user/esp/esp-idf/components/soc/esp32s3 -I/home/user/esp/esp-idf/components/soc/esp32s3/include -I/home/user/esp/esp-idf/components/soc/esp32s3/register -I/home/user/esp/esp-idf/components/hal/platform_port/include -I/home/user/esp/esp-idf/components/hal/esp32s3/include -I/home/user/esp/esp-idf/components/hal/include -I/home/user/esp/esp-idf/components/esp_rom/include -I/home/user/esp/esp-idf/components/esp_rom/esp32s3/include -I/home/user/esp/esp-idf/components/esp_rom/esp32s3/include/esp32s3 -I/home/user/esp/esp-idf/components/esp_rom/esp32s3 -I/home/user/esp/esp-idf/components/esp_common/include -I/home/user/esp/esp-idf/components/esp_system/include -I/home/user/esp/esp-idf/components/esp_system/port/soc -I/home/user/esp/esp-idf/components/esp_system/port/include/private -I/home/user/esp/esp-idf/components/esp_stdio/include -I/home/user/esp/esp-idf/components/xtensa/esp32s3/include -I/home/user/esp/esp-idf/components/xtensa/include -I/home/user/esp/esp-idf/components/xtensa/deprecated_include -I/home/user/esp/esp-idf/components/esp_hal_gpio/include -I/home/user/esp/esp-idf/components/esp_hal_gpio/esp32s3/include -I/home/user/esp/esp-idf/components/esp_hal_usb/include -I/home/user/esp/esp-idf/components/esp_hal_usb/esp32s3/include -I/home/user/esp/esp-idf/components/esp_hal_pmu/include -I/home/user/esp/esp-idf/components/esp_hal_pmu/esp32s3/include -I/home/user/esp/esp-idf/components/esp_hal_ana_conv/include -I/home/user/esp/esp-idf/components/esp_hal_ana_conv/esp32s3/include -I/home/user/esp/esp-idf/components/esp_hal_dma/include -I/home/user/esp/esp-idf/components/esp_hal_dma/esp32s3/include -I/home/user/esp/esp-idf/components/lwip/include -I/home/user/esp/esp-idf/components/lwip/include/apps -I/home/user/esp/esp-idf/components/lwip/lwip/src/include -I/home/user/esp/esp-idf/components/lwip/port/include -I/home/user/esp/esp-idf/components/lwip/port/freertos/include -I/home/user/esp/esp-idf/components/lwip/port/esp32xx/include -I/home/user/esp/esp-idf/components/lwip/port/esp32xx/include/arch -I/home/user/esp/esp-idf/components/lwip/port/esp32xx/include/sys -I/home/user/esp/esp-idf/components/esp_driver_i2c/include -I/home/user/esp/esp-idf/components/esp_hal_i2c/esp32s3/include -I/home/user/esp/esp-idf/components/esp_hal_i2c/include -I/home/user/esp/esp-idf/components/esp_driver_gpio/include -I/home/user/esp/esp-idf/components/esp_driver_gptimer/include -I/home/user/esp/esp-idf/components/esp_pm/include -I/home/user/esp/esp-idf/components/esp_hal_timg/include -I/home/user/esp/esp-idf/components/esp_hal_timg/esp32s3/include -I/home/user/esp/esp-idf/components/esp_driver_uart/include -I/home/user/esp/esp-idf/components/esp_hal_uart/include -I/home/user/esp/esp-idf/components/esp_hal_uart/esp32s3/include -I/home/user/esp/esp-idf/components/vfs/include -I/home/user/esp/esp-idf/components/esp_wifi/include -I/home/user/esp/esp-idf/components/esp_wifi/include/local -I/home/user/esp/esp-idf/components/esp_wifi/wifi_apps/include -I/home/user/esp/esp-idf/components/esp_wifi/wifi_apps/nan_app/include -I/home/user/esp/esp-idf/components/esp_event/include -I/home/user/esp/esp-idf/components/esp_phy/include -I/home/user/esp/esp-idf/components/esp_phy/esp32s3/include -I/home/user/esp/esp-idf/components/esp_netif/include -I/home/user/esp/esp-idf/components/esp_http_client/include -I/home/user/esp/esp-idf/components/esp-tls -I/home/user/esp/esp-idf/components/esp-tls/esp-tls-crypto -I/home/user/esp/esp-idf/components/mbedtls/port/include -I/home/user/esp/esp-idf/components/mbedtls/mbedtls/include -I/home/user/esp/esp-idf/components/mbedtls/mbedtls/library -I/home/user/esp/esp-idf/components/mbedtls/mbedtls/tf-psa-crypto/core -I/home/user/esp/esp-idf/components/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/src -I/home/user/esp/esp-idf/components/mbedtls/mbedtls/tf-psa-crypto/extras -I/home/user/esp/esp-idf/components/mbedtls/esp_crt_bundle/include -I/home/user/esp/esp-idf/components/mbedtls/port/psa_driver/include -I/home/user/esp/esp-idf/components/esp_security/include -I/home/user/esp/esp-idf/components/esp_hal_security/esp32s3/include -I/home/user/esp/esp-idf/components/esp_hal_security/include -I/home/user/esp/esp-idf/components/mbedtls/mbedtls/tf-psa-crypto/include -I/home/user/esp/esp-idf/components/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/mbedtls/mbedtls/tf-psa-crypto/include -I/home/user/esp/esp-idf/components/mbedtls/mbedtls/tf-psa-crypto/drivers/everest/include -I/home/user/esp/esp-idf/components/mbedtls/mbedtls/tf-psa-crypto/drivers/p256-m/p256-m -I/home/user/esp/esp-idf/components/mbedtls/mbedtls/tf-psa-crypto/drivers/pqcp/include -I/home/user/esp/esp-idf/components/nvs_flash/include -I/home/user/esp/esp-idf/components/esp_partition/include -I/home/user/esp/esp-idf/components/esp_blockdev/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/dotprod/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/support/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/support/mem/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/windows/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/windows/hann/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/windows/blackman/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/windows/blackman_harris/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/windows/blackman_nuttall/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/windows/nuttall/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/windows/flat_top/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/iir/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/fir/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/math/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/math/add/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/math/sub/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/math/mul/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/math/addc/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/math/mulc/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/math/sqrt/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/matrix/mul/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/matrix/add/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/matrix/addc/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/matrix/mulc/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/matrix/sub/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/matrix/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/fft/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/dct/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/conv/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/common/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/matrix/mul/test/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/kalman/ekf/include -I/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/managed_components/espressif__esp-dsp/modules/kalman/ekf_imu13states/include @"/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/toolchain/cflags" -fdiagnostics-color=always -ffunction-sections -fdata-sections -Wall -Werror -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-error=extra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -Og -fno-shrink-wrap -fmacro-prefix-map=/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic=. -fmacro-prefix-map=/home/user/esp/esp-idf=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -std=gnu23 -Wno-old-style-declaration -fzero-init-padding-bits=all -fno-malloc-dce -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj -MF esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj.d -o esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj -c /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/main.c
+In file included from /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/main.c:4:
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:38:6: error: #error "include FreeRTOS.h must appear in source files before include task.h"
+   38 |     #error "include FreeRTOS.h must appear in source files before include task.h"
+      |      ^~~~~
+In file included from /home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:41:
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/list.h:66:6: error: #error "FreeRTOS.h must be included before list.h"
+   66 |     #error "FreeRTOS.h must be included before list.h"
+      |      ^~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/list.h:151:25: error: unknown type name 'TickType_t'
+  151 |     configLIST_VOLATILE TickType_t xItemValue;          /*< The value being listed.  In most cases this is used to sort the list in ascending order. */
+      |                         ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/list.h:179:14: error: unknown type name 'UBaseType_t'
+  179 |     volatile UBaseType_t uxNumberOfItems;
+      |              ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/list.h: In function 'vListInitialise':
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/list.h:437:47: error: expected declaration specifiers before 'PRIVILEGED_FUNCTION'
+  437 | void vListInitialise( List_t * const pxList ) PRIVILEGED_FUNCTION;
+      |                                               ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/list.h:448:55: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'PRIVILEGED_FUNCTION'
+  448 | void vListInitialiseItem( ListItem_t * const pxItem ) PRIVILEGED_FUNCTION;
+      |                                                       ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/list.h:462:54: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'PRIVILEGED_FUNCTION'
+  462 |                   ListItem_t * const pxNewListItem ) PRIVILEGED_FUNCTION;
+      |                                                      ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/list.h:484:57: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'PRIVILEGED_FUNCTION'
+  484 |                      ListItem_t * const pxNewListItem ) PRIVILEGED_FUNCTION;
+      |                                                         ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/list.h:499:1: error: unknown type name 'UBaseType_t'
+  499 | UBaseType_t uxListRemove( ListItem_t * const pxItemToRemove ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/list.h:499:63: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'PRIVILEGED_FUNCTION'
+  499 | UBaseType_t uxListRemove( ListItem_t * const pxItemToRemove ) PRIVILEGED_FUNCTION;
+      |                                                               ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:92:1: error: empty declaration [-Werror]
+   92 | struct tskTaskControlBlock; /* The old naming convention is used to prevent breaking kernel aware debuggers. */
+      | ^~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:93:38: error: storage class specified for parameter 'TaskHandle_t'
+   93 | typedef struct tskTaskControlBlock * TaskHandle_t;
+      |                                      ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:99:21: error: expected declaration specifiers or '...' before '*' token
+   99 | typedef BaseType_t (* TaskHookFunction_t)( void * );
+      |                     ^
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:110:3: error: storage class specified for parameter 'eTaskState'
+  110 | } eTaskState;
+      |   ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:120:3: error: storage class specified for parameter 'eNotifyAction'
+  120 | } eNotifyAction;
+      |   ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:129:5: error: unknown type name 'BaseType_t'
+  129 |     BaseType_t xOverflowCount;
+      |     ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:130:5: error: unknown type name 'TickType_t'
+  130 |     TickType_t xTimeOnEntering;
+      |     ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:131:3: error: storage class specified for parameter 'TimeOut_t'
+  131 | } TimeOut_t;
+      |   ^~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:141:3: error: storage class specified for parameter 'MemoryRegion_t'
+  141 | } MemoryRegion_t;
+      |   ^~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:148:5: error: unknown type name 'TaskFunction_t'
+  148 |     TaskFunction_t pvTaskCode;
+      |     ^~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:152:5: error: unknown type name 'UBaseType_t'
+  152 |     UBaseType_t uxPriority;
+      |     ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:153:5: error: unknown type name 'StackType_t'
+  153 |     StackType_t * puxStackBuffer;
+      |     ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:154:5: error: expected specifier-qualifier-list before 'MemoryRegion_t'
+  154 |     MemoryRegion_t xRegions[ portNUM_CONFIGURABLE_REGIONS ];
+      |     ^~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:158:3: error: storage class specified for parameter 'TaskParameters_t'
+  158 | } TaskParameters_t;
+      |   ^~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:166:5: error: expected specifier-qualifier-list before 'TaskHandle_t'
+  166 |     TaskHandle_t xHandle;                         /**< The handle of the task to which the rest of the information in the structure relates. */
+      |     ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:182:3: error: storage class specified for parameter 'TaskStatus_t'
+  182 | } TaskStatus_t;
+      |   ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:192:3: error: storage class specified for parameter 'eSleepModeStatus'
+  192 | } eSleepModeStatus;
+      |   ^~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:371:5: error: unknown type name 'BaseType_t'
+  371 |     BaseType_t xTaskCreate( TaskFunction_t pxTaskCode,
+      |     ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:371:29: error: unknown type name 'TaskFunction_t'
+  371 |     BaseType_t xTaskCreate( TaskFunction_t pxTaskCode,
+      |                             ^~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:375:29: error: unknown type name 'UBaseType_t'
+  375 |                             UBaseType_t uxPriority,
+      |                             ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:376:29: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+  376 |                             TaskHandle_t * const pxCreatedTask ) PRIVILEGED_FUNCTION
+      |                             ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:506:18: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'xTaskCreateStatic'
+  506 |     TaskHandle_t xTaskCreateStatic( TaskFunction_t pxTaskCode,
+      |                  ^~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:746:31: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+  746 | void vTaskAllocateMPURegions( TaskHandle_t xTask,
+      |                               ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:747:37: error: type defaults to 'int' in declaration of 'MemoryRegion_t' [-Wimplicit-int]
+  747 |                               const MemoryRegion_t * const pxRegions ) PRIVILEGED_FUNCTION;
+      |                                     ^~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:747:52: error: expected ';', ',' or ')' before '*' token
+  747 |                               const MemoryRegion_t * const pxRegions ) PRIVILEGED_FUNCTION;
+      |                                                    ^
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:785:19: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+  785 | void vTaskDelete( TaskHandle_t xTaskToDelete ) PRIVILEGED_FUNCTION;
+      |                   ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:834:24: error: unknown type name 'TickType_t'
+  834 | void vTaskDelay( const TickType_t xTicksToDelay ) PRIVILEGED_FUNCTION;
+      |                        ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:834:51: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'PRIVILEGED_FUNCTION'
+  834 | void vTaskDelay( const TickType_t xTicksToDelay ) PRIVILEGED_FUNCTION;
+      |                                                   ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:896:1: error: unknown type name 'BaseType_t'
+  896 | BaseType_t xTaskDelayUntil( TickType_t * const pxPreviousWakeTime,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:896:29: error: unknown type name 'TickType_t'
+  896 | BaseType_t xTaskDelayUntil( TickType_t * const pxPreviousWakeTime,
+      |                             ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:897:35: error: unknown type name 'TickType_t'
+  897 |                             const TickType_t xTimeIncrement ) PRIVILEGED_FUNCTION;
+      |                                   ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:938:1: error: unknown type name 'BaseType_t'
+  938 | BaseType_t xTaskAbortDelay( TaskHandle_t xTask ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:938:29: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+  938 | BaseType_t xTaskAbortDelay( TaskHandle_t xTask ) PRIVILEGED_FUNCTION;
+      |                             ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:982:1: error: unknown type name 'UBaseType_t'
+  982 | UBaseType_t uxTaskPriorityGet( const TaskHandle_t xTask ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:982:38: error: type defaults to 'int' in declaration of 'TaskHandle_t' [-Wimplicit-int]
+  982 | UBaseType_t uxTaskPriorityGet( const TaskHandle_t xTask ) PRIVILEGED_FUNCTION;
+      |                                      ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:982:51: error: expected ';', ',' or ')' before 'xTask'
+  982 | UBaseType_t uxTaskPriorityGet( const TaskHandle_t xTask ) PRIVILEGED_FUNCTION;
+      |                                                   ^~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:988:1: error: unknown type name 'UBaseType_t'
+  988 | UBaseType_t uxTaskPriorityGetFromISR( const TaskHandle_t xTask ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:988:45: error: type defaults to 'int' in declaration of 'TaskHandle_t' [-Wimplicit-int]
+  988 | UBaseType_t uxTaskPriorityGetFromISR( const TaskHandle_t xTask ) PRIVILEGED_FUNCTION;
+      |                                             ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:988:58: error: expected ';', ',' or ')' before 'xTask'
+  988 | UBaseType_t uxTaskPriorityGetFromISR( const TaskHandle_t xTask ) PRIVILEGED_FUNCTION;
+      |                                                          ^~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1004:1: error: expected declaration specifiers before 'eTaskState'
+ 1004 | eTaskState eTaskGetState( TaskHandle_t xTask ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1057:20: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+ 1057 | void vTaskGetInfo( TaskHandle_t xTask,
+      |                    ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1058:20: error: expected declaration specifiers or '...' before 'TaskStatus_t'
+ 1058 |                    TaskStatus_t * pxTaskStatus,
+      |                    ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1059:20: error: unknown type name 'BaseType_t'
+ 1059 |                    BaseType_t xGetFreeStackSpace,
+      |                    ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1060:20: error: expected declaration specifiers or '...' before 'eTaskState'
+ 1060 |                    eTaskState eState ) PRIVILEGED_FUNCTION;
+      |                    ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1099:24: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+ 1099 | void vTaskPrioritySet( TaskHandle_t xTask,
+      |                        ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1100:24: error: unknown type name 'UBaseType_t'
+ 1100 |                        UBaseType_t uxNewPriority ) PRIVILEGED_FUNCTION;
+      |                        ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1148:20: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+ 1148 | void vTaskSuspend( TaskHandle_t xTaskToSuspend ) PRIVILEGED_FUNCTION;
+      |                    ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1194:19: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+ 1194 | void vTaskResume( TaskHandle_t xTaskToResume ) PRIVILEGED_FUNCTION;
+      |                   ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1220:1: error: unknown type name 'BaseType_t'
+ 1220 | BaseType_t xTaskResumeFromISR( TaskHandle_t xTaskToResume ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1220:32: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+ 1220 | BaseType_t xTaskResumeFromISR( TaskHandle_t xTaskToResume ) PRIVILEGED_FUNCTION;
+      |                                ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1252:34: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'PRIVILEGED_FUNCTION'
+ 1252 | void vTaskStartScheduler( void ) PRIVILEGED_FUNCTION;
+      |                                  ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1305:32: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'PRIVILEGED_FUNCTION'
+ 1305 | void vTaskEndScheduler( void ) PRIVILEGED_FUNCTION;
+      |                                ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1355:30: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'PRIVILEGED_FUNCTION'
+ 1355 | void vTaskSuspendAll( void ) PRIVILEGED_FUNCTION;
+      |                              ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1406:1: error: unknown type name 'BaseType_t'
+ 1406 | BaseType_t xTaskResumeAll( void ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1406:35: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'PRIVILEGED_FUNCTION'
+ 1406 | BaseType_t xTaskResumeAll( void ) PRIVILEGED_FUNCTION;
+      |                                   ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1418:1: error: unknown type name 'TickType_t'
+ 1418 | TickType_t xTaskGetTickCount( void ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1418:38: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'PRIVILEGED_FUNCTION'
+ 1418 | TickType_t xTaskGetTickCount( void ) PRIVILEGED_FUNCTION;
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1431:1: error: unknown type name 'TickType_t'
+ 1431 | TickType_t xTaskGetTickCountFromISR( void ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1431:45: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'PRIVILEGED_FUNCTION'
+ 1431 | TickType_t xTaskGetTickCountFromISR( void ) PRIVILEGED_FUNCTION;
+      |                                             ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1442:1: error: unknown type name 'UBaseType_t'
+ 1442 | UBaseType_t uxTaskGetNumberOfTasks( void ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1442:44: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'PRIVILEGED_FUNCTION'
+ 1442 | UBaseType_t uxTaskGetNumberOfTasks( void ) PRIVILEGED_FUNCTION;
+      |                                            ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1452:23: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+ 1452 | char * pcTaskGetName( TaskHandle_t xTaskToQuery ) PRIVILEGED_FUNCTION; /*lint !e971 Unqualified char types are allowed for strings and single characters only. */
+      |                       ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1465:1: error: expected declaration specifiers before 'TaskHandle_t'
+ 1465 | TaskHandle_t xTaskGetHandle( const char * pcNameToQuery ) PRIVILEGED_FUNCTION; /*lint !e971 Unqualified char types are allowed for strings and single characters only. */
+      | ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1485:5: error: unknown type name 'BaseType_t'
+ 1485 |     BaseType_t xTaskGetStaticBuffers( TaskHandle_t xTask,
+      |     ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1485:39: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+ 1485 |     BaseType_t xTaskGetStaticBuffers( TaskHandle_t xTask,
+      |                                       ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1486:39: error: unknown type name 'StackType_t'
+ 1486 |                                       StackType_t ** ppuxStackBuffer,
+      |                                       ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1487:39: error: unknown type name 'StaticTask_t'
+ 1487 |                                       StaticTask_t ** ppxTaskBuffer ) PRIVILEGED_FUNCTION;
+      |                                       ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1513:1: error: unknown type name 'UBaseType_t'
+ 1513 | UBaseType_t uxTaskGetStackHighWaterMark( TaskHandle_t xTask ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1513:42: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+ 1513 | UBaseType_t uxTaskGetStackHighWaterMark( TaskHandle_t xTask ) PRIVILEGED_FUNCTION;
+      |                                          ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1538:54: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+ 1538 | configSTACK_DEPTH_TYPE uxTaskGetStackHighWaterMark2( TaskHandle_t xTask ) PRIVILEGED_FUNCTION;
+      |                                                      ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1582:45: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+ 1582 |     void vTaskSetThreadLocalStoragePointer( TaskHandle_t xTaskToSet,
+      |                                             ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1583:45: error: unknown type name 'BaseType_t'
+ 1583 |                                             BaseType_t xIndex,
+      |                                             ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1585:48: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+ 1585 |     void * pvTaskGetThreadLocalStoragePointer( TaskHandle_t xTaskToQuery,
+      |                                                ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1586:48: error: unknown type name 'BaseType_t'
+ 1586 |                                                BaseType_t xIndex ) PRIVILEGED_FUNCTION;
+      |                                                ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1601:41: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+ 1601 |     void vApplicationStackOverflowHook( TaskHandle_t xTask,
+      |                                         ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1627:41: error: unknown type name 'StaticTask_t'
+ 1627 |     void vApplicationGetIdleTaskMemory( StaticTask_t ** ppxIdleTaskTCBBuffer,
+      |                                         ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1628:41: error: unknown type name 'StackType_t'
+ 1628 |                                         StackType_t ** ppxIdleTaskStackBuffer,
+      |                                         ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1641:1: error: unknown type name 'BaseType_t'
+ 1641 | BaseType_t xTaskCallApplicationTaskHook( TaskHandle_t xTask,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1641:42: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+ 1641 | BaseType_t xTaskCallApplicationTaskHook( TaskHandle_t xTask,
+      |                                          ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1651:1: error: expected declaration specifiers before 'TaskHandle_t'
+ 1651 | TaskHandle_t xTaskGetIdleTaskHandle( void ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1750:1: error: unknown type name 'UBaseType_t'
+ 1750 | UBaseType_t uxTaskGetSystemState( TaskStatus_t * const pxTaskStatusArray,
+      | ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1750:35: error: expected declaration specifiers or '...' before 'TaskStatus_t'
+ 1750 | UBaseType_t uxTaskGetSystemState( TaskStatus_t * const pxTaskStatusArray,
+      |                                   ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1751:41: error: unknown type name 'UBaseType_t'
+ 1751 |                                   const UBaseType_t uxArraySize,
+      |                                         ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1752:35: error: unknown type name 'configRUN_TIME_COUNTER_TYPE'
+ 1752 |                                   configRUN_TIME_COUNTER_TYPE * const pulTotalRunTime ) PRIVILEGED_FUNCTION;
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1798:40: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'PRIVILEGED_FUNCTION'
+ 1798 | void vTaskList( char * pcWriteBuffer ) PRIVILEGED_FUNCTION; /*lint !e971 Unqualified char types are allowed for strings and single characters only. */
+      |                                        ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1849:51: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'PRIVILEGED_FUNCTION'
+ 1849 | void vTaskGetRunTimeStats( char * pcWriteBuffer ) PRIVILEGED_FUNCTION; /*lint !e971 Unqualified char types are allowed for strings and single characters only. */
+      |                                                   ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1886:1: error: unknown type name 'configRUN_TIME_COUNTER_TYPE'
+ 1886 | configRUN_TIME_COUNTER_TYPE ulTaskGetIdleRunTimeCounter( void ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1886:65: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'PRIVILEGED_FUNCTION'
+ 1886 | configRUN_TIME_COUNTER_TYPE ulTaskGetIdleRunTimeCounter( void ) PRIVILEGED_FUNCTION;
+      |                                                                 ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1887:1: error: unknown type name 'configRUN_TIME_COUNTER_TYPE'
+ 1887 | configRUN_TIME_COUNTER_TYPE ulTaskGetIdleRunTimePercent( void ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1887:65: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'PRIVILEGED_FUNCTION'
+ 1887 | configRUN_TIME_COUNTER_TYPE ulTaskGetIdleRunTimePercent( void ) PRIVILEGED_FUNCTION;
+      |                                                                 ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1992:1: error: unknown type name 'BaseType_t'
+ 1992 | BaseType_t xTaskGenericNotify( TaskHandle_t xTaskToNotify,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1992:32: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+ 1992 | BaseType_t xTaskGenericNotify( TaskHandle_t xTaskToNotify,
+      |                                ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1993:32: error: unknown type name 'UBaseType_t'
+ 1993 |                                UBaseType_t uxIndexToNotify,
+      |                                ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:1995:32: error: expected declaration specifiers or '...' before 'eNotifyAction'
+ 1995 |                                eNotifyAction eAction,
+      |                                ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2136:1: error: unknown type name 'BaseType_t'
+ 2136 | BaseType_t xTaskGenericNotifyFromISR( TaskHandle_t xTaskToNotify,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2136:39: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+ 2136 | BaseType_t xTaskGenericNotifyFromISR( TaskHandle_t xTaskToNotify,
+      |                                       ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2137:39: error: unknown type name 'UBaseType_t'
+ 2137 |                                       UBaseType_t uxIndexToNotify,
+      |                                       ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2139:39: error: expected declaration specifiers or '...' before 'eNotifyAction'
+ 2139 |                                       eNotifyAction eAction,
+      |                                       ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2141:39: error: unknown type name 'BaseType_t'
+ 2141 |                                       BaseType_t * pxHigherPriorityTaskWoken ) PRIVILEGED_FUNCTION;
+      |                                       ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2271:1: error: unknown type name 'BaseType_t'
+ 2271 | BaseType_t xTaskGenericNotifyWait( UBaseType_t uxIndexToWaitOn,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2271:36: error: unknown type name 'UBaseType_t'
+ 2271 | BaseType_t xTaskGenericNotifyWait( UBaseType_t uxIndexToWaitOn,
+      |                                    ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2275:36: error: unknown type name 'TickType_t'
+ 2275 |                                    TickType_t xTicksToWait ) PRIVILEGED_FUNCTION;
+      |                                    ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2427:37: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+ 2427 | void vTaskGenericNotifyGiveFromISR( TaskHandle_t xTaskToNotify,
+      |                                     ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2428:37: error: unknown type name 'UBaseType_t'
+ 2428 |                                     UBaseType_t uxIndexToNotify,
+      |                                     ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2429:37: error: unknown type name 'BaseType_t'
+ 2429 |                                     BaseType_t * pxHigherPriorityTaskWoken ) PRIVILEGED_FUNCTION;
+      |                                     ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2527:35: error: unknown type name 'UBaseType_t'
+ 2527 | uint32_t ulTaskGenericNotifyTake( UBaseType_t uxIndexToWaitOn,
+      |                                   ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2528:35: error: unknown type name 'BaseType_t'
+ 2528 |                                   BaseType_t xClearCountOnExit,
+      |                                   ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2529:35: error: unknown type name 'TickType_t'
+ 2529 |                                   TickType_t xTicksToWait ) PRIVILEGED_FUNCTION;
+      |                                   ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2586:1: error: unknown type name 'BaseType_t'
+ 2586 | BaseType_t xTaskGenericNotifyStateClear( TaskHandle_t xTask,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2586:42: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+ 2586 | BaseType_t xTaskGenericNotifyStateClear( TaskHandle_t xTask,
+      |                                          ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2587:42: error: unknown type name 'UBaseType_t'
+ 2587 |                                          UBaseType_t uxIndexToClear ) PRIVILEGED_FUNCTION;
+      |                                          ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2644:41: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+ 2644 | uint32_t ulTaskGenericNotifyValueClear( TaskHandle_t xTask,
+      |                                         ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2645:41: error: unknown type name 'UBaseType_t'
+ 2645 |                                         UBaseType_t uxIndexToClear,
+      |                                         ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2661:28: error: expected declaration specifiers or '...' before 'TimeOut_t'
+ 2661 | void vTaskSetTimeOutState( TimeOut_t * const pxTimeOut ) PRIVILEGED_FUNCTION;
+      |                            ^~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2741:1: error: unknown type name 'BaseType_t'
+ 2741 | BaseType_t xTaskCheckForTimeOut( TimeOut_t * const pxTimeOut,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2741:34: error: expected declaration specifiers or '...' before 'TimeOut_t'
+ 2741 | BaseType_t xTaskCheckForTimeOut( TimeOut_t * const pxTimeOut,
+      |                                  ^~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2742:34: error: unknown type name 'TickType_t'
+ 2742 |                                  TickType_t * const pxTicksToWait ) PRIVILEGED_FUNCTION;
+      |                                  ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2765:1: error: unknown type name 'BaseType_t'
+ 2765 | BaseType_t xTaskCatchUpTicks( TickType_t xTicksToCatchUp ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2765:31: error: unknown type name 'TickType_t'
+ 2765 | BaseType_t xTaskCatchUpTicks( TickType_t xTicksToCatchUp ) PRIVILEGED_FUNCTION;
+      |                               ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2792:1: error: unknown type name 'BaseType_t'
+ 2792 | BaseType_t xTaskIncrementTick( void ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2792:39: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'PRIVILEGED_FUNCTION'
+ 2792 | BaseType_t xTaskIncrementTick( void ) PRIVILEGED_FUNCTION;
+      |                                       ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2826:35: error: unknown type name 'TickType_t'
+ 2826 |                             const TickType_t xTicksToWait ) PRIVILEGED_FUNCTION;
+      |                                   ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2826:61: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'PRIVILEGED_FUNCTION'
+ 2826 |                             const TickType_t xTicksToWait ) PRIVILEGED_FUNCTION;
+      |                                                             ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2828:44: error: unknown type name 'TickType_t'
+ 2828 |                                      const TickType_t xItemValue,
+      |                                            ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2829:44: error: unknown type name 'TickType_t'
+ 2829 |                                      const TickType_t xTicksToWait ) PRIVILEGED_FUNCTION;
+      |                                            ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2829:70: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'PRIVILEGED_FUNCTION'
+ 2829 |                                      const TickType_t xTicksToWait ) PRIVILEGED_FUNCTION;
+      |                                                                      ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2843:39: error: unknown type name 'TickType_t'
+ 2843 |                                       TickType_t xTicksToWait,
+      |                                       ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2844:45: error: unknown type name 'BaseType_t'
+ 2844 |                                       const BaseType_t xWaitIndefinitely ) PRIVILEGED_FUNCTION;
+      |                                             ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2870:1: error: unknown type name 'BaseType_t'
+ 2870 | BaseType_t xTaskRemoveFromEventList( const List_t * const pxEventList ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2870:73: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'PRIVILEGED_FUNCTION'
+ 2870 | BaseType_t xTaskRemoveFromEventList( const List_t * const pxEventList ) PRIVILEGED_FUNCTION;
+      |                                                                         ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2872:47: error: unknown type name 'TickType_t'
+ 2872 |                                         const TickType_t xItemValue ) PRIVILEGED_FUNCTION;
+      |                                               ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2872:71: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'PRIVILEGED_FUNCTION'
+ 2872 |                                         const TickType_t xItemValue ) PRIVILEGED_FUNCTION;
+      |                                                                       ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2882:1: error: expected declaration specifiers before 'portDONT_DISCARD'
+ 2882 | portDONT_DISCARD void vTaskSwitchContext( void ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2888:1: error: unknown type name 'TickType_t'
+ 2888 | TickType_t uxTaskResetEventItemValue( void ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2888:46: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'PRIVILEGED_FUNCTION'
+ 2888 | TickType_t uxTaskResetEventItemValue( void ) PRIVILEGED_FUNCTION;
+      |                                              ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2893:1: error: expected declaration specifiers before 'TaskHandle_t'
+ 2893 | TaskHandle_t xTaskGetCurrentTaskHandle( void ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2899:31: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'PRIVILEGED_FUNCTION'
+ 2899 | void vTaskMissedYield( void ) PRIVILEGED_FUNCTION;
+      |                               ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2905:1: error: unknown type name 'BaseType_t'
+ 2905 | BaseType_t xTaskGetSchedulerState( void ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2905:43: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'PRIVILEGED_FUNCTION'
+ 2905 | BaseType_t xTaskGetSchedulerState( void ) PRIVILEGED_FUNCTION;
+      |                                           ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2911:1: error: unknown type name 'BaseType_t'
+ 2911 | BaseType_t xTaskPriorityInherit( TaskHandle_t const pxMutexHolder ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2911:34: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+ 2911 | BaseType_t xTaskPriorityInherit( TaskHandle_t const pxMutexHolder ) PRIVILEGED_FUNCTION;
+      |                                  ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2917:1: error: unknown type name 'BaseType_t'
+ 2917 | BaseType_t xTaskPriorityDisinherit( TaskHandle_t const pxMutexHolder ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2917:37: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+ 2917 | BaseType_t xTaskPriorityDisinherit( TaskHandle_t const pxMutexHolder ) PRIVILEGED_FUNCTION;
+      |                                     ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2927:43: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+ 2927 | void vTaskPriorityDisinheritAfterTimeout( TaskHandle_t const pxMutexHolder,
+      |                                           ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2928:43: error: unknown type name 'UBaseType_t'
+ 2928 |                                           UBaseType_t uxHighestPriorityWaitingTask ) PRIVILEGED_FUNCTION;
+      |                                           ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2933:1: error: unknown type name 'UBaseType_t'
+ 2933 | UBaseType_t uxTaskGetTaskNumber( TaskHandle_t xTask ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2933:34: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+ 2933 | UBaseType_t uxTaskGetTaskNumber( TaskHandle_t xTask ) PRIVILEGED_FUNCTION;
+      |                                  ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2939:26: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+ 2939 | void vTaskSetTaskNumber( TaskHandle_t xTask,
+      |                          ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2940:32: error: unknown type name 'UBaseType_t'
+ 2940 |                          const UBaseType_t uxHandle ) PRIVILEGED_FUNCTION;
+      |                                ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2950:21: error: unknown type name 'TickType_t'
+ 2950 | void vTaskStepTick( TickType_t xTicksToJump ) PRIVILEGED_FUNCTION;
+      |                     ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2966:1: error: expected declaration specifiers before 'eSleepModeStatus'
+ 2966 | eSleepModeStatus eTaskConfirmSleepModeStatus( void ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2972:1: error: expected declaration specifiers before 'TaskHandle_t'
+ 2972 | TaskHandle_t pvTaskIncrementMutexHeldCount( void ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/task.h:2978:36: error: expected declaration specifiers or '...' before 'TimeOut_t'
+ 2978 | void vTaskInternalSetTimeOutState( TimeOut_t * const pxTimeOut ) PRIVILEGED_FUNCTION;
+      |                                    ^~~~~~~~~
+In file included from /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appDSP/dsp_processor_v1.h:10,
+                 from /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/main.c:5:
+/home/user/esp/esp-idf/components/esp_common/include/esp_err.h:19:13: error: storage class specified for parameter 'esp_err_t'
+   19 | typedef int esp_err_t;
+      |             ^~~~~~~~~
+/home/user/esp/esp-idf/components/esp_common/include/esp_err.h:58:29: error: expected declaration specifiers or '...' before 'esp_err_t'
+   58 | const char *esp_err_to_name(esp_err_t code);
+      |                             ^~~~~~~~~
+/home/user/esp/esp-idf/components/esp_common/include/esp_err.h:76:31: error: expected declaration specifiers or '...' before 'esp_err_t'
+   76 | const char *esp_err_to_name_r(esp_err_t code, char *buf, size_t buflen);
+      |                               ^~~~~~~~~
+/home/user/esp/esp-idf/components/esp_common/include/esp_err.h:79:30: error: expected declaration specifiers or '...' before 'esp_err_t'
+   79 | void _esp_error_check_failed(esp_err_t rc, const char *file, int line, const char *function, const char *expression) __attribute__((__noreturn__));
+      |                              ^~~~~~~~~
+/home/user/esp/esp-idf/components/esp_common/include/esp_err.h:81:44: error: expected declaration specifiers or '...' before 'esp_err_t'
+   81 | void _esp_error_check_failed_without_abort(esp_err_t rc, const char *file, int line, const char *function, const char *expression);
+      |                                            ^~~~~~~~~
+In file included from /home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:66,
+                 from /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appDSP/dsp_processor_v1.h:11:
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/projdefs.h:40:17: error: storage class specified for parameter 'TaskFunction_t'
+   40 | typedef void (* TaskFunction_t)( void * );
+      |                 ^~~~~~~~~~~~~~
+In file included from /home/user/esp/esp-idf/components/xtensa/include/xtensa_config.h:51,
+                 from /home/user/esp/esp-idf/components/freertos/config/xtensa/include/freertos/FreeRTOSConfig_arch.h:14,
+                 from /home/user/esp/esp-idf/components/freertos/config/include/freertos/FreeRTOSConfig.h:62,
+                 from /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/main.c:3:
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime-core-state.h:211:12: error: storage class specified for parameter 'XtosCoreState'
+  211 | STRUCT_END(XtosCoreState)
+      |            ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa_context.h:98:35: note: in definition of macro 'STRUCT_END'
+   98 | #define STRUCT_END(sname)       } sname;
+      |                                   ^~~~~
+In file included from /home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:46,
+                 from /home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/portable.h:57,
+                 from /home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:69:
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:65:15: error: storage class specified for parameter '_xtos_handler_func'
+   65 | typedef void (_xtos_handler_func)(void);
+      |               ^~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:67:28: error: expected '=', ',', ';', 'asm' or '__attribute__' before '*' token
+   67 | typedef _xtos_handler_func *_xtos_handler;
+      |                            ^
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:155:25: error: storage class specified for parameter '_xtos_ints_off'
+  155 | extern unsigned int     _xtos_ints_off( unsigned int mask );
+      |                         ^~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:156:25: error: storage class specified for parameter '_xtos_ints_on'
+  156 | extern unsigned int     _xtos_ints_on( unsigned int mask );
+      |                         ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:160:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  160 | {
+      | ^
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:165:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  165 | {
+      | ^
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:169:25: error: storage class specified for parameter '_xtos_set_intlevel'
+  169 | extern unsigned         _xtos_set_intlevel( int intlevel );
+      |                         ^~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:170:25: error: storage class specified for parameter '_xtos_set_min_intlevel'
+  170 | extern unsigned         _xtos_set_min_intlevel( int intlevel );
+      |                         ^~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:171:25: error: storage class specified for parameter '_xtos_restore_intlevel'
+  171 | extern unsigned         _xtos_restore_intlevel( unsigned restoreval );
+      |                         ^~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:172:25: error: storage class specified for parameter '_xtos_restore_just_intlevel'
+  172 | extern unsigned         _xtos_restore_just_intlevel( unsigned restoreval );
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:173:8: error: unknown type name '_xtos_handler'
+  173 | extern _xtos_handler    _xtos_set_interrupt_handler( int n, _xtos_handler f );
+      |        ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:173:61: error: unknown type name '_xtos_handler'
+  173 | extern _xtos_handler    _xtos_set_interrupt_handler( int n, _xtos_handler f );
+      |                                                             ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:174:8: error: unknown type name '_xtos_handler'
+  174 | extern _xtos_handler    _xtos_set_interrupt_handler_arg( int n, _xtos_handler f, void *arg );
+      |        ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:174:65: error: unknown type name '_xtos_handler'
+  174 | extern _xtos_handler    _xtos_set_interrupt_handler_arg( int n, _xtos_handler f, void *arg );
+      |                                                                 ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:175:8: error: unknown type name '_xtos_handler'
+  175 | extern _xtos_handler    _xtos_set_exception_handler( int n, _xtos_handler f );
+      |        ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:175:61: error: unknown type name '_xtos_handler'
+  175 | extern _xtos_handler    _xtos_set_exception_handler( int n, _xtos_handler f );
+      |                                                             ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:177:25: error: storage class specified for parameter '_xtos_memep_initrams'
+  177 | extern void             _xtos_memep_initrams( void );
+      |                         ^~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:178:25: error: storage class specified for parameter '_xtos_memep_enable'
+  178 | extern void             _xtos_memep_enable( int flags );
+      |                         ^~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:182:25: error: storage class specified for parameter '_xtos_dispatch_level1_interrupts'
+  182 | extern void             _xtos_dispatch_level1_interrupts( void );
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:185:25: error: storage class specified for parameter '_xtos_dispatch_level2_interrupts'
+  185 | extern void             _xtos_dispatch_level2_interrupts( void );
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:188:25: error: storage class specified for parameter '_xtos_dispatch_level3_interrupts'
+  188 | extern void             _xtos_dispatch_level3_interrupts( void );
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:191:25: error: storage class specified for parameter '_xtos_dispatch_level4_interrupts'
+  191 | extern void             _xtos_dispatch_level4_interrupts( void );
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:194:25: error: storage class specified for parameter '_xtos_dispatch_level5_interrupts'
+  194 | extern void             _xtos_dispatch_level5_interrupts( void );
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:197:25: error: storage class specified for parameter '_xtos_dispatch_level6_interrupts'
+  197 | extern void             _xtos_dispatch_level6_interrupts( void );
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:201:25: error: storage class specified for parameter '_xtos_read_ints'
+  201 | extern unsigned int     _xtos_read_ints( void );
+      |                         ^~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:202:25: error: storage class specified for parameter '_xtos_clear_ints'
+  202 | extern void             _xtos_clear_ints( unsigned int mask );
+      |                         ^~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:206:25: error: storage class specified for parameter '_xtos_core_shutoff'
+  206 | extern int              _xtos_core_shutoff(unsigned flags);
+      |                         ^~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:207:57: error: expected declaration specifiers or '...' before 'XtosCoreState'
+  207 | extern int              _xtos_core_save(unsigned flags, XtosCoreState *savearea, void *code);
+      |                                                         ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:208:63: error: expected declaration specifiers or '...' before 'XtosCoreState'
+  208 | extern void             _xtos_core_restore(unsigned retvalue, XtosCoreState *savearea);
+      |                                                               ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:218:25: error: storage class specified for parameter '_xtos_timer_0_delta'
+  218 | extern void             _xtos_timer_0_delta( int cycles );
+      |                         ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:221:25: error: storage class specified for parameter '_xtos_timer_1_delta'
+  221 | extern void             _xtos_timer_1_delta( int cycles );
+      |                         ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h:224:25: error: storage class specified for parameter '_xtos_timer_2_delta'
+  224 | extern void             _xtos_timer_2_delta( int cycles );
+      |                         ^~~~~~~~~~~~~~~~~~~
+In file included from /home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:15,
+                 from /home/user/esp/esp-idf/components/esp_hw_support/include/spinlock.h:11,
+                 from /home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:48:
+/home/user/esp/esp-idf/components/xtensa/include/xtensa_api.h:44:16: error: storage class specified for parameter 'xt_handler'
+   44 | typedef void (*xt_handler)(void *);
+      |                ^~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa_api.h:47:16: error: storage class specified for parameter 'xt_exc_handler'
+   47 | typedef void (*xt_exc_handler)(XtExcFrame *);
+      |                ^~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa_api.h:67:23: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'xt_set_exception_handler'
+   67 | extern xt_exc_handler xt_set_exception_handler(int n, xt_exc_handler f);
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa_api.h:80:19: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'xt_set_interrupt_handler'
+   80 | extern xt_handler xt_set_interrupt_handler(int n, xt_handler f, void * arg);
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa_api.h:91:13: error: storage class specified for parameter 'xt_ints_on'
+   91 | extern void xt_ints_on(unsigned int mask);
+      |             ^~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa_api.h:102:13: error: storage class specified for parameter 'xt_ints_off'
+  102 | extern void xt_ints_off(unsigned int mask);
+      |             ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/xtensa/include/xtensa_api.h:111:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  111 | {
+      | ^
+/home/user/esp/esp-idf/components/xtensa/include/xtensa_api.h:123:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  123 | {
+      | ^
+/home/user/esp/esp-idf/components/xtensa/include/xtensa_api.h:134:15: error: storage class specified for parameter 'xt_get_interrupt_handler_arg'
+  134 | extern void * xt_get_interrupt_handler_arg(int n);
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:16:
+/home/user/esp/esp-idf/components/xtensa/include/xt_utils.h:29:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+   29 | {
+      | ^
+/home/user/esp/esp-idf/components/xtensa/include/xt_utils.h:48:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+   48 | {
+      | ^
+/home/user/esp/esp-idf/components/xtensa/include/xt_utils.h:62:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+   62 | {
+      | ^
+/home/user/esp/esp-idf/components/xtensa/include/xt_utils.h:69:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+   69 | {
+      | ^
+/home/user/esp/esp-idf/components/xtensa/include/xt_utils.h:76:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+   76 | {
+      | ^
+/home/user/esp/esp-idf/components/xtensa/include/xt_utils.h:81:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+   81 | {
+      | ^
+/home/user/esp/esp-idf/components/xtensa/include/xt_utils.h:86:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+   86 | {
+      | ^
+/home/user/esp/esp-idf/components/xtensa/include/xt_utils.h:91:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+   91 | {
+      | ^
+/home/user/esp/esp-idf/components/xtensa/include/xt_utils.h:106:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  106 | {
+      | ^
+/home/user/esp/esp-idf/components/xtensa/include/xt_utils.h:113:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  113 | {
+      | ^
+/home/user/esp/esp-idf/components/xtensa/include/xt_utils.h:130:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  130 | {
+      | ^
+/home/user/esp/esp-idf/components/xtensa/include/xt_utils.h:145:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  145 | {
+      | ^
+/home/user/esp/esp-idf/components/xtensa/include/xt_utils.h:165:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  165 | {
+      | ^
+/home/user/esp/esp-idf/components/xtensa/include/xt_utils.h:187:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  187 | {
+      | ^
+/home/user/esp/esp-idf/components/xtensa/include/xt_utils.h:201:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  201 | {
+      | ^
+/home/user/esp/esp-idf/components/xtensa/include/xt_utils.h:209:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  209 | {
+      | ^
+/home/user/esp/esp-idf/components/xtensa/include/xt_utils.h:218:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  218 | {
+      | ^
+In file included from /home/user/esp/esp-idf/components/esp_hw_support/include/esp_intr_alloc.h:13,
+                 from /home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:21:
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_intr_types.h:13:16: error: storage class specified for parameter 'intr_handler_t'
+   13 | typedef void (*intr_handler_t)(void *arg);
+      |                ^~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_intr_types.h:16:36: error: storage class specified for parameter 'intr_handle_t'
+   16 | typedef struct intr_handle_data_t *intr_handle_t;
+      |                                    ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_intr_types.h:27:3: error: storage class specified for parameter 'esp_intr_cpu_affinity_t'
+   27 | } esp_intr_cpu_affinity_t;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_intr_alloc.h:99:1: error: expected declaration specifiers before 'esp_err_t'
+   99 | esp_err_t esp_intr_mark_shared(int intno, int cpu, bool is_in_iram);
+      | ^~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_intr_alloc.h:113:1: error: expected declaration specifiers before 'esp_err_t'
+  113 | esp_err_t esp_intr_reserve(int intno, int cpu);
+      | ^~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_intr_alloc.h:149:1: error: expected declaration specifiers before 'esp_err_t'
+  149 | esp_err_t esp_intr_alloc(int source, int flags, intr_handler_t handler, void *arg, intr_handle_t *ret_handle);
+      | ^~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_intr_alloc.h:188:1: error: expected declaration specifiers before 'esp_err_t'
+  188 | esp_err_t esp_intr_alloc_intrstatus(int source, int flags, uint32_t intrstatusreg, uint32_t intrstatusmask, intr_handler_t handler, void *arg, intr_handle_t *ret_handle);
+      | ^~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_intr_alloc.h:226:1: error: expected declaration specifiers before 'esp_err_t'
+  226 | esp_err_t esp_intr_alloc_bind(int source, int flags, intr_handler_t handler, void *arg, intr_handle_t shared_handle, intr_handle_t *ret_handle);
+      | ^~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_intr_alloc.h:269:1: error: expected declaration specifiers before 'esp_err_t'
+  269 | esp_err_t esp_intr_alloc_intrstatus_bind(int source, int flags, uint32_t intrstatusreg, uint32_t intrstatusmask, intr_handler_t handler,
+      | ^~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_intr_alloc.h:290:1: error: expected declaration specifiers before 'esp_err_t'
+  290 | esp_err_t esp_intr_free(intr_handle_t handle);
+      | ^~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_intr_alloc.h:300:22: error: expected declaration specifiers or '...' before 'intr_handle_t'
+  300 | int esp_intr_get_cpu(intr_handle_t handle);
+      |                      ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_intr_alloc.h:309:24: error: expected declaration specifiers or '...' before 'intr_handle_t'
+  309 | int esp_intr_get_intno(intr_handle_t handle);
+      |                        ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_intr_alloc.h:327:1: error: expected declaration specifiers before 'esp_err_t'
+  327 | esp_err_t esp_intr_disable(intr_handle_t handle);
+      | ^~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_intr_alloc.h:340:1: error: expected declaration specifiers before 'esp_err_t'
+  340 | esp_err_t esp_intr_enable(intr_handle_t handle);
+      | ^~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_intr_alloc.h:354:1: error: expected declaration specifiers before 'esp_err_t'
+  354 | esp_err_t esp_intr_set_in_iram(intr_handle_t handle, bool is_in_iram);
+      | ^~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_intr_alloc.h:383:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  383 | {
+      | ^
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_intr_alloc.h:392:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  392 | {
+      | ^
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_intr_alloc.h:401:1: error: expected declaration specifiers before 'esp_err_t'
+  401 | esp_err_t esp_intr_dump(FILE *stream);
+      | ^~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:38:18: error: storage class specified for parameter 'esp_cpu_cycle_count_t'
+   38 | typedef uint32_t esp_cpu_cycle_count_t;
+      |                  ^~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:47:3: error: storage class specified for parameter 'esp_cpu_intr_type_t'
+   47 | } esp_cpu_intr_type_t;
+      |   ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:58:5: error: expected specifier-qualifier-list before 'esp_cpu_intr_type_t'
+   58 |     esp_cpu_intr_type_t type;   /**< Whether the interrupt is an edge or level type interrupt, ESP_CPU_INTR_TYPE_NA if the type is configurable. */
+      |     ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:60:3: error: storage class specified for parameter 'esp_cpu_intr_desc_t'
+   60 | } esp_cpu_intr_desc_t;
+      |   ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:71:16: error: storage class specified for parameter 'esp_cpu_intr_handler_t'
+   71 | typedef void (*esp_cpu_intr_handler_t)(void *arg);
+      |                ^~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:80:3: error: storage class specified for parameter 'esp_cpu_watchpoint_trigger_t'
+   80 | } esp_cpu_watchpoint_trigger_t;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:129:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  129 | {
+      | ^
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:147:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  147 | {
+      | ^
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:165:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  165 | {
+      | ^
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:181:41: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'esp_cpu_get_cycle_count'
+  181 | FORCE_INLINE_ATTR esp_cpu_cycle_count_t esp_cpu_get_cycle_count(void)
+      |                                         ^~~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:198:48: error: expected declaration specifiers or '...' before 'esp_cpu_cycle_count_t'
+  198 | FORCE_INLINE_ATTR void esp_cpu_set_cycle_count(esp_cpu_cycle_count_t cycle_count)
+      |                                                ^~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:218:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  218 | {
+      | ^
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:235:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  235 | {
+      | ^
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:249:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  249 | {
+      | ^
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:275:55: error: expected declaration specifiers or '...' before 'esp_cpu_intr_desc_t'
+  275 | void esp_cpu_intr_get_desc(int core_id, int intr_num, esp_cpu_intr_desc_t *intr_desc_ret);
+      |                                                       ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:285:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  285 | {
+      | ^
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:410:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  410 | {
+      | ^
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:433:63: error: expected declaration specifiers or '...' before 'esp_cpu_intr_handler_t'
+  433 | FORCE_INLINE_ATTR void esp_cpu_intr_set_handler(int intr_num, esp_cpu_intr_handler_t handler, void *handler_arg)
+      |                                                               ^~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:452:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  452 | {
+      | ^
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:471:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  471 | {
+      | ^
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:485:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  485 | {
+      | ^
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:499:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  499 | {
+      | ^
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:518:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  518 | {
+      | ^
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:559:1: error: expected declaration specifiers before 'esp_err_t'
+  559 | esp_err_t esp_cpu_set_breakpoint(int bp_num, const void *bp_addr);
+      | ^~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:568:1: error: expected declaration specifiers before 'esp_err_t'
+  568 | esp_err_t esp_cpu_clear_breakpoint(int bp_num);
+      | ^~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:592:1: error: expected declaration specifiers before 'esp_err_t'
+  592 | esp_err_t esp_cpu_set_watchpoint(int wp_num, const void *wp_addr, size_t size, esp_cpu_watchpoint_trigger_t trigger);
+      | ^~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:601:1: error: expected declaration specifiers before 'esp_err_t'
+  601 | esp_err_t esp_cpu_clear_watchpoint(int wp_num);
+      | ^~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:611:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  611 | {
+      | ^
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:623:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  623 | {
+      | ^
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_cpu.h:641:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  641 | {
+      | ^
+/home/user/esp/esp-idf/components/esp_hw_support/include/spinlock.h:45:3: error: storage class specified for parameter 'spinlock_t'
+   45 | } spinlock_t;
+      |   ^~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/spinlock.h:51:71: error: expected declaration specifiers or '...' before 'spinlock_t'
+   51 | static inline void __attribute__((always_inline)) spinlock_initialize(spinlock_t *lock)
+      |                                                                       ^~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/spinlock.h:74:68: error: expected declaration specifiers or '...' before 'spinlock_t'
+   74 | static inline bool __attribute__((always_inline)) spinlock_acquire(spinlock_t *lock, int32_t timeout)
+      |                                                                    ^~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/spinlock.h:174:68: error: expected declaration specifiers or '...' before 'spinlock_t'
+  174 | static inline void __attribute__((always_inline)) spinlock_release(spinlock_t *lock)
+      |                                                                    ^~~~~~~~~~
+In file included from /home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:53:
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_memory_utils.h:28:1: error: expected declaration specifiers before '__attribute__'
+   28 | __attribute__((always_inline))
+      | ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_memory_utils.h:38:1: error: expected declaration specifiers before '__attribute__'
+   38 | __attribute__((always_inline))
+      | ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_memory_utils.h:54:1: error: expected declaration specifiers before '__attribute__'
+   54 | __attribute__((always_inline))
+      | ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_memory_utils.h:70:1: error: expected declaration specifiers before '__attribute__'
+   70 | __attribute__((always_inline))
+      | ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_memory_utils.h:82:1: error: expected declaration specifiers before '__attribute__'
+   82 | __attribute__((always_inline))
+      | ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_memory_utils.h:94:1: error: expected declaration specifiers before '__attribute__'
+   94 | __attribute__((always_inline))
+      | ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_memory_utils.h:112:1: error: expected declaration specifiers before '__attribute__'
+  112 | __attribute__((always_inline))
+      | ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_memory_utils.h:129:1: error: expected declaration specifiers before '__attribute__'
+  129 | __attribute__((always_inline))
+      | ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_memory_utils.h:146:1: error: expected declaration specifiers before '__attribute__'
+  146 | __attribute__((always_inline))
+      | ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_memory_utils.h:161:1: error: expected declaration specifiers before '__attribute__'
+  161 | __attribute__((always_inline))
+      | ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_memory_utils.h:175:1: error: expected declaration specifiers before '__attribute__'
+  175 | __attribute__((always_inline))
+      | ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_memory_utils.h:190:1: error: expected declaration specifiers before '__attribute__'
+  190 | __attribute__((always_inline))
+      | ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_memory_utils.h:235:1: error: expected declaration specifiers before '__attribute__'
+  235 | __attribute__((always_inline))
+      | ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_memory_utils.h:257:1: error: expected declaration specifiers before '__attribute__'
+  257 | __attribute__((always_inline))
+      | ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_memory_utils.h:288:1: error: expected declaration specifiers before '__attribute__'
+  288 | __attribute__((always_inline))
+      | ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_memory_utils.h:337:1: error: expected declaration specifiers before '__attribute__'
+  337 | __attribute__((always_inline))
+      | ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_memory_utils.h:360:1: error: expected declaration specifiers before '__attribute__'
+  360 | __attribute__((always_inline))
+      | ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_memory_utils.h:382:1: error: expected declaration specifiers before '__attribute__'
+  382 | __attribute__((always_inline))
+      | ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_hw_support/include/esp_memory_utils.h:407:1: error: expected declaration specifiers before '__attribute__'
+  407 | __attribute__((always_inline))
+      | ^~~~~~~~~~~~~
+In file included from /home/user/esp/esp-idf/components/heap/include/esp_heap_caps.h:11,
+                 from /home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:55:
+/home/user/esp/esp-idf/components/heap/include/multi_heap.h:22:33: error: storage class specified for parameter 'multi_heap_handle_t'
+   22 | typedef struct multi_heap_info *multi_heap_handle_t;
+      |                                 ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/multi_heap.h:33:32: error: expected declaration specifiers or '...' before 'multi_heap_handle_t'
+   33 | void *multi_heap_aligned_alloc(multi_heap_handle_t heap, size_t size, size_t alignment);
+      |                                ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/multi_heap.h:44:25: error: expected declaration specifiers or '...' before 'multi_heap_handle_t'
+   44 | void *multi_heap_malloc(multi_heap_handle_t heap, size_t size);
+      |                         ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/multi_heap.h:52:58: error: expected declaration specifiers or '...' before 'multi_heap_handle_t'
+   52 | void __attribute__((deprecated)) multi_heap_aligned_free(multi_heap_handle_t heap, void *p);
+      |                                                          ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/multi_heap.h:61:22: error: expected declaration specifiers or '...' before 'multi_heap_handle_t'
+   61 | void multi_heap_free(multi_heap_handle_t heap, void *p);
+      |                      ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/multi_heap.h:73:26: error: expected declaration specifiers or '...' before 'multi_heap_handle_t'
+   73 | void *multi_heap_realloc(multi_heap_handle_t heap, void *p, size_t size);
+      |                          ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/multi_heap.h:84:38: error: expected declaration specifiers or '...' before 'multi_heap_handle_t'
+   84 | size_t multi_heap_get_allocated_size(multi_heap_handle_t heap, void *p);
+      |                                      ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/multi_heap.h:98:1: error: expected declaration specifiers before 'multi_heap_handle_t'
+   98 | multi_heap_handle_t multi_heap_register(void *start, size_t size);
+      | ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/multi_heap.h:112:26: error: expected declaration specifiers or '...' before 'multi_heap_handle_t'
+  112 | void multi_heap_set_lock(multi_heap_handle_t heap, void* lock);
+      |                          ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/multi_heap.h:120:22: error: expected declaration specifiers or '...' before 'multi_heap_handle_t'
+  120 | void multi_heap_dump(multi_heap_handle_t heap);
+      |                      ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/multi_heap.h:134:23: error: expected declaration specifiers or '...' before 'multi_heap_handle_t'
+  134 | bool multi_heap_check(multi_heap_handle_t heap, bool print_errors);
+      |                       ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/multi_heap.h:148:29: error: expected declaration specifiers or '...' before 'multi_heap_handle_t'
+  148 | size_t multi_heap_free_size(multi_heap_handle_t heap);
+      |                             ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/multi_heap.h:160:37: error: expected declaration specifiers or '...' before 'multi_heap_handle_t'
+  160 | size_t multi_heap_minimum_free_size(multi_heap_handle_t heap);
+      |                                     ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/multi_heap.h:171:3: error: storage class specified for parameter 'multi_heap_info_t'
+  171 | } multi_heap_info_t;
+      |   ^~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/multi_heap.h:180:26: error: expected declaration specifiers or '...' before 'multi_heap_handle_t'
+  180 | void multi_heap_get_info(multi_heap_handle_t heap, multi_heap_info_t *info);
+      |                          ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/multi_heap.h:180:52: error: expected declaration specifiers or '...' before 'multi_heap_info_t'
+  180 | void multi_heap_get_info(multi_heap_handle_t heap, multi_heap_info_t *info);
+      |                                                    ^~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/multi_heap.h:191:37: error: expected declaration specifiers or '...' before 'multi_heap_handle_t'
+  191 | void *multi_heap_aligned_alloc_offs(multi_heap_handle_t heap, size_t size, size_t alignment, size_t offset);
+      |                                     ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/multi_heap.h:199:44: error: expected declaration specifiers or '...' before 'multi_heap_handle_t'
+  199 | size_t multi_heap_reset_minimum_free_bytes(multi_heap_handle_t heap);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/multi_heap.h:208:44: error: expected declaration specifiers or '...' before 'multi_heap_handle_t'
+  208 | void multi_heap_restore_minimum_free_bytes(multi_heap_handle_t heap, const size_t new_minimum_free_bytes_value);
+      |                                            ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/multi_heap.h:221:16: error: storage class specified for parameter 'multi_heap_walker_cb_t'
+  221 | typedef bool (*multi_heap_walker_cb_t)(void *block_ptr, size_t block_size, int block_used, void *user_data);
+      |                ^~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/multi_heap.h:231:22: error: expected declaration specifiers or '...' before 'multi_heap_handle_t'
+  231 | void multi_heap_walk(multi_heap_handle_t heap, multi_heap_walker_cb_t walker_func, void *user_data);
+      |                      ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/multi_heap.h:231:48: error: expected declaration specifiers or '...' before 'multi_heap_walker_cb_t'
+  231 | void multi_heap_walk(multi_heap_handle_t heap, multi_heap_walker_cb_t walker_func, void *user_data);
+      |                                                ^~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/multi_heap.h:240:39: error: expected declaration specifiers or '...' before 'multi_heap_handle_t'
+  240 | size_t multi_heap_get_full_block_size(multi_heap_handle_t heap, void *p);
+      |                                       ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/multi_heap.h:254:40: error: expected declaration specifiers or '...' before 'multi_heap_handle_t'
+  254 | void *multi_heap_find_containing_block(multi_heap_handle_t heap, void *ptr);
+      |                                        ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/esp_heap_caps.h:62:16: error: storage class specified for parameter 'esp_alloc_failed_hook_t'
+   62 | typedef void (*esp_alloc_failed_hook_t) (size_t size, uint32_t caps, const char * function_name);
+      |                ^~~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/esp_heap_caps.h:69:1: error: expected declaration specifiers before 'esp_err_t'
+   69 | esp_err_t heap_caps_register_failed_alloc_callback(esp_alloc_failed_hook_t callback);
+      | ^~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/esp_heap_caps.h:261:1: error: expected declaration specifiers before 'esp_err_t'
+  261 | esp_err_t heap_caps_monitor_local_minimum_free_size_start(void);
+      | ^~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/esp_heap_caps.h:271:1: error: expected declaration specifiers before 'esp_err_t'
+  271 | esp_err_t heap_caps_monitor_local_minimum_free_size_stop(void);
+      | ^~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/esp_heap_caps.h:286:26: error: expected declaration specifiers or '...' before 'multi_heap_info_t'
+  286 | void heap_caps_get_info( multi_heap_info_t *info, uint32_t caps );
+      |                          ^~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/esp_heap_caps.h:474:3: error: storage class specified for parameter 'walker_heap_into_t'
+  474 | } walker_heap_into_t;
+      |   ^~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/esp_heap_caps.h:484:3: error: storage class specified for parameter 'walker_block_info_t'
+  484 | } walker_block_info_t;
+      |   ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/esp_heap_caps.h:498:39: error: expected declaration specifiers or '...' before 'walker_heap_into_t'
+  498 | typedef bool (*heap_caps_walker_cb_t)(walker_heap_into_t heap_info, walker_block_info_t block_info, void *user_data);
+      |                                       ^~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/esp_heap_caps.h:498:69: error: expected declaration specifiers or '...' before 'walker_block_info_t'
+  498 | typedef bool (*heap_caps_walker_cb_t)(walker_heap_into_t heap_info, walker_block_info_t block_info, void *user_data);
+      |                                                                     ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/esp_heap_caps.h:507:36: error: unknown type name 'heap_caps_walker_cb_t'
+  507 | void heap_caps_walk(uint32_t caps, heap_caps_walker_cb_t walker_func, void *user_data);
+      |                                    ^~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/heap/include/esp_heap_caps.h:515:25: error: unknown type name 'heap_caps_walker_cb_t'
+  515 | void heap_caps_walk_all(heap_caps_walker_cb_t walker_func, void *user_data);
+      |                         ^~~~~~~~~~~~~~~~~~~~~
+In file included from /home/user/esp/esp-idf/components/esp_rom/include/esp_rom_sys.h:11,
+                 from /home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:56:
+/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/inttypes.h:28:3: error: storage class specified for parameter 'imaxdiv_t'
+   28 | } imaxdiv_t;
+      |   ^~~~~~~~~
+/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/inttypes.h:36:24: error: storage class specified for parameter '_wchar_t'
+   36 | typedef __WCHAR_TYPE__ _wchar_t;
+      |                        ^~~~~~~~
+/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/inttypes.h:327:1: error: expected declaration specifiers before 'imaxdiv_t'
+  327 | imaxdiv_t imaxdiv(intmax_t __numer, intmax_t __denomer);
+      | ^~~~~~~~~
+/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/inttypes.h:330:27: error: type defaults to 'int' in declaration of '_wchar_t' [-Wimplicit-int]
+  330 | intmax_t  wcstoimax(const _wchar_t *__restrict, _wchar_t **__restrict, int);
+      |                           ^~~~~~~~
+/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/inttypes.h:330:36: error: expected ';', ',' or ')' before '*' token
+  330 | intmax_t  wcstoimax(const _wchar_t *__restrict, _wchar_t **__restrict, int);
+      |                                    ^
+/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/inttypes.h:331:27: error: type defaults to 'int' in declaration of '_wchar_t' [-Wimplicit-int]
+  331 | uintmax_t wcstoumax(const _wchar_t *__restrict, _wchar_t **__restrict, int);
+      |                           ^~~~~~~~
+/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/inttypes.h:331:36: error: expected ';', ',' or ')' before '*' token
+  331 | uintmax_t wcstoumax(const _wchar_t *__restrict, _wchar_t **__restrict, int);
+      |                                    ^
+/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/inttypes.h:336:29: error: type defaults to 'int' in declaration of '_wchar_t' [-Wimplicit-int]
+  336 | intmax_t  wcstoimax_l(const _wchar_t *__restrict, _wchar_t **_restrict, int, locale_t);
+      |                             ^~~~~~~~
+/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/inttypes.h:336:38: error: expected ';', ',' or ')' before '*' token
+  336 | intmax_t  wcstoimax_l(const _wchar_t *__restrict, _wchar_t **_restrict, int, locale_t);
+      |                                      ^
+/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/inttypes.h:337:29: error: type defaults to 'int' in declaration of '_wchar_t' [-Wimplicit-int]
+  337 | uintmax_t wcstoumax_l(const _wchar_t *__restrict, _wchar_t **_restrict, int, locale_t);
+      |                             ^~~~~~~~
+/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/picolibc/include/inttypes.h:337:38: error: expected ';', ',' or ')' before '*' token
+  337 | uintmax_t wcstoumax_l(const _wchar_t *__restrict, _wchar_t **_restrict, int, locale_t);
+      |                                      ^
+In file included from /home/user/esp/esp-idf/components/esp_rom/include/esp_rom_sys.h:13:
+/home/user/esp/esp-idf/components/soc/esp32s3/include/soc/reset_reasons.h:62:3: error: storage class specified for parameter 'soc_reset_reason_t'
+   62 | } soc_reset_reason_t;
+      |   ^~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_rom/include/esp_rom_sys.h:121:1: error: expected declaration specifiers before 'soc_reset_reason_t'
+  121 | soc_reset_reason_t esp_rom_get_reset_reason(int cpu_no);
+      | ^~~~~~~~~~~~~~~~~~
+In file included from /home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:57:
+/home/user/esp/esp-idf/components/esp_system/include/esp_system.h:41:3: error: storage class specified for parameter 'esp_reset_reason_t'
+   41 | } esp_reset_reason_t;
+      |   ^~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_system/include/esp_system.h:46:16: error: storage class specified for parameter 'shutdown_handler_t'
+   46 | typedef void (*shutdown_handler_t)(void);
+      |                ^~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/esp_system/include/esp_system.h:59:1: error: expected declaration specifiers before 'esp_err_t'
+   59 | esp_err_t esp_register_shutdown_handler(shutdown_handler_t handle);
+      | ^~~~~~~~~
+/home/user/esp/esp-idf/components/esp_system/include/esp_system.h:69:1: error: expected declaration specifiers before 'esp_err_t'
+   69 | esp_err_t esp_unregister_shutdown_handler(shutdown_handler_t handle);
+      | ^~~~~~~~~
+/home/user/esp/esp-idf/components/esp_system/include/esp_system.h:85:1: error: expected declaration specifiers before 'esp_reset_reason_t'
+   85 | esp_reset_reason_t esp_reset_reason(void);
+      | ^~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:81:37: error: storage class specified for parameter 'StackType_t'
+   81 | typedef portSTACK_TYPE              StackType_t;
+      |                                     ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:82:37: error: storage class specified for parameter 'BaseType_t'
+   82 | typedef portBASE_TYPE               BaseType_t;
+      |                                     ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:83:37: error: storage class specified for parameter 'UBaseType_t'
+   83 | typedef unsigned portBASE_TYPE      UBaseType_t;
+      |                                     ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:89:18: error: storage class specified for parameter 'TickType_t'
+   89 | typedef uint32_t TickType_t;
+      |                  ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:131:1: error: expected declaration specifiers before 'BaseType_t'
+  131 | BaseType_t xPortInIsrContext(void);
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:151:1: error: expected declaration specifiers before 'BaseType_t'
+  151 | BaseType_t xPortInterruptedFromISRContext(void);
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:159:27: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'xPortSetInterruptMaskFromISR'
+  159 | static inline UBaseType_t xPortSetInterruptMaskFromISR(void);
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:167:51: error: expected declaration specifiers or '...' before 'UBaseType_t'
+  167 | static inline void vPortClearInterruptMaskFromISR(UBaseType_t prev_level);
+      |                                                   ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:178:45: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'portMUX_TYPE'
+  178 | typedef spinlock_t                          portMUX_TYPE;               /**< Spinlock type used by FreeRTOS critical sections */
+      |                                             ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:203:1: error: expected declaration specifiers before 'BaseType_t'
+  203 | BaseType_t xPortEnterCriticalTimeout(portMUX_TYPE *mux, BaseType_t timeout);
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:215:70: error: unknown type name 'portMUX_TYPE'; did you mean 'portBASE_TYPE'?
+  215 | static inline void __attribute__((always_inline)) vPortEnterCritical(portMUX_TYPE *mux);
+      |                                                                      ^~~~~~~~~~~~
+      |                                                                      portBASE_TYPE
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:230:24: error: unknown type name 'portMUX_TYPE'; did you mean 'portBASE_TYPE'?
+  230 | void vPortExitCritical(portMUX_TYPE *mux);
+      |                        ^~~~~~~~~~~~
+      |                        portBASE_TYPE
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:244:1: error: expected declaration specifiers before 'BaseType_t'
+  244 | BaseType_t xPortEnterCriticalTimeoutCompliance(portMUX_TYPE *mux, BaseType_t timeout);
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:254:80: error: unknown type name 'portMUX_TYPE'; did you mean 'portBASE_TYPE'?
+  254 | static inline void __attribute__((always_inline)) vPortEnterCriticalCompliance(portMUX_TYPE *mux);
+      |                                                                                ^~~~~~~~~~~~
+      |                                                                                portBASE_TYPE
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:265:34: error: unknown type name 'portMUX_TYPE'; did you mean 'portBASE_TYPE'?
+  265 | void vPortExitCriticalCompliance(portMUX_TYPE *mux);
+      |                                  ^~~~~~~~~~~~
+      |                                  portBASE_TYPE
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:277:15: error: type defaults to 'int' in declaration of 'BaseType_t' [-Wimplicit-int]
+  277 | static inline BaseType_t __attribute__((always_inline)) xPortEnterCriticalTimeoutSafe(portMUX_TYPE *mux, BaseType_t timeout);
+      |               ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:277:15: error: storage class specified for parameter 'BaseType_t'
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:277:15: error: parameter 'BaseType_t' declared 'inline' [-Werror]
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:277:1: error: 'always_inline' attribute ignored [-Werror=attributes]
+  277 | static inline BaseType_t __attribute__((always_inline)) xPortEnterCriticalTimeoutSafe(portMUX_TYPE *mux, BaseType_t timeout);
+      | ^~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:277:15: error: redefinition of parameter 'BaseType_t'
+  277 | static inline BaseType_t __attribute__((always_inline)) xPortEnterCriticalTimeoutSafe(portMUX_TYPE *mux, BaseType_t timeout);
+      |               ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:82:37: note: previous definition of 'BaseType_t' with type 'int'
+   82 | typedef portBASE_TYPE               BaseType_t;
+      |                                     ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:277:57: error: expected ',' or ';' before 'xPortEnterCriticalTimeoutSafe'
+  277 | static inline BaseType_t __attribute__((always_inline)) xPortEnterCriticalTimeoutSafe(portMUX_TYPE *mux, BaseType_t timeout);
+      |                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:287:74: error: unknown type name 'portMUX_TYPE'; did you mean 'portBASE_TYPE'?
+  287 | static inline void __attribute__((always_inline)) vPortEnterCriticalSafe(portMUX_TYPE *mux);
+      |                                                                          ^~~~~~~~~~~~
+      |                                                                          portBASE_TYPE
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:297:73: error: unknown type name 'portMUX_TYPE'; did you mean 'portBASE_TYPE'?
+  297 | static inline void __attribute__((always_inline)) vPortExitCriticalSafe(portMUX_TYPE *mux);
+      |                                                                         ^~~~~~~~~~~~
+      |                                                                         portBASE_TYPE
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:319:26: error: expected declaration specifiers or '...' before 'BaseType_t'
+  319 | void vPortYieldOtherCore(BaseType_t coreid);
+      |                          ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:330:24: error: storage class specified for parameter 'xPortCanYield'
+  330 | FORCE_INLINE_ATTR bool xPortCanYield(void);
+      |                        ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:330:24: error: parameter 'xPortCanYield' declared 'inline' [-Werror]
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:330:1: error: 'always_inline' attribute ignored [-Werror=attributes]
+  330 | FORCE_INLINE_ATTR bool xPortCanYield(void);
+      | ^~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:341:24: error: expected declaration specifiers or '...' before 'TickType_t'
+  341 | void vApplicationSleep(TickType_t xExpectedIdleTime);
+      |                        ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:370:30: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'xPortGetCoreID'
+  370 | FORCE_INLINE_ATTR BaseType_t xPortGetCoreID(void);
+      |                              ^~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:459:13: error: storage class specified for parameter '_frxt_setup_switch'
+  459 | extern void _frxt_setup_switch( void );     //Defined in portasm.S
+      |             ^~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:537:15: error: type defaults to 'int' in declaration of 'UBaseType_t' [-Wimplicit-int]
+  537 | static inline UBaseType_t __attribute__((always_inline)) xPortSetInterruptMaskFromISR(void)
+      |               ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:537:15: error: storage class specified for parameter 'UBaseType_t'
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:537:15: error: parameter 'UBaseType_t' declared 'inline' [-Werror]
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:537:1: error: 'always_inline' attribute ignored [-Werror=attributes]
+  537 | static inline UBaseType_t __attribute__((always_inline)) xPortSetInterruptMaskFromISR(void)
+      | ^~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:537:15: error: conflicting types for 'UBaseType_t'; have 'int'
+  537 | static inline UBaseType_t __attribute__((always_inline)) xPortSetInterruptMaskFromISR(void)
+      |               ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:83:37: note: previous definition of 'UBaseType_t' with type 'unsigned int'
+   83 | typedef unsigned portBASE_TYPE      UBaseType_t;
+      |                                     ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:537:58: error: expected ',' or ';' before 'xPortSetInterruptMaskFromISR'
+  537 | static inline UBaseType_t __attribute__((always_inline)) xPortSetInterruptMaskFromISR(void)
+      |                                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:544:82: error: expected declaration specifiers or '...' before 'UBaseType_t'
+  544 | static inline void __attribute__((always_inline)) vPortClearInterruptMaskFromISR(UBaseType_t prev_level)
+      |                                                                                  ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:552:70: error: unknown type name 'portMUX_TYPE'; did you mean 'portBASE_TYPE'?
+  552 | static inline void __attribute__((always_inline)) vPortEnterCritical(portMUX_TYPE *mux)
+      |                                                                      ^~~~~~~~~~~~
+      |                                                                      portBASE_TYPE
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:557:80: error: unknown type name 'portMUX_TYPE'; did you mean 'portBASE_TYPE'?
+  557 | static inline void __attribute__((always_inline)) vPortEnterCriticalCompliance(portMUX_TYPE *mux)
+      |                                                                                ^~~~~~~~~~~~
+      |                                                                                portBASE_TYPE
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:562:15: error: type defaults to 'int' in declaration of 'BaseType_t' [-Wimplicit-int]
+  562 | static inline BaseType_t __attribute__((always_inline)) xPortEnterCriticalTimeoutSafe(portMUX_TYPE *mux, BaseType_t timeout)
+      |               ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:562:15: error: storage class specified for parameter 'BaseType_t'
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:562:15: error: parameter 'BaseType_t' declared 'inline' [-Werror]
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:562:1: error: 'always_inline' attribute ignored [-Werror=attributes]
+  562 | static inline BaseType_t __attribute__((always_inline)) xPortEnterCriticalTimeoutSafe(portMUX_TYPE *mux, BaseType_t timeout)
+      | ^~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:562:15: error: redefinition of parameter 'BaseType_t'
+  562 | static inline BaseType_t __attribute__((always_inline)) xPortEnterCriticalTimeoutSafe(portMUX_TYPE *mux, BaseType_t timeout)
+      |               ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:277:15: note: previous definition of 'BaseType_t' with type 'int'
+  277 | static inline BaseType_t __attribute__((always_inline)) xPortEnterCriticalTimeoutSafe(portMUX_TYPE *mux, BaseType_t timeout);
+      |               ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:562:57: error: expected ',' or ';' before 'xPortEnterCriticalTimeoutSafe'
+  562 | static inline BaseType_t __attribute__((always_inline)) xPortEnterCriticalTimeoutSafe(portMUX_TYPE *mux, BaseType_t timeout)
+      |                                                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:573:74: error: unknown type name 'portMUX_TYPE'; did you mean 'portBASE_TYPE'?
+  573 | static inline void __attribute__((always_inline)) vPortEnterCriticalSafe(portMUX_TYPE *mux)
+      |                                                                          ^~~~~~~~~~~~
+      |                                                                          portBASE_TYPE
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:578:73: error: unknown type name 'portMUX_TYPE'; did you mean 'portBASE_TYPE'?
+  578 | static inline void __attribute__((always_inline)) vPortExitCriticalSafe(portMUX_TYPE *mux)
+      |                                                                         ^~~~~~~~~~~~
+      |                                                                         portBASE_TYPE
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:590:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+  590 | {
+      | ^
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:608:30: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'xPortGetCoreID'
+  608 | FORCE_INLINE_ATTR BaseType_t xPortGetCoreID(void)
+      |                              ^~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/portable.h:131:9: error: expected declaration specifiers before 'StackType_t'
+  131 |         StackType_t * pxPortInitialiseStack( StackType_t * pxTopOfStack,
+      |         ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/portable.h:143:3: error: storage class specified for parameter 'HeapRegion_t'
+  143 | } HeapRegion_t;
+      |   ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/portable.h:155:3: error: storage class specified for parameter 'HeapStats_t'
+  155 | } HeapStats_t;
+      |   ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/portable.h:168:36: error: type defaults to 'int' in declaration of 'HeapRegion_t' [-Wimplicit-int]
+  168 | void vPortDefineHeapRegions( const HeapRegion_t * const pxHeapRegions ) PRIVILEGED_FUNCTION;
+      |                                    ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/portable.h:168:49: error: expected ';', ',' or ')' before '*' token
+  168 | void vPortDefineHeapRegions( const HeapRegion_t * const pxHeapRegions ) PRIVILEGED_FUNCTION;
+      |                                                 ^
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/portable.h:174:25: error: expected declaration specifiers or '...' before 'HeapStats_t'
+  174 | void vPortGetHeapStats( HeapStats_t * pxHeapStats );
+      |                         ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/portable.h:212:1: error: expected declaration specifiers before 'BaseType_t'
+  212 | BaseType_t xPortStartScheduler( void ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:1232:5: error: expected specifier-qualifier-list before 'TickType_t'
+ 1232 |     TickType_t xDummy2;
+      |     ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:1227:1: error: empty declaration [-Werror]
+ 1227 | struct xSTATIC_LIST_ITEM
+      | ^~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:1238:34: error: storage class specified for parameter 'StaticListItem_t'
+ 1238 | typedef struct xSTATIC_LIST_ITEM StaticListItem_t;
+      |                                  ^~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:1247:9: error: expected specifier-qualifier-list before 'TickType_t'
+ 1247 |         TickType_t xDummy2;
+      |         ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:1242:5: error: empty declaration [-Werror]
+ 1242 |     struct xSTATIC_MINI_LIST_ITEM
+      |     ^~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:1250:43: error: storage class specified for parameter 'StaticMiniListItem_t'
+ 1250 |     typedef struct xSTATIC_MINI_LIST_ITEM StaticMiniListItem_t;
+      |                                           ^~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:1261:5: error: expected specifier-qualifier-list before 'UBaseType_t'
+ 1261 |     UBaseType_t uxDummy2;
+      |     ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:1267:3: error: storage class specified for parameter 'StaticList_t'
+ 1267 | } StaticList_t;
+      |   ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:1288:5: error: expected specifier-qualifier-list before 'StaticListItem_t'
+ 1288 |     StaticListItem_t xDummy3[ 2 ];
+      |     ^~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:1333:3: error: storage class specified for parameter 'StaticTask_t'
+ 1333 | } StaticTask_t;
+      |   ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:1356:9: error: expected specifier-qualifier-list before 'UBaseType_t'
+ 1356 |         UBaseType_t uxDummy2;
+      |         ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:1359:5: error: expected specifier-qualifier-list before 'StaticList_t'
+ 1359 |     StaticList_t xDummy3[ 2 ];
+      |     ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:1376:3: error: storage class specified for parameter 'StaticQueue_t'
+ 1376 | } StaticQueue_t;
+      |   ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:1377:23: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'StaticSemaphore_t'
+ 1377 | typedef StaticQueue_t StaticSemaphore_t;
+      |                       ^~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:1395:5: error: expected specifier-qualifier-list before 'TickType_t'
+ 1395 |     TickType_t xDummy1;
+      |     ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:1406:3: error: storage class specified for parameter 'StaticEventGroup_t'
+ 1406 | } StaticEventGroup_t;
+      |   ^~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:1425:5: error: expected specifier-qualifier-list before 'StaticListItem_t'
+ 1425 |     StaticListItem_t xDummy2;
+      |     ^~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:1433:3: error: storage class specified for parameter 'StaticTimer_t'
+ 1433 | } StaticTimer_t;
+      |   ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:1460:5: error: unknown type name 'portMUX_TYPE'; did you mean 'portBASE_TYPE'?
+ 1460 |     portMUX_TYPE xDummyStreamBufferLock;
+      |     ^~~~~~~~~~~~
+      |     portBASE_TYPE
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:1461:3: error: storage class specified for parameter 'StaticStreamBuffer_t'
+ 1461 | } StaticStreamBuffer_t;
+      |   ^~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:1464:30: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'StaticMessageBuffer_t'
+ 1464 | typedef StaticStreamBuffer_t StaticMessageBuffer_t;
+      |                              ^~~~~~~~~~~~~~~~~~~~~
+In file included from /home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:21,
+                 from /home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:1533:
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:54:1: error: empty declaration [-Werror]
+   54 | struct QueueDefinition; /* Using old naming convention so as not to break kernel aware debuggers. */
+      | ^~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:55:36: error: storage class specified for parameter 'QueueHandle_t'
+   55 | typedef struct QueueDefinition   * QueueHandle_t;
+      |                                    ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:62:36: error: storage class specified for parameter 'QueueSetHandle_t'
+   62 | typedef struct QueueDefinition   * QueueSetHandle_t;
+      |                                    ^~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:69:36: error: storage class specified for parameter 'QueueSetMemberHandle_t'
+   69 | typedef struct QueueDefinition   * QueueSetMemberHandle_t;
+      |                                    ^~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:624:1: error: expected declaration specifiers before 'BaseType_t'
+  624 | BaseType_t xQueueGenericSend( QueueHandle_t xQueue,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:713:1: error: expected declaration specifiers before 'BaseType_t'
+  713 | BaseType_t xQueuePeek( QueueHandle_t xQueue,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:741:1: error: expected declaration specifiers before 'BaseType_t'
+  741 | BaseType_t xQueuePeekFromISR( QueueHandle_t xQueue,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:825:1: error: expected declaration specifiers before 'BaseType_t'
+  825 | BaseType_t xQueueReceive( QueueHandle_t xQueue,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:839:1: error: expected declaration specifiers before 'UBaseType_t'
+  839 | UBaseType_t uxQueueMessagesWaiting( const QueueHandle_t xQueue ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:853:1: error: expected declaration specifiers before 'UBaseType_t'
+  853 | UBaseType_t uxQueueSpacesAvailable( const QueueHandle_t xQueue ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:864:20: error: expected declaration specifiers or '...' before 'QueueHandle_t'
+  864 | void vQueueDelete( QueueHandle_t xQueue ) PRIVILEGED_FUNCTION;
+      |                    ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1203:1: error: expected declaration specifiers before 'BaseType_t'
+ 1203 | BaseType_t xQueueGenericSendFromISR( QueueHandle_t xQueue,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1207:1: error: expected declaration specifiers before 'BaseType_t'
+ 1207 | BaseType_t xQueueGiveFromISR( QueueHandle_t xQueue,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1288:1: error: expected declaration specifiers before 'BaseType_t'
+ 1288 | BaseType_t xQueueReceiveFromISR( QueueHandle_t xQueue,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1298:1: error: expected declaration specifiers before 'BaseType_t'
+ 1298 | BaseType_t xQueueIsQueueEmptyFromISR( const QueueHandle_t xQueue ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1306:1: error: expected declaration specifiers before 'BaseType_t'
+ 1306 | BaseType_t xQueueIsQueueFullFromISR( const QueueHandle_t xQueue ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1314:1: error: expected declaration specifiers before 'UBaseType_t'
+ 1314 | UBaseType_t uxQueueMessagesWaitingFromISR( const QueueHandle_t xQueue ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1327:1: error: expected declaration specifiers before 'BaseType_t'
+ 1327 | BaseType_t xQueueCRSendFromISR( QueueHandle_t xQueue,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1330:1: error: expected declaration specifiers before 'BaseType_t'
+ 1330 | BaseType_t xQueueCRReceiveFromISR( QueueHandle_t xQueue,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1333:1: error: expected declaration specifiers before 'BaseType_t'
+ 1333 | BaseType_t xQueueCRSend( QueueHandle_t xQueue,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1336:1: error: expected declaration specifiers before 'BaseType_t'
+ 1336 | BaseType_t xQueueCRReceive( QueueHandle_t xQueue,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1345:1: error: expected declaration specifiers before 'QueueHandle_t'
+ 1345 | QueueHandle_t xQueueCreateMutex( const uint8_t ucQueueType ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1346:1: error: expected declaration specifiers before 'QueueHandle_t'
+ 1346 | QueueHandle_t xQueueCreateMutexStatic( const uint8_t ucQueueType,
+      | ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1348:1: error: expected declaration specifiers before 'QueueHandle_t'
+ 1348 | QueueHandle_t xQueueCreateCountingSemaphore( const UBaseType_t uxMaxCount,
+      | ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1350:1: error: expected declaration specifiers before 'QueueHandle_t'
+ 1350 | QueueHandle_t xQueueCreateCountingSemaphoreStatic( const UBaseType_t uxMaxCount,
+      | ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1353:1: error: expected declaration specifiers before 'BaseType_t'
+ 1353 | BaseType_t xQueueSemaphoreTake( QueueHandle_t xQueue,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1355:1: error: expected declaration specifiers before 'TaskHandle_t'
+ 1355 | TaskHandle_t xQueueGetMutexHolder( QueueHandle_t xSemaphore ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1356:1: error: expected declaration specifiers before 'TaskHandle_t'
+ 1356 | TaskHandle_t xQueueGetMutexHolderFromISR( QueueHandle_t xSemaphore ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1362:1: error: expected declaration specifiers before 'BaseType_t'
+ 1362 | BaseType_t xQueueTakeMutexRecursive( QueueHandle_t xMutex,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1364:1: error: expected declaration specifiers before 'BaseType_t'
+ 1364 | BaseType_t xQueueGiveMutexRecursive( QueueHandle_t xMutex ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1442:5: error: expected declaration specifiers before 'QueueHandle_t'
+ 1442 |     QueueHandle_t xQueueGenericCreate( const UBaseType_t uxQueueLength,
+      |     ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1453:5: error: expected declaration specifiers before 'QueueHandle_t'
+ 1453 |     QueueHandle_t xQueueGenericCreateStatic( const UBaseType_t uxQueueLength,
+      |     ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1467:5: error: expected declaration specifiers before 'BaseType_t'
+ 1467 |     BaseType_t xQueueGenericGetStaticBuffers( QueueHandle_t xQueue,
+      |     ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1522:1: error: expected declaration specifiers before 'QueueSetHandle_t'
+ 1522 | QueueSetHandle_t xQueueCreateSet( const UBaseType_t uxEventQueueLength ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1546:1: error: expected declaration specifiers before 'BaseType_t'
+ 1546 | BaseType_t xQueueAddToSet( QueueSetMemberHandle_t xQueueOrSemaphore,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1566:1: error: expected declaration specifiers before 'BaseType_t'
+ 1566 | BaseType_t xQueueRemoveFromSet( QueueSetMemberHandle_t xQueueOrSemaphore,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1603:1: error: expected declaration specifiers before 'QueueSetMemberHandle_t'
+ 1603 | QueueSetMemberHandle_t xQueueSelectFromSet( QueueSetHandle_t xQueueSet,
+      | ^~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1609:1: error: expected declaration specifiers before 'QueueSetMemberHandle_t'
+ 1609 | QueueSetMemberHandle_t xQueueSelectFromSetFromISR( QueueSetHandle_t xQueueSet ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1614:38: error: expected declaration specifiers or '...' before 'QueueHandle_t'
+ 1614 | void vQueueWaitForMessageRestricted( QueueHandle_t xQueue,
+      |                                      ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1615:38: error: expected declaration specifiers or '...' before 'TickType_t'
+ 1615 |                                      TickType_t xTicksToWait,
+      |                                      ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1616:44: error: type defaults to 'int' in declaration of 'BaseType_t' [-Wimplicit-int]
+ 1616 |                                      const BaseType_t xWaitIndefinitely ) PRIVILEGED_FUNCTION;
+      |                                            ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1616:55: error: expected ';', ',' or ')' before 'xWaitIndefinitely'
+ 1616 |                                      const BaseType_t xWaitIndefinitely ) PRIVILEGED_FUNCTION;
+      |                                                       ^~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1617:1: error: expected declaration specifiers before 'BaseType_t'
+ 1617 | BaseType_t xQueueGenericReset( QueueHandle_t xQueue,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1619:28: error: expected declaration specifiers or '...' before 'QueueHandle_t'
+ 1619 | void vQueueSetQueueNumber( QueueHandle_t xQueue,
+      |                            ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1620:28: error: expected declaration specifiers or '...' before 'UBaseType_t'
+ 1620 |                            UBaseType_t uxQueueNumber ) PRIVILEGED_FUNCTION;
+      |                            ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1621:1: error: expected declaration specifiers before 'UBaseType_t'
+ 1621 | UBaseType_t uxQueueGetQueueNumber( QueueHandle_t xQueue ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/queue.h:1622:30: error: expected declaration specifiers or '...' before 'QueueHandle_t'
+ 1622 | uint8_t ucQueueGetQueueType( QueueHandle_t xQueue ) PRIVILEGED_FUNCTION;
+      |                              ^~~~~~~~~~~~~
+In file included from /home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:22:
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/semphr.h:42:23: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'SemaphoreHandle_t'
+   42 | typedef QueueHandle_t SemaphoreHandle_t;
+      |                       ^~~~~~~~~~~~~~~~~
+In file included from /home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:23:
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:75:1: error: empty declaration [-Werror]
+   75 | struct StreamBufferDef_t;
+      | ^~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:76:36: error: storage class specified for parameter 'StreamBufferHandle_t'
+   76 | typedef struct StreamBufferDef_t * StreamBufferHandle_t;
+      |                                    ^~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:81:50: error: expected declaration specifiers or '...' before 'StreamBufferHandle_t'
+   81 | typedef void (* StreamBufferCallbackFunction_t)( StreamBufferHandle_t xStreamBuffer,
+      |                                                  ^~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:82:50: error: expected declaration specifiers or '...' before 'BaseType_t'
+   82 |                                                  BaseType_t xIsInsideISR,
+      |                                                  ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:83:50: error: expected declaration specifiers or '...' before 'BaseType_t'
+   83 |                                                  BaseType_t * const pxHigherPriorityTaskWoken );
+      |                                                  ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:275:5: error: expected declaration specifiers before 'BaseType_t'
+  275 |     BaseType_t xStreamBufferGetStaticBuffers( StreamBufferHandle_t xStreamBuffer,
+      |     ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:363:27: error: expected declaration specifiers or '...' before 'StreamBufferHandle_t'
+  363 | size_t xStreamBufferSend( StreamBufferHandle_t xStreamBuffer,
+      |                           ^~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:366:27: error: expected declaration specifiers or '...' before 'TickType_t'
+  366 |                           TickType_t xTicksToWait ) PRIVILEGED_FUNCTION;
+      |                           ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:455:34: error: expected declaration specifiers or '...' before 'StreamBufferHandle_t'
+  455 | size_t xStreamBufferSendFromISR( StreamBufferHandle_t xStreamBuffer,
+      |                                  ^~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:458:34: error: expected declaration specifiers or '...' before 'BaseType_t'
+  458 |                                  BaseType_t * const pxHigherPriorityTaskWoken ) PRIVILEGED_FUNCTION;
+      |                                  ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:535:30: error: expected declaration specifiers or '...' before 'StreamBufferHandle_t'
+  535 | size_t xStreamBufferReceive( StreamBufferHandle_t xStreamBuffer,
+      |                              ^~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:538:30: error: expected declaration specifiers or '...' before 'TickType_t'
+  538 |                              TickType_t xTicksToWait ) PRIVILEGED_FUNCTION;
+      |                              ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:612:37: error: expected declaration specifiers or '...' before 'StreamBufferHandle_t'
+  612 | size_t xStreamBufferReceiveFromISR( StreamBufferHandle_t xStreamBuffer,
+      |                                     ^~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:615:37: error: expected declaration specifiers or '...' before 'BaseType_t'
+  615 |                                     BaseType_t * const pxHigherPriorityTaskWoken ) PRIVILEGED_FUNCTION;
+      |                                     ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:631:27: error: expected declaration specifiers or '...' before 'StreamBufferHandle_t'
+  631 | void vStreamBufferDelete( StreamBufferHandle_t xStreamBuffer ) PRIVILEGED_FUNCTION;
+      |                           ^~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:645:1: error: expected declaration specifiers before 'BaseType_t'
+  645 | BaseType_t xStreamBufferIsFull( StreamBufferHandle_t xStreamBuffer ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:659:1: error: expected declaration specifiers before 'BaseType_t'
+  659 | BaseType_t xStreamBufferIsEmpty( StreamBufferHandle_t xStreamBuffer ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:676:1: error: expected declaration specifiers before 'BaseType_t'
+  676 | BaseType_t xStreamBufferReset( StreamBufferHandle_t xStreamBuffer ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:691:38: error: expected declaration specifiers or '...' before 'StreamBufferHandle_t'
+  691 | size_t xStreamBufferSpacesAvailable( StreamBufferHandle_t xStreamBuffer ) PRIVILEGED_FUNCTION;
+      |                                      ^~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:706:37: error: expected declaration specifiers or '...' before 'StreamBufferHandle_t'
+  706 | size_t xStreamBufferBytesAvailable( StreamBufferHandle_t xStreamBuffer ) PRIVILEGED_FUNCTION;
+      |                                     ^~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:737:1: error: expected declaration specifiers before 'BaseType_t'
+  737 | BaseType_t xStreamBufferSetTriggerLevel( StreamBufferHandle_t xStreamBuffer,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:771:1: error: expected declaration specifiers before 'BaseType_t'
+  771 | BaseType_t xStreamBufferSendCompletedFromISR( StreamBufferHandle_t xStreamBuffer,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:806:1: error: expected declaration specifiers before 'BaseType_t'
+  806 | BaseType_t xStreamBufferReceiveCompletedFromISR( StreamBufferHandle_t xStreamBuffer,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:812:1: error: expected declaration specifiers before 'StreamBufferHandle_t'
+  812 | StreamBufferHandle_t xStreamBufferGenericCreate( size_t xBufferSizeBytes,
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:819:1: error: expected declaration specifiers before 'StreamBufferHandle_t'
+  819 | StreamBufferHandle_t xStreamBufferGenericCreateStatic( size_t xBufferSizeBytes,
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/stream_buffer.h:827:45: error: expected declaration specifiers or '...' before 'StreamBufferHandle_t'
+  827 | size_t xStreamBufferNextMessageLengthBytes( StreamBufferHandle_t xStreamBuffer ) PRIVILEGED_FUNCTION;
+      |                                             ^~~~~~~~~~~~~~~~~~~~
+In file included from /home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:24:
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/message_buffer.h:90:30: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'MessageBufferHandle_t'
+   90 | typedef StreamBufferHandle_t MessageBufferHandle_t;
+      |                              ^~~~~~~~~~~~~~~~~~~~~
+In file included from /home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:41,
+                 from /home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:25:
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:86:1: error: empty declaration [-Werror]
+   86 | struct tmrTimerControl; /* The old naming convention is used to prevent breaking kernel aware debuggers. */
+      | ^~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:87:34: error: storage class specified for parameter 'TimerHandle_t'
+   87 | typedef struct tmrTimerControl * TimerHandle_t;
+      |                                  ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:92:43: error: expected declaration specifiers or '...' before 'TimerHandle_t'
+   92 | typedef void (* TimerCallbackFunction_t)( TimerHandle_t xTimer );
+      |                                           ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:98:17: error: storage class specified for parameter 'PendedFunction_t'
+   98 | typedef void (* PendedFunction_t)( void *,
+      |                 ^~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:234:5: error: expected declaration specifiers before 'TimerHandle_t'
+  234 |     TimerHandle_t xTimerCreate( const char * const pcTimerName, /*lint !e971 Unqualified char types are allowed for strings and single characters only. */
+      |     ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:358:5: error: expected declaration specifiers before 'TimerHandle_t'
+  358 |     TimerHandle_t xTimerCreateStatic( const char * const pcTimerName, /*lint !e971 Unqualified char types are allowed for strings and single characters only. */
+      |     ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:385:33: error: type defaults to 'int' in declaration of 'TimerHandle_t' [-Wimplicit-int]
+  385 | void * pvTimerGetTimerID( const TimerHandle_t xTimer ) PRIVILEGED_FUNCTION;
+      |                                 ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:385:47: error: expected ';', ',' or ')' before 'xTimer'
+  385 | void * pvTimerGetTimerID( const TimerHandle_t xTimer ) PRIVILEGED_FUNCTION;
+      |                                               ^~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:405:24: error: expected declaration specifiers or '...' before 'TimerHandle_t'
+  405 | void vTimerSetTimerID( TimerHandle_t xTimer,
+      |                        ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:442:1: error: expected declaration specifiers before 'BaseType_t'
+  442 | BaseType_t xTimerIsTimerActive( TimerHandle_t xTimer ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:449:1: error: expected declaration specifiers before 'TaskHandle_t'
+  449 | TaskHandle_t xTimerGetTimerDaemonTaskHandle( void ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:1173:1: error: expected declaration specifiers before 'BaseType_t'
+ 1173 | BaseType_t xTimerPendFunctionCallFromISR( PendedFunction_t xFunctionToPend,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:1206:1: error: expected declaration specifiers before 'BaseType_t'
+ 1206 | BaseType_t xTimerPendFunctionCall( PendedFunction_t xFunctionToPend,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:1219:30: error: expected declaration specifiers or '...' before 'TimerHandle_t'
+ 1219 | const char * pcTimerGetName( TimerHandle_t xTimer ) PRIVILEGED_FUNCTION; /*lint !e971 Unqualified char types are allowed for strings and single characters only. */
+      |                              ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:1235:27: error: expected declaration specifiers or '...' before 'TimerHandle_t'
+ 1235 | void vTimerSetReloadMode( TimerHandle_t xTimer,
+      |                           ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:1236:33: error: type defaults to 'int' in declaration of 'BaseType_t' [-Wimplicit-int]
+ 1236 |                           const BaseType_t xAutoReload ) PRIVILEGED_FUNCTION;
+      |                                 ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:1236:44: error: expected ';', ',' or ')' before 'xAutoReload'
+ 1236 |                           const BaseType_t xAutoReload ) PRIVILEGED_FUNCTION;
+      |                                            ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:1249:1: error: expected declaration specifiers before 'BaseType_t'
+ 1249 | BaseType_t xTimerGetReloadMode( TimerHandle_t xTimer ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:1262:1: error: expected declaration specifiers before 'UBaseType_t'
+ 1262 | UBaseType_t uxTimerGetReloadMode( TimerHandle_t xTimer ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:1272:1: error: expected declaration specifiers before 'TickType_t'
+ 1272 | TickType_t xTimerGetPeriod( TimerHandle_t xTimer ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:1286:1: error: expected declaration specifiers before 'TickType_t'
+ 1286 | TickType_t xTimerGetExpiryTime( TimerHandle_t xTimer ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:1302:5: error: expected declaration specifiers before 'BaseType_t'
+ 1302 |     BaseType_t xTimerGetStaticBuffer( TimerHandle_t xTimer,
+      |     ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:1312:1: error: expected declaration specifiers before 'BaseType_t'
+ 1312 | BaseType_t xTimerCreateTimerTask( void ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:1313:1: error: expected declaration specifiers before 'BaseType_t'
+ 1313 | BaseType_t xTimerGenericCommand( TimerHandle_t xTimer,
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:1338:42: error: expected declaration specifiers or '...' before 'StaticTask_t'
+ 1338 |     void vApplicationGetTimerTaskMemory( StaticTask_t ** ppxTimerTaskTCBBuffer,
+      |                                          ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/timers.h:1339:42: error: expected declaration specifiers or '...' before 'StackType_t'
+ 1339 |                                          StackType_t ** ppxTimerTaskStackBuffer,
+      |                                          ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:84:1: error: empty declaration [-Werror]
+   84 | struct EventGroupDef_t;
+      | ^~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:85:36: error: storage class specified for parameter 'EventGroupHandle_t'
+   85 | typedef struct EventGroupDef_t   * EventGroupHandle_t;
+      |                                    ^~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:94:34: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'EventBits_t'
+   94 | typedef TickType_t               EventBits_t;
+      |                                  ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:144:5: error: expected declaration specifiers before 'EventGroupHandle_t'
+  144 |     EventGroupHandle_t xEventGroupCreate( void ) PRIVILEGED_FUNCTION;
+      |     ^~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:193:5: error: expected declaration specifiers before 'EventGroupHandle_t'
+  193 |     EventGroupHandle_t xEventGroupCreateStatic( StaticEventGroup_t * pxEventGroupBuffer ) PRIVILEGED_FUNCTION;
+      |     ^~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:280:1: error: unknown type name 'EventBits_t'
+  280 | EventBits_t xEventGroupWaitBits( EventGroupHandle_t xEventGroup,
+      | ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:280:34: error: expected declaration specifiers or '...' before 'EventGroupHandle_t'
+  280 | EventBits_t xEventGroupWaitBits( EventGroupHandle_t xEventGroup,
+      |                                  ^~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:281:40: error: unknown type name 'EventBits_t'
+  281 |                                  const EventBits_t uxBitsToWaitFor,
+      |                                        ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:282:40: error: type defaults to 'int' in declaration of 'BaseType_t' [-Wimplicit-int]
+  282 |                                  const BaseType_t xClearOnExit,
+      |                                        ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:282:51: error: expected ';', ',' or ')' before 'xClearOnExit'
+  282 |                                  const BaseType_t xClearOnExit,
+      |                                                   ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:336:1: error: unknown type name 'EventBits_t'
+  336 | EventBits_t xEventGroupClearBits( EventGroupHandle_t xEventGroup,
+      | ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:336:35: error: expected declaration specifiers or '...' before 'EventGroupHandle_t'
+  336 | EventBits_t xEventGroupClearBits( EventGroupHandle_t xEventGroup,
+      |                                   ^~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:337:41: error: unknown type name 'EventBits_t'
+  337 |                                   const EventBits_t uxBitsToClear ) PRIVILEGED_FUNCTION;
+      |                                         ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:469:1: error: unknown type name 'EventBits_t'
+  469 | EventBits_t xEventGroupSetBits( EventGroupHandle_t xEventGroup,
+      | ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:469:33: error: expected declaration specifiers or '...' before 'EventGroupHandle_t'
+  469 | EventBits_t xEventGroupSetBits( EventGroupHandle_t xEventGroup,
+      |                                 ^~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:470:39: error: unknown type name 'EventBits_t'
+  470 |                                 const EventBits_t uxBitsToSet ) PRIVILEGED_FUNCTION;
+      |                                       ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:664:1: error: unknown type name 'EventBits_t'
+  664 | EventBits_t xEventGroupSync( EventGroupHandle_t xEventGroup,
+      | ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:664:30: error: expected declaration specifiers or '...' before 'EventGroupHandle_t'
+  664 | EventBits_t xEventGroupSync( EventGroupHandle_t xEventGroup,
+      |                              ^~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:665:36: error: unknown type name 'EventBits_t'
+  665 |                              const EventBits_t uxBitsToSet,
+      |                                    ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:666:36: error: unknown type name 'EventBits_t'
+  666 |                              const EventBits_t uxBitsToWaitFor,
+      |                                    ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:667:30: error: expected declaration specifiers or '...' before 'TickType_t'
+  667 |                              TickType_t xTicksToWait ) PRIVILEGED_FUNCTION;
+      |                              ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:693:1: error: unknown type name 'EventBits_t'
+  693 | EventBits_t xEventGroupGetBitsFromISR( EventGroupHandle_t xEventGroup ) PRIVILEGED_FUNCTION;
+      | ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:693:40: error: expected declaration specifiers or '...' before 'EventGroupHandle_t'
+  693 | EventBits_t xEventGroupGetBitsFromISR( EventGroupHandle_t xEventGroup ) PRIVILEGED_FUNCTION;
+      |                                        ^~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:703:25: error: expected declaration specifiers or '...' before 'EventGroupHandle_t'
+  703 | void vEventGroupDelete( EventGroupHandle_t xEventGroup ) PRIVILEGED_FUNCTION;
+      |                         ^~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/event_groups.h:718:5: error: expected declaration specifiers before 'BaseType_t'
+  718 |     BaseType_t xEventGroupGetStaticBuffer( EventGroupHandle_t xEventGroup,
+      |     ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:63:5: error: expected declaration specifiers before 'BaseType_t'
+   63 |     BaseType_t xTaskCreatePinnedToCore( TaskFunction_t pxTaskCode,
+      |     ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:101:5: error: expected declaration specifiers before 'TaskHandle_t'
+  101 |     TaskHandle_t xTaskCreateStaticPinnedToCore( TaskFunction_t pxTaskCode,
+      |     ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:132:1: error: expected declaration specifiers before 'BaseType_t'
+  132 | BaseType_t xTaskGetCoreID( TaskHandle_t xTask );
+      | ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:144:5: error: expected declaration specifiers before 'TaskHandle_t'
+  144 |     TaskHandle_t xTaskGetIdleTaskHandleForCore( BaseType_t xCoreID );
+      |     ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:162:5: error: expected declaration specifiers before 'TaskHandle_t'
+  162 |     TaskHandle_t xTaskGetCurrentTaskHandleForCore( BaseType_t xCoreID );
+      |     ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:203:1: error: expected declaration specifiers before 'StackType_t'
+  203 | StackType_t * xTaskGetStackStart( TaskHandle_t xTask );
+      | ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:212:21: error: storage class specified for parameter 'TlsDeleteCallbackFunction_t'
+  212 |     typedef void (* TlsDeleteCallbackFunction_t)( int,
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:240:59: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+  240 |     void vTaskSetThreadLocalStoragePointerAndDelCallback( TaskHandle_t xTaskToSet,
+      |                                                           ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:241:59: error: expected declaration specifiers or '...' before 'BaseType_t'
+  241 |                                                           BaseType_t xIndex,
+      |                                                           ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:243:59: error: expected declaration specifiers or '...' before 'TlsDeleteCallbackFunction_t'
+  243 |                                                           TlsDeleteCallbackFunction_t pvDelCallback );
+      |                                                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:282:5: error: expected declaration specifiers before 'BaseType_t'
+  282 |     BaseType_t xTaskCreatePinnedToCoreWithCaps( TaskFunction_t pvTaskCode,
+      |     ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:321:30: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'xTaskCreateWithCaps'
+  321 |     static inline BaseType_t xTaskCreateWithCaps( TaskFunction_t pvTaskCode,
+      |                              ^~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:347:31: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+  347 |     void vTaskDeleteWithCaps( TaskHandle_t xTaskToDelete );
+      |                               ^~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:370:5: error: expected declaration specifiers before 'QueueHandle_t'
+  370 |     QueueHandle_t xQueueCreateWithCaps( UBaseType_t uxQueueLength,
+      |     ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:383:32: error: expected declaration specifiers or '...' before 'QueueHandle_t'
+  383 |     void vQueueDeleteWithCaps( QueueHandle_t xQueue );
+      |                                ^~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:390:1: error: unknown type name 'SemaphoreHandle_t'
+  390 | SemaphoreHandle_t xSemaphoreCreateGenericWithCaps( UBaseType_t uxMaxCount,
+      | ^~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:390:52: error: expected declaration specifiers or '...' before 'UBaseType_t'
+  390 | SemaphoreHandle_t xSemaphoreCreateGenericWithCaps( UBaseType_t uxMaxCount,
+      |                                                    ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:391:52: error: expected declaration specifiers or '...' before 'UBaseType_t'
+  391 |                                                    UBaseType_t uxInitialCount,
+      |                                                    ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:393:52: error: expected declaration specifiers or '...' before 'UBaseType_t'
+  393 |                                                    UBaseType_t uxMemoryCaps );
+      |                                                    ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:411:19: error: unknown type name 'SemaphoreHandle_t'
+  411 |     static inline SemaphoreHandle_t xSemaphoreCreateBinaryWithCaps( UBaseType_t uxMemoryCaps )
+      |                   ^~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:411:69: error: expected declaration specifiers or '...' before 'UBaseType_t'
+  411 |     static inline SemaphoreHandle_t xSemaphoreCreateBinaryWithCaps( UBaseType_t uxMemoryCaps )
+      |                                                                     ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:436:19: error: unknown type name 'SemaphoreHandle_t'
+  436 |     static inline SemaphoreHandle_t xSemaphoreCreateCountingWithCaps( UBaseType_t uxMaxCount,
+      |                   ^~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:436:71: error: expected declaration specifiers or '...' before 'UBaseType_t'
+  436 |     static inline SemaphoreHandle_t xSemaphoreCreateCountingWithCaps( UBaseType_t uxMaxCount,
+      |                                                                       ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:437:71: error: expected declaration specifiers or '...' before 'UBaseType_t'
+  437 |                                                                       UBaseType_t uxInitialCount,
+      |                                                                       ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:438:71: error: expected declaration specifiers or '...' before 'UBaseType_t'
+  438 |                                                                       UBaseType_t uxMemoryCaps )
+      |                                                                       ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:460:19: error: unknown type name 'SemaphoreHandle_t'
+  460 |     static inline SemaphoreHandle_t xSemaphoreCreateMutexWithCaps( UBaseType_t uxMemoryCaps )
+      |                   ^~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:460:68: error: expected declaration specifiers or '...' before 'UBaseType_t'
+  460 |     static inline SemaphoreHandle_t xSemaphoreCreateMutexWithCaps( UBaseType_t uxMemoryCaps )
+      |                                                                    ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:482:19: error: unknown type name 'SemaphoreHandle_t'
+  482 |     static inline SemaphoreHandle_t xSemaphoreCreateRecursiveMutexWithCaps( UBaseType_t uxMemoryCaps )
+      |                   ^~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:482:77: error: expected declaration specifiers or '...' before 'UBaseType_t'
+  482 |     static inline SemaphoreHandle_t xSemaphoreCreateRecursiveMutexWithCaps( UBaseType_t uxMemoryCaps )
+      |                                                                             ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:497:36: error: unknown type name 'SemaphoreHandle_t'
+  497 |     void vSemaphoreDeleteWithCaps( SemaphoreHandle_t xSemaphore );
+      |                                    ^~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:504:1: error: expected declaration specifiers before 'StreamBufferHandle_t'
+  504 | StreamBufferHandle_t xStreamBufferGenericCreateWithCaps( size_t xBufferSizeBytes,
+      | ^~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:509:42: error: expected declaration specifiers or '...' before 'StreamBufferHandle_t'
+  509 | void vStreamBufferGenericDeleteWithCaps( StreamBufferHandle_t xStreamBuffer,
+      |                                          ^~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:510:42: error: expected declaration specifiers or '...' before 'BaseType_t'
+  510 |                                          BaseType_t xIsMessageBuffer );
+      |                                          ^~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:532:40: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'xStreamBufferCreateWithCaps'
+  532 |     static inline StreamBufferHandle_t xStreamBufferCreateWithCaps( size_t xBufferSizeBytes,
+      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:549:53: error: expected declaration specifiers or '...' before 'StreamBufferHandle_t'
+  549 |     static inline void vStreamBufferDeleteWithCaps( StreamBufferHandle_t xStreamBuffer )
+      |                                                     ^~~~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:573:19: error: unknown type name 'MessageBufferHandle_t'; did you mean 'vMessageBufferDelete'?
+  573 |     static inline MessageBufferHandle_t xMessageBufferCreateWithCaps( size_t xBufferSizeBytes,
+      |                   ^~~~~~~~~~~~~~~~~~~~~
+      |                   vMessageBufferDelete
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:574:71: error: expected declaration specifiers or '...' before 'UBaseType_t'
+  574 |                                                                       UBaseType_t uxMemoryCaps )
+      |                                                                       ^~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:589:54: error: unknown type name 'MessageBufferHandle_t'; did you mean 'vMessageBufferDelete'?
+  589 |     static inline void vMessageBufferDeleteWithCaps( MessageBufferHandle_t xMessageBuffer )
+      |                                                      ^~~~~~~~~~~~~~~~~~~~~
+      |                                                      vMessageBufferDelete
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:613:5: error: expected declaration specifiers before 'EventGroupHandle_t'
+  613 |     EventGroupHandle_t xEventGroupCreateWithCaps( UBaseType_t uxMemoryCaps );
+      |     ^~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:625:37: error: expected declaration specifiers or '...' before 'EventGroupHandle_t'
+  625 |     void vEventGroupDeleteWithCaps( EventGroupHandle_t xEventGroup );
+      |                                     ^~~~~~~~~~~~~~~~~~
+/home/user/esp/esp-idf/components/freertos/esp_additions/include/freertos/idf_additions.h:635:32: error: expected declaration specifiers or '...' before 'TaskHandle_t'
+  635 | uint8_t * pxTaskGetStackStart( TaskHandle_t xTask ) __attribute__((deprecated("Use xTaskGetStackStart() for improved type safety")));
+      |                                ^~~~~~~~~~~~
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appDSP/dsp_processor_v1.h:28:3: error: storage class specified for parameter 'SensorData'
+   28 | } SensorData;
+      |   ^~~~~~~~~~
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appDSP/dsp_processor_v1.h:37:3: error: storage class specified for parameter 'DspResultStatus'
+   37 | } DspResultStatus;
+      |   ^~~~~~~~~~~~~~~
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appDSP/dsp_processor_v1.h:43:3: error: storage class specified for parameter 'DspDominantFraction'
+   43 | } DspDominantFraction;
+      |   ^~~~~~~~~~~~~~~~~~~
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appDSP/dsp_processor_v1.h:45:1: error: empty declaration [-Werror]
+   45 | enum {
+      | ^~~~
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appDSP/dsp_processor_v1.h:57:5: error: expected specifier-qualifier-list before 'DspResultStatus'
+   57 |     DspResultStatus status;
+      |     ^~~~~~~~~~~~~~~
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appDSP/dsp_processor_v1.h:80:3: error: storage class specified for parameter 'DspResult'
+   80 | } DspResult;
+      |   ^~~~~~~~~
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appDSP/dsp_processor_v1.h:88:5: error: expected specifier-qualifier-list before 'QueueHandle_t'
+   88 |     QueueHandle_t input_queue;
+      |     ^~~~~~~~~~~~~
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appDSP/dsp_processor_v1.h:90:3: error: storage class specified for parameter 'DspTaskContext'
+   90 | } DspTaskContext;
+      |   ^~~~~~~~~~~~~~
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appDSP/dsp_processor_v1.h:97:1: error: expected declaration specifiers before 'esp_err_t'
+   97 | esp_err_t dsp_process_sensor_data(const SensorData *input, DspResult *result);
+      | ^~~~~~~~~
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/main.c:8:21: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+    8 | void app_main(void) {
+      |                     ^
+/home/user/esp/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/list.h:437:6: error: old-style parameter declarations in prototyped function definition
+  437 | void vListInitialise( List_t * const pxList ) PRIVILEGED_FUNCTION;
+      |      ^~~~~~~~~~~~~~~
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/main.c:35: error: expected '{' at end of input
+cc1: all warnings being treated as errors
+ninja: build stopped: subcommand failed.

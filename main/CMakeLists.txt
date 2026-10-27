@@ -1,0 +1,28 @@
+idf_component_register(
+        SRCS
+        "main.c"
+        "appWiFi/appwifiConfig.c"
+        "appDSP/dsp_processor_v1.c"
+        "appWiFi/appDNSServer.c"
+        "appWiFi/appCaptivePortal.c"
+        INCLUDE_DIRS
+        "."
+        "appWiFi"
+        "appDSP"
+        REQUIRES
+        esp_driver_i2c
+        esp_driver_gpio
+        esp_driver_gptimer
+        esp_driver_uart
+        esp_wifi
+        esp_http_client
+        esp-tls
+        nvs_flash
+        esp_event
+        esp_netif
+        esp-dsp
+        esp_http_server
+
+        EMBED_FILES
+        appWiFi/root.html
+)

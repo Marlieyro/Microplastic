@@ -1,0 +1,392 @@
+{
+	"abstract" : true,
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"idf_component_register",
+			"set_property",
+			"__component_set_dependencies",
+			"__component_set_all_dependencies"
+		],
+		"files" : 
+		[
+			"/home/user/esp/esp-idf/tools/cmake/component.cmake",
+			"/home/user/esp/esp-idf/components/ulp/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 97,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 501,
+				"parent" : 1
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 527,
+				"parent" : 1
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 368,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 350,
+				"parent" : 4
+			}
+		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 11
+	},
+	"id" : "__idf_ulp::@59f74c71af7e30dd3e55",
+	"interfaceCompileDependencies" : 
+	[
+		{
+			"backtrace" : 5,
+			"id" : "__idf_esp_adc::@847b8318c687ffb50ebb"
+		},
+		{
+			"backtrace" : 6,
+			"id" : "__idf_esp_driver_gpio::@f5f60e7a3e445a08487c"
+		},
+		{
+			"backtrace" : 7,
+			"id" : "__idf_esp_driver_uart::@7494562dd0db45cfd3ba"
+		},
+		{
+			"backtrace" : 8,
+			"id" : "__idf_esp_driver_i2s::@5dbaceb9cb1526e2b88d"
+		},
+		{
+			"backtrace" : 9,
+			"id" : "__idf_esp_hal_i2c::@cd7aff4c62a8238bdb57"
+		},
+		{
+			"backtrace" : 10,
+			"id" : "__idf_esp_hal_touch_sens::@112b03c6041d968753f5"
+		},
+		{
+			"backtrace" : 11,
+			"id" : "__idf_esp_hal_gpspi::@d16508dabbfa00929b18"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "__idf_esp_hal_pmu::@51614fa8d9ee9aac6fda"
+		},
+		{
+			"backtrace" : 13,
+			"id" : "__idf_esp_hal_rtc_timer::@f5b36755c1d2f473c3b1"
+		},
+		{
+			"backtrace" : 14,
+			"id" : "__idf_esp_hal_clock::@7df5f860d31a56433f44"
+		},
+		{
+			"backtrace" : 15,
+			"id" : "__idf_cxx::@fc68b7334ac9a9392d41"
+		},
+		{
+			"backtrace" : 16,
+			"id" : "__idf_esp_libc::@076e7d0e3edaedfc2b27"
+		},
+		{
+			"backtrace" : 17,
+			"id" : "__idf_freertos::@7334568587001871092c"
+		},
+		{
+			"backtrace" : 18,
+			"id" : "__idf_esp_hw_support::@ce4791f5a7554c569ddb"
+		},
+		{
+			"backtrace" : 19,
+			"id" : "__idf_heap::@a3bf99b7c47be461ad9f"
+		},
+		{
+			"backtrace" : 20,
+			"id" : "__idf_log::@d5e1aa0ef4e3c98c8a70"
+		},
+		{
+			"backtrace" : 21,
+			"id" : "__idf_soc::@824f1541829f13857909"
+		},
+		{
+			"backtrace" : 22,
+			"id" : "__idf_hal::@41c1a00f56cd1e9ede18"
+		},
+		{
+			"backtrace" : 23,
+			"id" : "__idf_esp_rom::@c269e361cd87ad81e927"
+		},
+		{
+			"backtrace" : 24,
+			"id" : "__idf_esp_common::@5ba0aac035ae9b4e20a4"
+		},
+		{
+			"backtrace" : 25,
+			"id" : "__idf_esp_system::@874df54e61e20112dfd4"
+		},
+		{
+			"backtrace" : 26,
+			"id" : "__idf_esp_stdio::@d00d292f591bb0aad147"
+		},
+		{
+			"backtrace" : 27,
+			"id" : "__idf_xtensa::@1daaaad7abe597e030f9"
+		}
+	],
+	"interfaceLinkLibraries" : 
+	[
+		{
+			"backtrace" : 5,
+			"id" : "__idf_esp_adc::@847b8318c687ffb50ebb"
+		},
+		{
+			"backtrace" : 6,
+			"id" : "__idf_esp_driver_gpio::@f5f60e7a3e445a08487c"
+		},
+		{
+			"backtrace" : 7,
+			"id" : "__idf_esp_driver_uart::@7494562dd0db45cfd3ba"
+		},
+		{
+			"backtrace" : 8,
+			"id" : "__idf_esp_driver_i2s::@5dbaceb9cb1526e2b88d"
+		},
+		{
+			"backtrace" : 9,
+			"id" : "__idf_esp_hal_i2c::@cd7aff4c62a8238bdb57"
+		},
+		{
+			"backtrace" : 10,
+			"id" : "__idf_esp_hal_touch_sens::@112b03c6041d968753f5"
+		},
+		{
+			"backtrace" : 11,
+			"id" : "__idf_esp_hal_gpspi::@d16508dabbfa00929b18"
+		},
+		{
+			"backtrace" : 12,
+			"id" : "__idf_esp_hal_pmu::@51614fa8d9ee9aac6fda"
+		},
+		{
+			"backtrace" : 13,
+			"id" : "__idf_esp_hal_rtc_timer::@f5b36755c1d2f473c3b1"
+		},
+		{
+			"backtrace" : 14,
+			"id" : "__idf_esp_hal_clock::@7df5f860d31a56433f44"
+		},
+		{
+			"backtrace" : 15,
+			"id" : "__idf_cxx::@fc68b7334ac9a9392d41"
+		},
+		{
+			"backtrace" : 16,
+			"id" : "__idf_esp_libc::@076e7d0e3edaedfc2b27"
+		},
+		{
+			"backtrace" : 17,
+			"id" : "__idf_freertos::@7334568587001871092c"
+		},
+		{
+			"backtrace" : 18,
+			"id" : "__idf_esp_hw_support::@ce4791f5a7554c569ddb"
+		},
+		{
+			"backtrace" : 19,
+			"id" : "__idf_heap::@a3bf99b7c47be461ad9f"
+		},
+		{
+			"backtrace" : 20,
+			"id" : "__idf_log::@d5e1aa0ef4e3c98c8a70"
+		},
+		{
+			"backtrace" : 21,
+			"id" : "__idf_soc::@824f1541829f13857909"
+		},
+		{
+			"backtrace" : 22,
+			"id" : "__idf_hal::@41c1a00f56cd1e9ede18"
+		},
+		{
+			"backtrace" : 23,
+			"id" : "__idf_esp_rom::@c269e361cd87ad81e927"
+		},
+		{
+			"backtrace" : 24,
+			"id" : "__idf_esp_common::@5ba0aac035ae9b4e20a4"
+		},
+		{
+			"backtrace" : 25,
+			"id" : "__idf_esp_system::@874df54e61e20112dfd4"
+		},
+		{
+			"backtrace" : 26,
+			"id" : "__idf_esp_stdio::@d00d292f591bb0aad147"
+		},
+		{
+			"backtrace" : 27,
+			"id" : "__idf_xtensa::@1daaaad7abe597e030f9"
+		}
+	],
+	"name" : "__idf_ulp",
+	"paths" : 
+	{
+		"build" : "esp-idf/ulp",
+		"source" : "/home/user/esp/esp-idf/components/ulp"
+	},
+	"sources" : [],
+	"type" : "INTERFACE_LIBRARY"
+}

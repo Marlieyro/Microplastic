@@ -1,0 +1,7 @@
+Command: /home/user/.espressif/python_env/idf6.0_py3.14_env/bin/python /home/user/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyACM0 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/Microplastic.elf /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/bootloader/bootloader.elf -m '/home/user/.espressif/python_env/idf6.0_py3.14_env/bin/python' '/home/user/esp/esp-idf/tools/idf.py' '-B'
+[0;33m--- esp-idf-monitor 1.9.0 on /dev/ttyACM0 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0m--- 0x40378b7e: [0;33mesp_cpu_wait_for_intr[0m[0m at [0;32m/home/user/esp/esp-idf/components/esp_hw_support/cpu.c[0m[0m:[1;31m64[0m
+[0m--- 0x403c8700: [0;33m_stext[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x403c8908: [0;33mcall_start_cpu0[0m[0m at [0;32m/home/user/esp/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m27[0m
+[0m
