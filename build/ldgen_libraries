@@ -204,6 +204,9 @@
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/rt/librt.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/spiffs/libspiffs.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/espressif__esp-dsp/libespressif__esp-dsp.a
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_type_utils/libesp_type_utils.a
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_as7341/libesp_as7341.a
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_type_utils/libesp_type_utils.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/espressif__esp_serial_slave_link/libespressif__esp_serial_slave_link.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/espressif__eppp_link/libespressif__eppp_link.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_eth/libesp_eth.a
@@ -212,3 +215,4 @@
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/main/libmain.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_driver_gptimer/libesp_driver_gptimer.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/espressif__esp-dsp/libespressif__esp-dsp.a
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_as7341/libesp_as7341.a

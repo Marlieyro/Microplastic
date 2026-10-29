@@ -71,9 +71,19 @@ dependencies:
     source:
       type: idf
     version: 6.0.2
+  k0i05/esp_type_utils:
+    dependencies:
+    - name: idf
+      version: '>5.3.0'
+    source:
+      path: components/esp_type_utils
+      type: local
+    version: 1.2.8
 direct_dependencies:
 - espressif/esp-dsp
 - espressif/esp_wifi_remote
-manifest_hash: e354aa166cf67e9eb2d719854682ac1efb1b767bfcfee594e183cb40547e7ed1
+- idf
+- k0i05/esp_type_utils
+manifest_hash: 868a06b1d0b20c2a8e39cc067db74d452807869b788399a8dfdfdaa6a01461ec
 target: esp32s3
 version: 3.0.0

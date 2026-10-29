@@ -18,7 +18,8 @@
  * Вхідний формат повністю відповідає структурі збору даних користувача.
  * Порядок каналів у рядку: F1..F8, Clear, NIR (NIR має індекс 9).
  */
-typedef struct {
+typedef struct __attribute__((packed)) {
+    // TODO прибрати температуру взагалі!!
     float temp_dark;
     float temp_ir;
     float temp_blue;
@@ -53,7 +54,7 @@ enum {
  * Елемент вихідної черги. Сирі вхідні кадри копіюються сюди без змін,
  * щоб результат можна було зберегти або повторно обробити пізніше.
  */
-typedef struct {
+typedef struct __attribute__((packed)) {
     DspResultStatus status;
     uint32_t flags;
 

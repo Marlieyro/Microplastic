@@ -5,10 +5,21 @@ idf_component_register(
         "appDSP/dsp_processor_v1.c"
         "appWiFi/appDNSServer.c"
         "appWiFi/appCaptivePortal.c"
+        "appBuffers/appMsgBuffer.c"
+        "appHTTP/appHTTPclient.c"
+        "appBuffers/appQueueRawDataBuffer.c"
+        "appHTTP/appHTTPserver.c"
+        "appSensorAndI2C/appSensor_I2CConfig.c"
+        "appSensorAndI2C/appSensor_Sensor.c"
         INCLUDE_DIRS
         "."
         "appWiFi"
         "appDSP"
+        "appBuffers"
+        "appContextBuffering"
+        "appModes"
+        "appHTTP"
+        "appSensorAndI2C"
         REQUIRES
         esp_driver_i2c
         esp_driver_gpio
@@ -22,7 +33,9 @@ idf_component_register(
         esp_netif
         esp-dsp
         esp_http_server
-
+        esp_eth
+        esp_as7341
+        esp_type_utils
         EMBED_FILES
         appWiFi/root.html
 )

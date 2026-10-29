@@ -1,17 +1,19 @@
 //
 // Created by user on 26.10.26.
 //
-
-#include "dsp_processor_v1.h"
-
 #include <math.h>
 #include <stddef.h>
 #include <string.h>
 
+#include "appMsgBuffer.h"
 #include "esp_log.h"
 #include "dsps_dotprod.h"
 #include "freertos/task.h"
 #include "freertos/queue.h"
+#include "freertos/message_buffer.h"
+
+#include "dsp_processor_v1.h"
+#include "appBuffers/appQueueRawDataBuffer.h"
 
 #define TAG "WATER_DSP"
 
@@ -583,9 +585,9 @@ esp_err_t dsp_process_sensor_data(const SensorData *input, DspResult *result)
 
 void dsp_processing_task(void *pvParameters)
 {
-    DspTaskContext *context = (DspTaskContext *)pvParameters;
+    /*DspTaskContext *context = (DspTaskContext *)pvParameters;
 
-    /*if (context == NULL || context->input_queue == NULL ||
+    if (context == NULL || context->input_queue == NULL ||
         context->result_queue == NULL) {
         ESP_LOGE(TAG, "Task DSP запущено з некоректним DspTaskContext.");
         vTaskDelete(NULL);
@@ -597,6 +599,7 @@ void dsp_processing_task(void *pvParameters)
         SensorData input;
         DspResult result;
 
+        // TODO прибрати температуру взагалі!!
         input.temp_dark = 26.777500f;
         input.temp_blue = 27.252500f;
         input.temp_ir = 27.015000f;
@@ -708,9 +711,11 @@ void dsp_processing_task(void *pvParameters)
        memcpy(input.blue_buf, blueBuf, sizeof(input.blue_buf));
        memcpy(input.ir_buf, irBuf, sizeof(input.ir_buf));
 
-        /*if (xQueueReceive(context->input_queue, &input, portMAX_DELAY) != pdTRUE) {
+
+        // Дістаємо сирі дані з черги, треба чергу сторити
+        if (xQueueReceive(getQueueRawDataBuffer(), &input, portMAX_DELAY) != pdTRUE) {
             continue;
-        }*/
+        }
 
         memset(&result, 0, sizeof(result));
         result.raw = input;
@@ -723,13 +728,16 @@ void dsp_processing_task(void *pvParameters)
                      esp_err_to_name(err), (int)result.status);
         }
 
+
+        // Відправляємо оброблені дані
         /*
          * Не відкидаємо вимірювання при помилці DSP: у чергу все одно
          * передається запис зі статусом помилки та копією сирих даних.
          */
-        /*if (xQueueSend(context->result_queue, &result, portMAX_DELAY) != pdTRUE) {
-            ESP_LOGE(TAG, "Не вдалося передати DspResult у вихідну queue.");
-        }*/
-        vTaskDelay(pdMS_TO_TICKS(5000));
+        if (xMessageBufferSend(getAppMsgBuffer(),&result, sizeof(DspResult), portMAX_DELAY) != pdTRUE) {
+            ESP_LOGE(TAG, "Не вдалося передати DspResult у вихідну Msg.");
+        }
+        vTaskDelay(pdMS_TO_TICKS(1000));
     }
 }
+

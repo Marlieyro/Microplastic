@@ -724,6 +724,16 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_type_utils/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_as7341/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/espressif__esp_serial_slave_link/cmake_install.cmake")
 endif()
 
