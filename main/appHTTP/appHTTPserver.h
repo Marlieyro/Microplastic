@@ -4,6 +4,7 @@
 
 #ifndef MICROPLASTIC_APPHTTPSERVER_H
 #define MICROPLASTIC_APPHTTPSERVER_H
+#include "esp_http_server.h"
 
 esp_err_t http_404_error_handler(httpd_req_t *req, httpd_err_code_t err);
 void app_http_server_init(void);

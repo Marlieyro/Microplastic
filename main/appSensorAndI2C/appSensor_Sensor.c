@@ -13,7 +13,8 @@
 
 static const char *TAG = "AS7341 Configuration";
 
-// Константи для налаштувань циклу та пінів ESP32
+// TODO створити таску для вимірювання
+
 #define MEASUREMENTS_COUNT 32
 // TODO піни
 #define LED_940_PIN        GPIO_NUM_4 // Замініть на ваш реальний пін

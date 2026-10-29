@@ -80,7 +80,6 @@
 /home/user/esp/esp-idf/components/esp_wifi/lib/esp32s3/libpp.a
 /home/user/esp/esp-idf/components/esp_wifi/lib/esp32s3/libsmartconfig.a
 /home/user/esp/esp-idf/components/esp_wifi/lib/esp32s3/libwapi.a
-/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/espressif__esp_wifi_remote/libespressif__esp_wifi_remote.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_https_ota/libesp_https_ota.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/pthread/libpthread.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_stdio/libesp_stdio.a
@@ -207,12 +206,8 @@
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_type_utils/libesp_type_utils.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_as7341/libesp_as7341.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_type_utils/libesp_type_utils.a
-/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/espressif__esp_serial_slave_link/libespressif__esp_serial_slave_link.a
-/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/espressif__eppp_link/libespressif__eppp_link.a
-/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_eth/libesp_eth.a
-/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/espressif__esp_serial_slave_link/libespressif__esp_serial_slave_link.a
-/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/espressif__esp_wifi_remote/libespressif__esp_wifi_remote.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/main/libmain.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_driver_gptimer/libesp_driver_gptimer.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/espressif__esp-dsp/libespressif__esp-dsp.a
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_eth/libesp_eth.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_as7341/libesp_as7341.a

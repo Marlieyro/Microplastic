@@ -26,6 +26,7 @@
 #include "appHTTPserver.h"
 #include "dsp_processor_v1.h"
 #include "appBuffers/appQueueRawDataBuffer.h"
+#include "appWiFiManager.h"
 
 #define EXAMPLE_HTTP_QUERY_KEY_MAX_LEN  (64)
 
@@ -274,24 +275,15 @@ void app_http_server_init(void)
 {
     static httpd_handle_t server = NULL;
 
-    ESP_ERROR_CHECK(nvs_flash_init());
-    ESP_ERROR_CHECK(esp_netif_init());
-    ESP_ERROR_CHECK(esp_event_loop_create_default());
-
-    /* Register event handlers to stop the server when Wi-Fi or Ethernet is disconnected,
-     * and re-start it upon connection.
-     */
+    /* NVS, esp_netif і event loop ініціалізуються один раз у main.c (system_core_init).
+     * Тут сервер НЕ стартує: порт 80 може бути зайнятий Captive Portal.
+     * Старт і зупинку робить менеджер Wi-Fi через події. */
 #if !CONFIG_IDF_TARGET_LINUX
-#ifdef CONFIG_EXAMPLE_CONNECT_WIFI
-    ESP_ERROR_CHECK(esp_event_handler_register(IP_EVENT, IP_EVENT_STA_GOT_IP, &connect_handler, &server));
-    ESP_ERROR_CHECK(esp_event_handler_register(WIFI_EVENT, WIFI_EVENT_STA_DISCONNECTED, &disconnect_handler, &server));
-#endif // CONFIG_EXAMPLE_CONNECT_WIFI
-#endif // !CONFIG_IDF_TARGET_LINUX
-
-    /* Start the server for the first time */
+    ESP_ERROR_CHECK(esp_event_handler_register(APP_WIFI_EVENT, APP_WIFI_EVENT_CONNECTED,
+                                               &connect_handler, &server));
+    ESP_ERROR_CHECK(esp_event_handler_register(APP_WIFI_EVENT, APP_WIFI_EVENT_DISCONNECTED,
+                                               &disconnect_handler, &server));
+#else
     server = start_webserver();
-
-    while (server) {
-        sleep(5);
-    }
+#endif
 }

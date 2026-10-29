@@ -1,15 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="uk">
 <head>
-    <style>
-        body {
-            background-color: #ffffff;
-        }
-    </style>
-    <title>ESP Captive Portal</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Microplastic — налаштування Wi-Fi</title>
+<style>
+body{font-family:sans-serif;max-width:420px;margin:0 auto;padding:16px;background:#f4f6f8;color:#222}
+h1{font-size:1.3em}
+.card{background:#fff;border-radius:8px;padding:16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.15)}
+label{display:block;margin-top:10px;font-weight:bold}
+input[type=text],input[type=password]{width:100%;box-sizing:border-box;padding:10px;margin-top:4px;font-size:1em;border:1px solid #bbb;border-radius:4px}
+button{width:100%;padding:12px;margin-top:14px;font-size:1em;border:0;border-radius:4px;background:#1565c0;color:#fff;cursor:pointer}
+button.sec{background:#78909c}
+button:disabled{opacity:.6}
+ul{list-style:none;padding:0;margin:8px 0 0;max-height:260px;overflow-y:auto}
+li{padding:10px;border-bottom:1px solid #eee;cursor:pointer;display:flex;justify-content:space-between}
+li:hover{background:#e3f2fd}
+.st{padding:10px;border-radius:4px;margin-top:12px;display:none}
+.st.info{display:block;background:#e3f2fd}
+.st.ok{display:block;background:#e8f5e9;color:#1b5e20}
+.st.err{display:block;background:#ffebee;color:#b71c1c}
+small{color:#666}
+</style>
 </head>
 <body>
-<h1>ESP Captive Portal</h1>
-<p>Hello World, this is ESP32!</p>
+<h1>Налаштування Wi-Fi</h1>
+
+<div class="card">
+  <b>Доступні мережі</b>
+  <ul id="list"><li>Пошук мереж…</li></ul>
+  <button type="button" class="sec" id="rescan">Оновити список</button>
+</div>
+
+<div class="card">
+  <form id="f" autocomplete="off">
+    <label for="ssid">Назва мережі (SSID)</label>
+    <input type="text" id="ssid" name="ssid" maxlength="32" required>
+    <label for="pass">Пароль</label>
+    <input type="password" id="pass" name="password" maxlength="64">
+    <label style="font-weight:normal"><input type="checkbox" id="show"> Показати пароль</label>
+    <small>Для відкритої мережі залиште пароль порожнім.</small>
+    <button type="submit" id="go">Підключити</button>
+  </form>
+  <div id="st" class="st"></div>
+</div>
+
+<noscript>Для роботи сторінки потрібен JavaScript.</noscript>
+
+<script>
+var $ = function (id) { return document.getElementById(id); };
+var pollTimer = null, failCount = 0;
+
+function show(cls, text) { var s = $('st'); s.className = 'st ' + cls; s.textContent = text; }
+function bars(r) { return r >= -55 ? '▂▄▆█' : r >= -67 ? '▂▄▆' : r >= -78 ? '▂▄' : '▂'; }
+function item(text) { var li = document.createElement('li'); li.textContent = text; return li; }
+
+function loadList(refresh) {
+  var l = $('list');
+  $('rescan').disabled = true;
+  if (refresh) { l.innerHTML = ''; l.appendChild(item('Пошук мереж…')); }
+  fetch('/scan' + (refresh ? '?refresh=1' : ''), { cache: 'no-store' })
+    .then(function (r) { return r.json(); })
+    .then(function (nets) {
+      l.innerHTML = '';
+      if (!nets.length) { l.appendChild(item('Мереж не знайдено')); }
+      nets.forEach(function (n) {
+        var li = document.createElement('li');
+        var name = document.createElement('span');
+        var lvl = document.createElement('span');
+        name.textContent = (n.open ? '' : '🔒 ') + n.ssid;
+        lvl.textContent = bars(n.rssi);
+        li.appendChild(name); li.appendChild(lvl);
+        li.onclick = function () { $('ssid').value = n.ssid; $('pass').value = ''; $('pass').focus(); };
+        l.appendChild(li);
+      });
+    })
+    .catch(function () { l.innerHTML = ''; l.appendChild(item('Не вдалося отримати список мереж')); })
+    .then(function () { $('rescan').disabled = false; });
+}
+
+function poll() {
+  clearTimeout(pollTimer);
+  fetch('/status', { cache: 'no-store' })
+    .then(function (r) { return r.json(); })
+    .then(function (s) {
+      failCount = 0;
+      if (s.state === 'testing') {
+        show('info', 'Підключення до «' + s.ssid + '»…');
+        pollTimer = setTimeout(poll, 1000);
+      } else if (s.state === 'ok') {
+        show('ok', 'Підключено до «' + s.ssid + '». IP-адреса пристрою: ' + s.ip +
+             '. Мережа налаштування зараз вимкнеться. ' + s.msg);
+        $('go').disabled = false;
+      } else if (s.state === 'fail') {
+        show('err', 'Не вдалося підключитися до «' + s.ssid + '». ' + s.msg);
+        $('go').disabled = false;
+      } else {
+        $('go').disabled = false;
+      }
+    })
+    .catch(function () {
+      /* Під час підключення точка доступу може перейти на канал роутера — зв'язок рветься */
+      failCount++;
+      if (failCount >= 8) {
+        show('info', 'Зв\'язок з пристроєм втрачено. Якщо мережа налаштування зникла — пристрій ' +
+             'успішно підключився до роутера. Інакше під\'єднайтеся до неї знову й оновіть сторінку.');
+      } else {
+        show('info', 'Очікування відповіді пристрою…');
+      }
+      if (failCount < 60) { pollTimer = setTimeout(poll, 2000); }
+    });
+}
+
+$('show').onchange = function () { $('pass').type = this.checked ? 'text' : 'password'; };
+$('rescan').onclick = function () { loadList(true); };
+
+$('f').onsubmit = function (e) {
+  e.preventDefault();
+  var ssid = $('ssid').value, pass = $('pass').value;
+  if (!ssid) { show('err', 'Вкажіть назву мережі.'); return; }
+  if (pass.length > 0 && pass.length < 8) { show('err', 'Пароль має містити щонайменше 8 символів.'); return; }
+  $('go').disabled = true;
+  show('info', 'Надсилання…');
+  fetch('/connect', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: 'ssid=' + encodeURIComponent(ssid) + '&password=' + encodeURIComponent(pass)
+  })
+    .then(function (r) {
+      return r.json().then(function (j) { if (!r.ok) { throw new Error(j.msg || 'Помилка'); } return j; });
+    })
+    .then(function () { failCount = 0; poll(); })
+    .catch(function (err) { show('err', err.message); $('go').disabled = false; });
+};
+
+loadList(false);
+poll();
+</script>
 </body>
 </html>

@@ -734,26 +734,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/espressif__esp_serial_slave_link/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/espressif__eppp_link/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/espressif__wifi_remote_over_eppp/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/espressif__esp_wifi_remote/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
   include("/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/main/cmake_install.cmake")
 endif()
 
