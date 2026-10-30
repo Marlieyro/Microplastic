@@ -32,96 +32,6 @@
 
 static const char *TAG = "HTTP Server";
 
-/* An HTTP GET handler */
-// TODO це має бути POST який постить режим в контролер
-static esp_err_t mode_get_handler(httpd_req_t *req)
-{
-    char*  buf;
-    size_t buf_len;
-
-    /* Get header value string length and allocate memory for length + 1,
-     * extra byte for null termination */
-    buf_len = httpd_req_get_hdr_value_len(req, "Host") + 1;
-    if (buf_len > 1) {
-        buf = malloc(buf_len);
-        ESP_RETURN_ON_FALSE(buf, ESP_ERR_NO_MEM, TAG, "buffer alloc failed");
-        /* Copy null terminated value string into buffer */
-        if (httpd_req_get_hdr_value_str(req, "Host", buf, buf_len) == ESP_OK) {
-            ESP_LOGI(TAG, "Found header => Host: %s", buf);
-        }
-        free(buf);
-    }
-
-    buf_len = httpd_req_get_hdr_value_len(req, "Test-Header-2") + 1;
-    if (buf_len > 1) {
-        buf = malloc(buf_len);
-        ESP_RETURN_ON_FALSE(buf, ESP_ERR_NO_MEM, TAG, "buffer alloc failed");
-        if (httpd_req_get_hdr_value_str(req, "Test-Header-2", buf, buf_len) == ESP_OK) {
-            ESP_LOGI(TAG, "Found header => Test-Header-2: %s", buf);
-        }
-        free(buf);
-    }
-
-    buf_len = httpd_req_get_hdr_value_len(req, "Test-Header-1") + 1;
-    if (buf_len > 1) {
-        buf = malloc(buf_len);
-        ESP_RETURN_ON_FALSE(buf, ESP_ERR_NO_MEM, TAG, "buffer alloc failed");
-        if (httpd_req_get_hdr_value_str(req, "Test-Header-1", buf, buf_len) == ESP_OK) {
-            ESP_LOGI(TAG, "Found header => Test-Header-1: %s", buf);
-        }
-        free(buf);
-    }
-
-    /* Read URL query string length and allocate memory for length + 1,
-     * extra byte for null termination */
-    buf_len = httpd_req_get_url_query_len(req) + 1;
-    if (buf_len > 1) {
-        buf = malloc(buf_len);
-        ESP_RETURN_ON_FALSE(buf, ESP_ERR_NO_MEM, TAG, "buffer alloc failed");
-        if (httpd_req_get_url_query_str(req, buf, buf_len) == ESP_OK) {
-            ESP_LOGI(TAG, "Found URL query => %s", buf);
-            char param[EXAMPLE_HTTP_QUERY_KEY_MAX_LEN], dec_param[EXAMPLE_HTTP_QUERY_KEY_MAX_LEN] = {0};
-            /* Get value of expected key from query string */
-            if (httpd_query_key_value(buf, "query1", param, sizeof(param)) == ESP_OK) {
-                ESP_LOGI(TAG, "Found URL query parameter => query1=%s", param);
-                ESP_LOGI(TAG, "Decoded query parameter => %s", dec_param);
-            }
-            if (httpd_query_key_value(buf, "query3", param, sizeof(param)) == ESP_OK) {
-                ESP_LOGI(TAG, "Found URL query parameter => query3=%s", param);
-                ESP_LOGI(TAG, "Decoded query parameter => %s", dec_param);
-            }
-            if (httpd_query_key_value(buf, "query2", param, sizeof(param)) == ESP_OK) {
-                ESP_LOGI(TAG, "Found URL query parameter => query2=%s", param);
-                ESP_LOGI(TAG, "Decoded query parameter => %s", dec_param);
-            }
-        }
-        free(buf);
-    }
-
-    /* Set some custom headers */
-    httpd_resp_set_hdr(req, "Custom-Header-1", "Custom-Value-1");
-    httpd_resp_set_hdr(req, "Custom-Header-2", "Custom-Value-2");
-
-    /* Send response with custom headers and body set as the
-     * string passed in user context*/
-    const char* resp_str = (const char*) req->user_ctx;
-    httpd_resp_send(req, resp_str, HTTPD_RESP_USE_STRLEN);
-
-    /* After sending the HTTP response the old HTTP request
-     * headers are lost. Check if HTTP request headers can be read now. */
-    if (httpd_req_get_hdr_value_len(req, "Host") == 0) {
-        ESP_LOGI(TAG, "Request headers lost");
-    }
-    return ESP_OK;
-}
-
-static const httpd_uri_t mode = {
-    .uri       = "/mode",
-    .method    = HTTP_GET,
-    .handler   = mode_get_handler,
-    .user_ctx  = "Hello World!"
-};
-
 /* An HTTP POST handler
  * Приймає бінарні дані і кидає їх в структуру потім кидає в чергу
  */
@@ -175,35 +85,6 @@ static const httpd_uri_t rawData = {
     .handler   = rawData_post_handler,
     .user_ctx  = NULL
 };
-
-
-/* This handler allows the custom error handling functionality to be
- * tested from client side. For that, when a PUT request 0 is sent to
- * URI /ctrl, the /hello and /echo URIs are unregistered and following
- * custom error handler http_404_error_handler() is registered.
- * Afterwards, when /hello or /echo is requested, this custom error
- * handler is invoked which, after sending an error message to client,
- * either closes the underlying socket (when requested URI is /echo)
- * or keeps it open (when requested URI is /hello). This allows the
- * client to infer if the custom error handler is functioning as expected
- * by observing the socket state.
- */
-esp_err_t http_404_error_handler(httpd_req_t *req, httpd_err_code_t err)
-{
-    if (strcmp("/hello", req->uri) == 0) {
-        httpd_resp_send_err(req, HTTPD_404_NOT_FOUND, "/hello URI is not available");
-        /* Return ESP_OK to keep underlying socket open */
-        return ESP_OK;
-    } else if (strcmp("/echo", req->uri) == 0) {
-        httpd_resp_send_err(req, HTTPD_404_NOT_FOUND, "/echo URI is not available");
-        /* Return ESP_FAIL to close underlying socket */
-        return ESP_FAIL;
-    }
-    /* For any other URI send 404 and close socket */
-    httpd_resp_send_err(req, HTTPD_404_NOT_FOUND, "Some 404 error message");
-    return ESP_FAIL;
-}
-
 
 // Конфігурить сервер та реєструє хендлери, та стартує сервер
 static httpd_handle_t start_webserver(void)

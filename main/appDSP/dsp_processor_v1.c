@@ -154,11 +154,11 @@ static bool calibration_is_valid(void)
 
 static bool sensor_data_is_valid(const SensorData *input, bool *saturated)
 {
-    const uint16_t *buffers[] = {
+    /*const uint16_t *buffers[] = {
         &input->dark_buf[0][0],
         &input->ir_buf[0][0],
         &input->blue_buf[0][0],
-    };
+    };*/
 
     *saturated = false;
     if (!isfinite(input->temp_dark) || !isfinite(input->temp_ir) ||
@@ -166,7 +166,7 @@ static bool sensor_data_is_valid(const SensorData *input, bool *saturated)
         return false;
     }
 
-    for (size_t b = 0; b < sizeof(buffers) / sizeof(buffers[0]); ++b) {
+    /*for (size_t b = 0; b < sizeof(buffers) / sizeof(buffers[0]); ++b) {
         for (int i = 0; i < ROWS * COLS; ++i) {
             if (buffers[b][i] >= ADC_CLIP_LIMIT) {
                 *saturated = true;
@@ -174,6 +174,19 @@ static bool sensor_data_is_valid(const SensorData *input, bool *saturated)
             }
         }
     }
+    return true;*/
+
+    for (int i = 0; i < ROWS; ++i) {
+        for (int j = 0; j < COLS; ++j) {
+            if (input->dark_buf[i][j] >= ADC_CLIP_LIMIT ||
+                input->ir_buf[i][j] >= ADC_CLIP_LIMIT ||
+                input->blue_buf[i][j] >= ADC_CLIP_LIMIT) {
+                *saturated = true;
+                return true;
+                }
+        }
+    }
+
     return true;
 }
 
@@ -436,10 +449,25 @@ esp_err_t dsp_process_sensor_data(const SensorData *input, DspResult *result)
         return ESP_ERR_INVALID_STATE;
     }
 
+    uint16_t temp_buf[ROWS][COLS];
+
     /* Крок 1: оцінюємо середні значення каналів і SEM по 32 кадрах. */
-    calculate_mean_and_sem(input->dark_buf, mean_dark, sem_dark);
+    /*calculate_mean_and_sem(input->dark_buf, mean_dark, sem_dark);
     calculate_mean_and_sem(input->ir_buf, mean_ir, sem_ir);
-    calculate_mean_and_sem(input->blue_buf, mean_blue, sem_blue);
+    calculate_mean_and_sem(input->blue_buf, mean_blue, sem_blue);*/
+
+    /* Крок 1: оцінюємо середні значення каналів і SEM по 32 кадрах. */
+    // Копіюємо dark_buf та рахуємо
+    memcpy(temp_buf, input->dark_buf, sizeof(temp_buf));
+    calculate_mean_and_sem(temp_buf, mean_dark, sem_dark);
+
+    // Копіюємо ir_buf та рахуємо
+    memcpy(temp_buf, input->ir_buf, sizeof(temp_buf));
+    calculate_mean_and_sem(temp_buf, mean_ir, sem_ir);
+
+    // Копіюємо blue_buf та рахуємо
+    memcpy(temp_buf, input->blue_buf, sizeof(temp_buf));
+    calculate_mean_and_sem(temp_buf, mean_blue, sem_blue);
 
     /* Крок 2: локальна лінійна поправка темнового рівня за температурою. */
     dark_to_ir_factor =

@@ -1,7 +1,7 @@
 {
     "version":            "1.3",
     "project_name":       "Microplastic",
-    "project_version":    "6dddceb-dirty",
+    "project_version":    "d13bff0-dirty",
     "project_path":       "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic",
     "idf_path":           "/home/user/esp/esp-idf",
     "build_dir":          "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build",

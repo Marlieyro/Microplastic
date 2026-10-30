@@ -78,13 +78,15 @@ void appSensorStart_Work(as7341_handle_t dev_hdl) {
 
     for (int i = 0; i < MEASUREMENTS_COUNT; i++) {
 
+        uint16_t temp_row[COLS];
         // --- ФАЗА 1: Темнова (всі світлодіоди вимкнено) ---
         gpio_set_level(LED_940_PIN, 0);
         gpio_set_level(LED_470_PIN, 0);
         vTaskDelay(pdMS_TO_TICKS(50));
 
         if (as7341_get_spectral_measurements(dev_hdl, &adc_data) == ESP_OK) { //[cite: 1, 3]
-            map_spectral_data_to_array(sensor_data->dark_buf[i], &adc_data);
+            map_spectral_data_to_array(temp_row, &adc_data);
+            memcpy(sensor_data->dark_buf[i], temp_row, sizeof(temp_row));
         }
 
         // --- ФАЗА 2: Інфрачервона / Каламутність ---
@@ -92,7 +94,8 @@ void appSensorStart_Work(as7341_handle_t dev_hdl) {
         vTaskDelay(pdMS_TO_TICKS(50));
 
         if (as7341_get_spectral_measurements(dev_hdl, &adc_data) == ESP_OK) { //[cite: 1, 3]
-            map_spectral_data_to_array(sensor_data->ir_buf[i], &adc_data);
+            map_spectral_data_to_array(temp_row, &adc_data);
+            memcpy(sensor_data->ir_buf[i], temp_row, sizeof(temp_row));
         }
 
         // --- ФАЗА 3: Синя / Мікропластик ---
@@ -101,7 +104,8 @@ void appSensorStart_Work(as7341_handle_t dev_hdl) {
         vTaskDelay(pdMS_TO_TICKS(50));
 
         if (as7341_get_spectral_measurements(dev_hdl, &adc_data) == ESP_OK) { //[cite: 1, 3]
-            map_spectral_data_to_array(sensor_data->blue_buf[i], &adc_data);
+            map_spectral_data_to_array(temp_row, &adc_data);
+            memcpy(sensor_data->blue_buf[i], temp_row, sizeof(temp_row));
         }
     }
 
@@ -131,4 +135,13 @@ static void map_spectral_data_to_array(uint16_t* row_buf, const as7341_channels_
     row_buf[7] = data->f8;
     row_buf[8] = data->clear;
     row_buf[9] = data->nir;
+}
+
+
+void sensorStartTask() {
+
+    for (;;) {
+
+    }
+    vTaskDelete(NULL);
 }
