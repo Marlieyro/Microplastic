@@ -48,10 +48,7 @@ CMAKE_ASM_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
 //Choose the type of build, options are: None Debug Release RelWithDebInfo
 // MinSizeRel ...
-CMAKE_BUILD_TYPE:STRING=Debug
-
-//Enable colored diagnostics throughout.
-CMAKE_COLOR_DIAGNOSTICS:BOOL=ON
+CMAKE_BUILD_TYPE:STRING=
 
 //A wrapper around 'ar' adding the appropriate '--plugin' option
 // for the GCC compiler
@@ -180,11 +177,8 @@ CMAKE_INSTALL_SYSCONFDIR:PATH=etc
 //Path to a program.
 CMAKE_LINKER:FILEPATH=/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ld
 
-//Tool that can launch the native build system. The value may be
-// the full path to an executable or just the tool name if it is
-// expected to be in the PATH. The tool selected depends on the
-// CMAKE_GENERATOR used to configure the project:
-CMAKE_MAKE_PROGRAM:UNINITIALIZED=/opt/clion/bin/ninja/linux/x64/ninja
+//Program used to build from build.ninja files.
+CMAKE_MAKE_PROGRAM:FILEPATH=/home/user/.espressif/tools/ninja/1.12.1/ninja
 
 //Flags used by the linker during the creation of modules during
 // all build types.

@@ -42,6 +42,7 @@ typedef struct {
 } DspCalibration;
 
 static const DspCalibration s_calibration = {
+    // Матриця з кроку 6, матриця M^-1 означає обернену матрицю
     .m_inv_5x5 = {
         {1.0f, 0.0f, 0.0f, 0.0f, 0.0f},
         {0.0f, 1.0f, 0.0f, 0.0f, 0.0f},
@@ -49,6 +50,8 @@ static const DspCalibration s_calibration = {
         {0.0f, 0.0f, 0.0f, 1.0f, 0.0f},
         {0.0f, 0.0f, 0.0f, 0.0f, 1.0f},
     },
+    // Матриця кроку 8, перша 5 значень це ідеальні спектри для полярного мікропластику
+    // другі 5 значень це ідаельні спектри для не полярного мірколпастику
     .e_basis_5x2 = {
         {95.76660358930377f, 5.957651524329082f},
         {168.93518854366798f, 43.44751376930874f},
@@ -84,8 +87,7 @@ static bool dsp_dot(const float *a, const float *b, float *out, int length)
  * ESP-DSP computes each row/column dot product; the dimensions here are
  * intentionally small and fixed by the calibration model.
  */
-static bool matrix_multiply(const float *a, const float *b, float *out,
-                            int rows_a, int cols_a, int cols_b)
+static bool matrix_multiply(const float *a, const float *b, float *out, int rows_a, int cols_a, int cols_b)
 {
     float row[5];
     float column[5];
@@ -194,8 +196,7 @@ static bool sensor_data_is_valid(const SensorData *input, bool *saturated)
  * Для кожного каналу рахуємо середнє та SEM.
  * SEM = max(sample_stddev, sigma_min) / sqrt(N), як у Python DSP v4.
  */
-static void calculate_mean_and_sem(const uint16_t buffer[ROWS][COLS],
-                                   float mean[COLS], float sem[COLS])
+static void calculate_mean_and_sem(const uint16_t buffer[ROWS][COLS], float mean[COLS], float sem[COLS])
 {
     const float sqrt_n = sqrtf((float)ROWS);
     for (int col = 0; col < COLS; ++col) {
@@ -299,12 +300,7 @@ static bool solve_two_component_nnls(const float signal[5], float amplitude[2])
  * Обчислює 3-sigma межі виявлення через ту саму лінійну коваріаційну
  * апроксимацію, що й Python v4: M_inv -> E псевдообернена -> амплітуди.
  */
-static bool calculate_lod(const float sem_dark[COLS],
-                          const float sem_blue[COLS],
-                          float dark_to_blue_factor,
-                          float ife_multiplier,
-                          float *lod_nonpolar,
-                          float *lod_polar)
+static bool calculate_lod(const float sem_dark[COLS],const float sem_blue[COLS],float dark_to_blue_factor,float ife_multiplier,float *lod_nonpolar,float *lod_polar)
 {
     float raw_variance[5];
     float transform[5][5];
@@ -611,16 +607,16 @@ esp_err_t dsp_process_sensor_data(const SensorData *input, DspResult *result)
 
 
 
-void dsp_processing_task(void *pvParameters)
+/*void dsp_processing_task(void *pvParameters)
 {
-    /*DspTaskContext *context = (DspTaskContext *)pvParameters;
+    DspTaskContext *context = (DspTaskContext *)pvParameters;
 
     if (context == NULL || context->input_queue == NULL ||
         context->result_queue == NULL) {
         ESP_LOGE(TAG, "Task DSP запущено з некоректним DspTaskContext.");
         vTaskDelete(NULL);
         return;
-    }*/
+    }
 
     ESP_LOGI(TAG, "DSP task запущено; очікування SensorData у FreeRTOS queue.");
     for (;;) {
@@ -758,14 +754,14 @@ void dsp_processing_task(void *pvParameters)
 
 
         // Відправляємо оброблені дані
-        /*
-         * Не відкидаємо вимірювання при помилці DSP: у чергу все одно
-         * передається запис зі статусом помилки та копією сирих даних.
-         */
+
+         // Не відкидаємо вимірювання при помилці DSP: у чергу все одно
+         // передається запис зі статусом помилки та копією сирих даних.
+
         if (xMessageBufferSend(getAppMsgBuffer(),&result, sizeof(DspResult), portMAX_DELAY) != pdTRUE) {
             ESP_LOGE(TAG, "Не вдалося передати DspResult у вихідну Msg.");
         }
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
-}
+} */
 

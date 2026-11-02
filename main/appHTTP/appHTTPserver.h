@@ -1,12 +1,19 @@
 //
 // Created by user on 27.10.26.
 //
+// HTTP-сервер застосунку (порт 80), стартує після підключення до Wi-Fi.
+//   POST /api/command  {"cmd":"start_work"}       -> {"ok":true,"state":"working"}
+//   POST /api/mode     {"mode":"context_buffering"} -> {"ok":true,"mode":"context_buffering"}
+//   GET  /api/status                              -> {"state":..,"mode":..,"raw":N,"res":M,"err":..}
+//   POST /api/raw      сирі дані симулятора -> FLASH (rawstore)
+//        Content-Type: text/plain               — текст (3 температури + 96 рядків [..])
+//        Content-Type: application/octet-stream — бінарно, рівно sizeof(SensorData) = 1932 Б
+//
 
 #ifndef MICROPLASTIC_APPHTTPSERVER_H
 #define MICROPLASTIC_APPHTTPSERVER_H
-#include "esp_http_server.h"
 
-esp_err_t http_404_error_handler(httpd_req_t *req, httpd_err_code_t err);
+/** @brief Реєструє запуск/зупинку сервера за подіями Wi-Fi. Викликати ДО wifi_manager_start(). */
 void app_http_server_init(void);
 
 #endif //MICROPLASTIC_APPHTTPSERVER_H

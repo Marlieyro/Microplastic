@@ -1,13 +1,11 @@
 idf_component_register(
         SRCS
         "main.c"
-        #"appWiFi/appwifiConfig.c"
         "appDSP/dsp_processor_v1.c"
-        "appWiFi/appDNSServer.c"
-        "appWiFi/appCaptivePortal.c"
+        "appDSP/dsp_task.c"
         "appBuffers/appMsgBuffer.c"
-        "appHTTP/appHTTPclient.c"
         "appBuffers/appQueueRawDataBuffer.c"
+        "appHTTP/appHTTPclient.c"
         "appHTTP/appHTTPserver.c"
         "appSensorAndI2C/appSensor_I2CConfig.c"
         "appSensorAndI2C/appSensor_Sensor.c"
@@ -15,15 +13,24 @@ idf_component_register(
         "appWiFi/appDNSServer.c"
         "appWiFi/appWiFiCredentials.c"
         "appWiFi/appWiFiManager.c"
+        "appModes/appModes.c"
+        "appStorage/appFlashStore.c"
+        "appControl/appControl.c"
+        "appControl/appAcq.c"
+        "appJson/appJson.c"
+        "appLed/appLed.c"
         INCLUDE_DIRS
         "."
         "appWiFi"
         "appDSP"
         "appBuffers"
-        "appContextBuffering"
         "appModes"
         "appHTTP"
         "appSensorAndI2C"
+        "appStorage"
+        "appControl"
+        "appJson"
+        "appLed"
         REQUIRES
         esp_driver_i2c
         esp_driver_gpio
@@ -41,6 +48,8 @@ idf_component_register(
         esp_as7341
         esp_type_utils
         lwip
+        esp_rom
+        esp_partition
         EMBED_FILES
         appWiFi/root.html
 )

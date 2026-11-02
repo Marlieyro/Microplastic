@@ -7,7 +7,7 @@
 
 # =============================================================================
 # Project: Microplastic
-# Configurations: Debug
+# Configurations: 
 # =============================================================================
 # =============================================================================
 
@@ -22,7 +22,7 @@ rule CUSTOM_COMMAND
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__Microplastic.2eelf_unscanned_Debug
+rule C_COMPILER__Microplastic.2eelf_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -32,7 +32,7 @@ rule C_COMPILER__Microplastic.2eelf_unscanned_Debug
 #############################################
 # Rule for linking CXX executable.
 
-rule CXX_EXECUTABLE_LINKER__Microplastic.2eelf_Debug
+rule CXX_EXECUTABLE_LINKER__Microplastic.2eelf_
   command = $PRE_LINK && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-g++ $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
@@ -41,7 +41,7 @@ rule CXX_EXECUTABLE_LINKER__Microplastic.2eelf_Debug
 #############################################
 # Rule for compiling ASM files.
 
-rule ASM_COMPILER____idf_xtensa_unscanned_Debug
+rule ASM_COMPILER____idf_xtensa_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -51,7 +51,7 @@ rule ASM_COMPILER____idf_xtensa_unscanned_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_xtensa_unscanned_Debug
+rule C_COMPILER____idf_xtensa_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -61,7 +61,7 @@ rule C_COMPILER____idf_xtensa_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_xtensa_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_xtensa_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -70,7 +70,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_xtensa_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_stdio_unscanned_Debug
+rule C_COMPILER____idf_esp_stdio_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -80,7 +80,7 @@ rule C_COMPILER____idf_esp_stdio_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_stdio_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_stdio_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -89,7 +89,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_stdio_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_hal_dma_unscanned_Debug
+rule C_COMPILER____idf_esp_hal_dma_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -99,7 +99,7 @@ rule C_COMPILER____idf_esp_hal_dma_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_dma_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_dma_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -108,7 +108,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_dma_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_hal_gpspi_unscanned_Debug
+rule C_COMPILER____idf_esp_hal_gpspi_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -118,7 +118,7 @@ rule C_COMPILER____idf_esp_hal_gpspi_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_gpspi_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_gpspi_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -127,7 +127,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_gpspi_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_hal_clock_unscanned_Debug
+rule C_COMPILER____idf_esp_hal_clock_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -137,7 +137,7 @@ rule C_COMPILER____idf_esp_hal_clock_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_clock_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_clock_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -146,7 +146,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_clock_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_hal_mspi_unscanned_Debug
+rule C_COMPILER____idf_esp_hal_mspi_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -156,7 +156,7 @@ rule C_COMPILER____idf_esp_hal_mspi_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_mspi_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_mspi_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -165,7 +165,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_mspi_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_hal_security_unscanned_Debug
+rule C_COMPILER____idf_esp_hal_security_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -175,7 +175,7 @@ rule C_COMPILER____idf_esp_hal_security_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_security_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_security_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -184,7 +184,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_security_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_app_format_unscanned_Debug
+rule C_COMPILER____idf_esp_app_format_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -194,7 +194,7 @@ rule C_COMPILER____idf_esp_app_format_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_app_format_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_app_format_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -203,7 +203,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_app_format_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_bootloader_format_unscanned_Debug
+rule C_COMPILER____idf_esp_bootloader_format_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -213,7 +213,7 @@ rule C_COMPILER____idf_esp_bootloader_format_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_bootloader_format_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_bootloader_format_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -222,7 +222,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_bootloader_format_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_app_update_unscanned_Debug
+rule C_COMPILER____idf_app_update_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -232,7 +232,7 @@ rule C_COMPILER____idf_app_update_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_app_update_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_app_update_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -241,7 +241,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_app_update_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_partition_unscanned_Debug
+rule C_COMPILER____idf_esp_partition_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -251,7 +251,7 @@ rule C_COMPILER____idf_esp_partition_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_partition_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_partition_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -260,7 +260,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_partition_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_efuse_unscanned_Debug
+rule C_COMPILER____idf_efuse_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -270,7 +270,7 @@ rule C_COMPILER____idf_efuse_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_efuse_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_efuse_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -279,7 +279,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_efuse_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_security_unscanned_Debug
+rule C_COMPILER____idf_esp_security_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -289,7 +289,7 @@ rule C_COMPILER____idf_esp_security_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_security_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_security_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -298,7 +298,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_security_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_driver_gpio_unscanned_Debug
+rule C_COMPILER____idf_esp_driver_gpio_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -308,7 +308,7 @@ rule C_COMPILER____idf_esp_driver_gpio_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_gpio_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_gpio_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -317,7 +317,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_gpio_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_hal_uart_unscanned_Debug
+rule C_COMPILER____idf_esp_hal_uart_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -327,7 +327,7 @@ rule C_COMPILER____idf_esp_hal_uart_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_uart_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_uart_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -336,7 +336,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_uart_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_pm_unscanned_Debug
+rule C_COMPILER____idf_esp_pm_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -346,7 +346,7 @@ rule C_COMPILER____idf_esp_pm_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_pm_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_pm_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -355,7 +355,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_pm_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_mm_unscanned_Debug
+rule C_COMPILER____idf_esp_mm_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -365,7 +365,7 @@ rule C_COMPILER____idf_esp_mm_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_mm_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_mm_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -374,7 +374,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_mm_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_driver_dma_unscanned_Debug
+rule C_COMPILER____idf_esp_driver_dma_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -384,7 +384,7 @@ rule C_COMPILER____idf_esp_driver_dma_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_dma_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_dma_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -393,7 +393,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_dma_Debug
 #############################################
 # Rule for compiling ASM files.
 
-rule ASM_COMPILER____idf_mbedtls_unscanned_Debug
+rule ASM_COMPILER____idf_mbedtls_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -403,7 +403,7 @@ rule ASM_COMPILER____idf_mbedtls_unscanned_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_mbedtls_unscanned_Debug
+rule C_COMPILER____idf_mbedtls_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -413,7 +413,7 @@ rule C_COMPILER____idf_mbedtls_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_mbedtls_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_mbedtls_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -422,7 +422,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_mbedtls_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__everest_unscanned_Debug
+rule C_COMPILER__everest_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -432,7 +432,7 @@ rule C_COMPILER__everest_unscanned_Debug
 #############################################
 # Rule for linking CXX static library.
 
-rule CXX_STATIC_LIBRARY_LINKER__everest_Debug
+rule CXX_STATIC_LIBRARY_LINKER__everest_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
@@ -441,7 +441,7 @@ rule CXX_STATIC_LIBRARY_LINKER__everest_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__p256-m_unscanned_Debug
+rule C_COMPILER__p256-m_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -451,7 +451,7 @@ rule C_COMPILER__p256-m_unscanned_Debug
 #############################################
 # Rule for linking CXX static library.
 
-rule CXX_STATIC_LIBRARY_LINKER__p256-m_Debug
+rule CXX_STATIC_LIBRARY_LINKER__p256-m_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
@@ -460,7 +460,7 @@ rule CXX_STATIC_LIBRARY_LINKER__p256-m_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__builtin_unscanned_Debug
+rule C_COMPILER__builtin_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -470,7 +470,7 @@ rule C_COMPILER__builtin_unscanned_Debug
 #############################################
 # Rule for linking CXX static library.
 
-rule CXX_STATIC_LIBRARY_LINKER__builtin_Debug
+rule CXX_STATIC_LIBRARY_LINKER__builtin_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
@@ -479,7 +479,7 @@ rule CXX_STATIC_LIBRARY_LINKER__builtin_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__pqcp_unscanned_Debug
+rule C_COMPILER__pqcp_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -489,7 +489,7 @@ rule C_COMPILER__pqcp_unscanned_Debug
 #############################################
 # Rule for linking CXX static library.
 
-rule CXX_STATIC_LIBRARY_LINKER__pqcp_Debug
+rule CXX_STATIC_LIBRARY_LINKER__pqcp_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
@@ -498,7 +498,7 @@ rule CXX_STATIC_LIBRARY_LINKER__pqcp_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__extras_unscanned_Debug
+rule C_COMPILER__extras_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -508,7 +508,7 @@ rule C_COMPILER__extras_unscanned_Debug
 #############################################
 # Rule for linking CXX static library.
 
-rule CXX_STATIC_LIBRARY_LINKER__extras_Debug
+rule CXX_STATIC_LIBRARY_LINKER__extras_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
@@ -517,7 +517,7 @@ rule CXX_STATIC_LIBRARY_LINKER__extras_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__platform_unscanned_Debug
+rule C_COMPILER__platform_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -527,7 +527,7 @@ rule C_COMPILER__platform_unscanned_Debug
 #############################################
 # Rule for linking CXX static library.
 
-rule CXX_STATIC_LIBRARY_LINKER__platform_Debug
+rule CXX_STATIC_LIBRARY_LINKER__platform_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
@@ -536,7 +536,7 @@ rule CXX_STATIC_LIBRARY_LINKER__platform_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__utilities_unscanned_Debug
+rule C_COMPILER__utilities_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -546,7 +546,7 @@ rule C_COMPILER__utilities_unscanned_Debug
 #############################################
 # Rule for linking CXX static library.
 
-rule CXX_STATIC_LIBRARY_LINKER__utilities_Debug
+rule CXX_STATIC_LIBRARY_LINKER__utilities_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
@@ -555,7 +555,7 @@ rule CXX_STATIC_LIBRARY_LINKER__utilities_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__tfpsacrypto_unscanned_Debug
+rule C_COMPILER__tfpsacrypto_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -565,7 +565,7 @@ rule C_COMPILER__tfpsacrypto_unscanned_Debug
 #############################################
 # Rule for linking CXX static library.
 
-rule CXX_STATIC_LIBRARY_LINKER__tfpsacrypto_Debug
+rule CXX_STATIC_LIBRARY_LINKER__tfpsacrypto_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
@@ -574,7 +574,7 @@ rule CXX_STATIC_LIBRARY_LINKER__tfpsacrypto_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__mbedx509_unscanned_Debug
+rule C_COMPILER__mbedx509_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -584,7 +584,7 @@ rule C_COMPILER__mbedx509_unscanned_Debug
 #############################################
 # Rule for linking CXX static library.
 
-rule CXX_STATIC_LIBRARY_LINKER__mbedx509_Debug
+rule CXX_STATIC_LIBRARY_LINKER__mbedx509_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
@@ -593,7 +593,7 @@ rule CXX_STATIC_LIBRARY_LINKER__mbedx509_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__mbedtls_unscanned_Debug
+rule C_COMPILER__mbedtls_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -603,7 +603,7 @@ rule C_COMPILER__mbedtls_unscanned_Debug
 #############################################
 # Rule for linking CXX static library.
 
-rule CXX_STATIC_LIBRARY_LINKER__mbedtls_Debug
+rule CXX_STATIC_LIBRARY_LINKER__mbedtls_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking CXX static library $TARGET_FILE
   restat = $RESTAT
@@ -612,7 +612,7 @@ rule CXX_STATIC_LIBRARY_LINKER__mbedtls_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_hal_timg_unscanned_Debug
+rule C_COMPILER____idf_esp_hal_timg_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -622,7 +622,7 @@ rule C_COMPILER____idf_esp_hal_timg_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_timg_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_timg_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -631,7 +631,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_timg_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_hal_wdt_unscanned_Debug
+rule C_COMPILER____idf_esp_hal_wdt_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -641,7 +641,7 @@ rule C_COMPILER____idf_esp_hal_wdt_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_wdt_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_wdt_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -650,7 +650,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_wdt_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_hal_ana_conv_unscanned_Debug
+rule C_COMPILER____idf_esp_hal_ana_conv_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -660,7 +660,7 @@ rule C_COMPILER____idf_esp_hal_ana_conv_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_ana_conv_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_ana_conv_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -669,7 +669,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_ana_conv_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_bootloader_support_unscanned_Debug
+rule C_COMPILER____idf_bootloader_support_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -679,7 +679,7 @@ rule C_COMPILER____idf_bootloader_support_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_bootloader_support_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_bootloader_support_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -688,7 +688,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_bootloader_support_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_spi_flash_unscanned_Debug
+rule C_COMPILER____idf_spi_flash_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -698,7 +698,7 @@ rule C_COMPILER____idf_spi_flash_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_spi_flash_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_spi_flash_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -707,7 +707,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_spi_flash_Debug
 #############################################
 # Rule for compiling ASM files.
 
-rule ASM_COMPILER____idf_esp_system_unscanned_Debug
+rule ASM_COMPILER____idf_esp_system_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -717,7 +717,7 @@ rule ASM_COMPILER____idf_esp_system_unscanned_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_system_unscanned_Debug
+rule C_COMPILER____idf_esp_system_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -727,7 +727,7 @@ rule C_COMPILER____idf_esp_system_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_system_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_system_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -736,7 +736,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_system_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_common_unscanned_Debug
+rule C_COMPILER____idf_esp_common_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -746,7 +746,7 @@ rule C_COMPILER____idf_esp_common_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_common_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_common_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -755,7 +755,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_common_Debug
 #############################################
 # Rule for compiling ASM files.
 
-rule ASM_COMPILER____idf_esp_rom_unscanned_Debug
+rule ASM_COMPILER____idf_esp_rom_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -765,7 +765,7 @@ rule ASM_COMPILER____idf_esp_rom_unscanned_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_rom_unscanned_Debug
+rule C_COMPILER____idf_esp_rom_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -775,7 +775,7 @@ rule C_COMPILER____idf_esp_rom_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_rom_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_rom_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -784,7 +784,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_rom_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_hal_unscanned_Debug
+rule C_COMPILER____idf_hal_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -794,7 +794,7 @@ rule C_COMPILER____idf_hal_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_hal_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_hal_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -803,7 +803,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_hal_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_log_unscanned_Debug
+rule C_COMPILER____idf_log_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -813,7 +813,7 @@ rule C_COMPILER____idf_log_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_log_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_log_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -822,7 +822,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_log_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_heap_unscanned_Debug
+rule C_COMPILER____idf_heap_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -832,7 +832,7 @@ rule C_COMPILER____idf_heap_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_heap_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_heap_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -841,7 +841,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_heap_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_soc_unscanned_Debug
+rule C_COMPILER____idf_soc_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -851,7 +851,7 @@ rule C_COMPILER____idf_soc_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_soc_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_soc_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -860,7 +860,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_soc_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_hal_gpio_unscanned_Debug
+rule C_COMPILER____idf_esp_hal_gpio_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -870,7 +870,7 @@ rule C_COMPILER____idf_esp_hal_gpio_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_gpio_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_gpio_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -879,7 +879,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_gpio_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_hal_usb_unscanned_Debug
+rule C_COMPILER____idf_esp_hal_usb_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -889,7 +889,7 @@ rule C_COMPILER____idf_esp_hal_usb_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_usb_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_usb_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -898,7 +898,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_usb_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_hal_pmu_unscanned_Debug
+rule C_COMPILER____idf_esp_hal_pmu_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -908,7 +908,7 @@ rule C_COMPILER____idf_esp_hal_pmu_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_pmu_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_pmu_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -917,7 +917,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_pmu_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_hal_touch_sens_unscanned_Debug
+rule C_COMPILER____idf_esp_hal_touch_sens_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -927,7 +927,7 @@ rule C_COMPILER____idf_esp_hal_touch_sens_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_touch_sens_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_touch_sens_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -936,7 +936,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_touch_sens_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_hal_i2s_unscanned_Debug
+rule C_COMPILER____idf_esp_hal_i2s_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -946,7 +946,7 @@ rule C_COMPILER____idf_esp_hal_i2s_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_i2s_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_i2s_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -955,7 +955,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_i2s_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_hw_support_unscanned_Debug
+rule C_COMPILER____idf_esp_hw_support_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -965,7 +965,7 @@ rule C_COMPILER____idf_esp_hw_support_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_hw_support_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_hw_support_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -974,7 +974,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_hw_support_Debug
 #############################################
 # Rule for compiling ASM files.
 
-rule ASM_COMPILER____idf_freertos_unscanned_Debug
+rule ASM_COMPILER____idf_freertos_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -984,7 +984,7 @@ rule ASM_COMPILER____idf_freertos_unscanned_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_freertos_unscanned_Debug
+rule C_COMPILER____idf_freertos_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -994,7 +994,7 @@ rule C_COMPILER____idf_freertos_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_freertos_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_freertos_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1003,7 +1003,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_freertos_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_libc_unscanned_Debug
+rule C_COMPILER____idf_esp_libc_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1013,7 +1013,7 @@ rule C_COMPILER____idf_esp_libc_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_libc_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_libc_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1022,7 +1022,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_libc_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_pthread_unscanned_Debug
+rule C_COMPILER____idf_pthread_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1032,7 +1032,7 @@ rule C_COMPILER____idf_pthread_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_pthread_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_pthread_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1041,7 +1041,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_pthread_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER____idf_cxx_unscanned_Debug
+rule CXX_COMPILER____idf_cxx_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-g++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1051,7 +1051,7 @@ rule CXX_COMPILER____idf_cxx_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_cxx_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_cxx_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1060,7 +1060,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_cxx_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_timer_unscanned_Debug
+rule C_COMPILER____idf_esp_timer_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1070,7 +1070,7 @@ rule C_COMPILER____idf_esp_timer_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_timer_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_timer_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1079,7 +1079,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_timer_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_ringbuf_unscanned_Debug
+rule C_COMPILER____idf_esp_ringbuf_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1089,7 +1089,7 @@ rule C_COMPILER____idf_esp_ringbuf_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_ringbuf_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_ringbuf_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1098,7 +1098,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_ringbuf_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_psram_unscanned_Debug
+rule C_COMPILER____idf_esp_psram_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1108,7 +1108,7 @@ rule C_COMPILER____idf_esp_psram_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_psram_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_psram_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1117,7 +1117,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_psram_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_driver_uart_unscanned_Debug
+rule C_COMPILER____idf_esp_driver_uart_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1127,7 +1127,7 @@ rule C_COMPILER____idf_esp_driver_uart_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_uart_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_uart_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1136,7 +1136,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_uart_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_driver_gptimer_unscanned_Debug
+rule C_COMPILER____idf_esp_driver_gptimer_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1146,7 +1146,7 @@ rule C_COMPILER____idf_esp_driver_gptimer_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_gptimer_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_gptimer_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1155,7 +1155,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_gptimer_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_event_unscanned_Debug
+rule C_COMPILER____idf_esp_event_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1165,7 +1165,7 @@ rule C_COMPILER____idf_esp_event_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_event_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_event_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1174,7 +1174,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_event_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_nvs_sec_provider_unscanned_Debug
+rule C_COMPILER____idf_nvs_sec_provider_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1184,7 +1184,7 @@ rule C_COMPILER____idf_nvs_sec_provider_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_nvs_sec_provider_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_nvs_sec_provider_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1193,7 +1193,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_nvs_sec_provider_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_nvs_flash_unscanned_Debug
+rule C_COMPILER____idf_nvs_flash_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1203,7 +1203,7 @@ rule C_COMPILER____idf_nvs_flash_unscanned_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER____idf_nvs_flash_unscanned_Debug
+rule CXX_COMPILER____idf_nvs_flash_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-g++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1213,7 +1213,7 @@ rule CXX_COMPILER____idf_nvs_flash_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_nvs_flash_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_nvs_flash_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1222,7 +1222,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_nvs_flash_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_phy_unscanned_Debug
+rule C_COMPILER____idf_esp_phy_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1232,7 +1232,7 @@ rule C_COMPILER____idf_esp_phy_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_phy_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_phy_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1241,7 +1241,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_phy_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_driver_usb_serial_jtag_unscanned_Debug
+rule C_COMPILER____idf_esp_driver_usb_serial_jtag_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1251,7 +1251,7 @@ rule C_COMPILER____idf_esp_driver_usb_serial_jtag_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_usb_serial_jtag_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_usb_serial_jtag_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1260,7 +1260,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_usb_serial_jtag_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_vfs_unscanned_Debug
+rule C_COMPILER____idf_vfs_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1270,7 +1270,7 @@ rule C_COMPILER____idf_vfs_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_vfs_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_vfs_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1279,7 +1279,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_vfs_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_lwip_unscanned_Debug
+rule C_COMPILER____idf_lwip_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1289,7 +1289,7 @@ rule C_COMPILER____idf_lwip_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_lwip_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_lwip_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1298,7 +1298,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_lwip_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_netif_unscanned_Debug
+rule C_COMPILER____idf_esp_netif_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1308,7 +1308,7 @@ rule C_COMPILER____idf_esp_netif_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_netif_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_netif_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1317,7 +1317,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_netif_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_wpa_supplicant_unscanned_Debug
+rule C_COMPILER____idf_wpa_supplicant_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1327,7 +1327,7 @@ rule C_COMPILER____idf_wpa_supplicant_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_wpa_supplicant_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_wpa_supplicant_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1336,7 +1336,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_wpa_supplicant_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_coex_unscanned_Debug
+rule C_COMPILER____idf_esp_coex_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1346,7 +1346,7 @@ rule C_COMPILER____idf_esp_coex_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_coex_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_coex_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1355,7 +1355,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_coex_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_wifi_unscanned_Debug
+rule C_COMPILER____idf_esp_wifi_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1365,7 +1365,7 @@ rule C_COMPILER____idf_esp_wifi_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_wifi_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_wifi_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1374,7 +1374,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_wifi_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_driver_spi_unscanned_Debug
+rule C_COMPILER____idf_esp_driver_spi_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1384,7 +1384,7 @@ rule C_COMPILER____idf_esp_driver_spi_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_spi_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_spi_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1393,7 +1393,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_spi_Debug
 #############################################
 # Rule for compiling ASM files.
 
-rule ASM_COMPILER____idf_esp_gdbstub_unscanned_Debug
+rule ASM_COMPILER____idf_esp_gdbstub_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1403,7 +1403,7 @@ rule ASM_COMPILER____idf_esp_gdbstub_unscanned_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_gdbstub_unscanned_Debug
+rule C_COMPILER____idf_esp_gdbstub_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1413,7 +1413,7 @@ rule C_COMPILER____idf_esp_gdbstub_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_gdbstub_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_gdbstub_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1422,7 +1422,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_gdbstub_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_unity_unscanned_Debug
+rule C_COMPILER____idf_unity_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1432,7 +1432,7 @@ rule C_COMPILER____idf_unity_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_unity_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_unity_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1441,7 +1441,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_unity_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_cmock_unscanned_Debug
+rule C_COMPILER____idf_cmock_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1451,7 +1451,7 @@ rule C_COMPILER____idf_cmock_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_cmock_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_cmock_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1460,7 +1460,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_cmock_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_console_unscanned_Debug
+rule C_COMPILER____idf_console_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1470,7 +1470,7 @@ rule C_COMPILER____idf_console_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_console_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_console_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1479,7 +1479,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_console_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_hal_i2c_unscanned_Debug
+rule C_COMPILER____idf_esp_hal_i2c_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1489,7 +1489,7 @@ rule C_COMPILER____idf_esp_hal_i2c_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_i2c_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_i2c_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1498,7 +1498,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_i2c_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_hal_twai_unscanned_Debug
+rule C_COMPILER____idf_esp_hal_twai_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1508,7 +1508,7 @@ rule C_COMPILER____idf_esp_hal_twai_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_twai_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_twai_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1517,7 +1517,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_twai_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_driver_unscanned_Debug
+rule C_COMPILER____idf_driver_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1527,7 +1527,7 @@ rule C_COMPILER____idf_driver_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_driver_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_driver_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1536,7 +1536,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_driver_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_http_parser_unscanned_Debug
+rule C_COMPILER____idf_http_parser_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1546,7 +1546,7 @@ rule C_COMPILER____idf_http_parser_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_http_parser_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_http_parser_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1555,7 +1555,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_http_parser_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp-tls_unscanned_Debug
+rule C_COMPILER____idf_esp-tls_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1565,7 +1565,7 @@ rule C_COMPILER____idf_esp-tls_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp-tls_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp-tls_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1574,7 +1574,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp-tls_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_adc_unscanned_Debug
+rule C_COMPILER____idf_esp_adc_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1584,7 +1584,7 @@ rule C_COMPILER____idf_esp_adc_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_adc_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_adc_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1593,7 +1593,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_adc_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_blockdev_util_unscanned_Debug
+rule C_COMPILER____idf_esp_blockdev_util_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1603,7 +1603,7 @@ rule C_COMPILER____idf_esp_blockdev_util_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_blockdev_util_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_blockdev_util_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1612,7 +1612,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_blockdev_util_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_hal_cam_unscanned_Debug
+rule C_COMPILER____idf_esp_hal_cam_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1622,7 +1622,7 @@ rule C_COMPILER____idf_esp_hal_cam_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_cam_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_cam_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1631,7 +1631,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_cam_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_driver_cam_unscanned_Debug
+rule C_COMPILER____idf_esp_driver_cam_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1641,7 +1641,7 @@ rule C_COMPILER____idf_esp_driver_cam_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_cam_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_cam_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1650,7 +1650,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_cam_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_driver_i2c_unscanned_Debug
+rule C_COMPILER____idf_esp_driver_i2c_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1660,7 +1660,7 @@ rule C_COMPILER____idf_esp_driver_i2c_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_i2c_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_i2c_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1669,7 +1669,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_i2c_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_driver_i2s_unscanned_Debug
+rule C_COMPILER____idf_esp_driver_i2s_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1679,7 +1679,7 @@ rule C_COMPILER____idf_esp_driver_i2s_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_i2s_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_i2s_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1688,7 +1688,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_i2s_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_hal_ledc_unscanned_Debug
+rule C_COMPILER____idf_esp_hal_ledc_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1698,7 +1698,7 @@ rule C_COMPILER____idf_esp_hal_ledc_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_ledc_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_ledc_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1707,7 +1707,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_ledc_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_driver_ledc_unscanned_Debug
+rule C_COMPILER____idf_esp_driver_ledc_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1717,7 +1717,7 @@ rule C_COMPILER____idf_esp_driver_ledc_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_ledc_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_ledc_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1726,7 +1726,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_ledc_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_hal_mcpwm_unscanned_Debug
+rule C_COMPILER____idf_esp_hal_mcpwm_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1736,7 +1736,7 @@ rule C_COMPILER____idf_esp_hal_mcpwm_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_mcpwm_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_mcpwm_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1745,7 +1745,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_mcpwm_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_driver_mcpwm_unscanned_Debug
+rule C_COMPILER____idf_esp_driver_mcpwm_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1755,7 +1755,7 @@ rule C_COMPILER____idf_esp_driver_mcpwm_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_mcpwm_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_mcpwm_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1764,7 +1764,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_mcpwm_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_hal_pcnt_unscanned_Debug
+rule C_COMPILER____idf_esp_hal_pcnt_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1774,7 +1774,7 @@ rule C_COMPILER____idf_esp_hal_pcnt_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_pcnt_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_pcnt_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1783,7 +1783,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_pcnt_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_driver_pcnt_unscanned_Debug
+rule C_COMPILER____idf_esp_driver_pcnt_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1793,7 +1793,7 @@ rule C_COMPILER____idf_esp_driver_pcnt_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_pcnt_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_pcnt_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1802,7 +1802,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_pcnt_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_hal_rmt_unscanned_Debug
+rule C_COMPILER____idf_esp_hal_rmt_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1812,7 +1812,7 @@ rule C_COMPILER____idf_esp_hal_rmt_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_rmt_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_rmt_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1821,7 +1821,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_rmt_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_driver_rmt_unscanned_Debug
+rule C_COMPILER____idf_esp_driver_rmt_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1831,7 +1831,7 @@ rule C_COMPILER____idf_esp_driver_rmt_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_rmt_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_rmt_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1840,7 +1840,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_rmt_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_hal_sd_unscanned_Debug
+rule C_COMPILER____idf_esp_hal_sd_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1850,7 +1850,7 @@ rule C_COMPILER____idf_esp_hal_sd_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_sd_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_sd_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1859,7 +1859,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_sd_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_sdmmc_unscanned_Debug
+rule C_COMPILER____idf_sdmmc_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1869,7 +1869,7 @@ rule C_COMPILER____idf_sdmmc_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_sdmmc_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_sdmmc_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1878,7 +1878,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_sdmmc_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_driver_sd_intf_unscanned_Debug
+rule C_COMPILER____idf_esp_driver_sd_intf_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1888,7 +1888,7 @@ rule C_COMPILER____idf_esp_driver_sd_intf_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_sd_intf_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_sd_intf_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1897,7 +1897,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_sd_intf_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_driver_sdm_unscanned_Debug
+rule C_COMPILER____idf_esp_driver_sdm_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1907,7 +1907,7 @@ rule C_COMPILER____idf_esp_driver_sdm_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_sdm_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_sdm_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1916,7 +1916,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_sdm_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_driver_sdmmc_unscanned_Debug
+rule C_COMPILER____idf_esp_driver_sdmmc_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1926,7 +1926,7 @@ rule C_COMPILER____idf_esp_driver_sdmmc_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_sdmmc_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_sdmmc_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1935,7 +1935,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_sdmmc_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_driver_sdspi_unscanned_Debug
+rule C_COMPILER____idf_esp_driver_sdspi_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1945,7 +1945,7 @@ rule C_COMPILER____idf_esp_driver_sdspi_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_sdspi_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_sdspi_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1954,7 +1954,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_sdspi_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_driver_touch_sens_unscanned_Debug
+rule C_COMPILER____idf_esp_driver_touch_sens_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1964,7 +1964,7 @@ rule C_COMPILER____idf_esp_driver_touch_sens_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_touch_sens_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_touch_sens_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1973,7 +1973,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_touch_sens_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_driver_tsens_unscanned_Debug
+rule C_COMPILER____idf_esp_driver_tsens_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -1983,7 +1983,7 @@ rule C_COMPILER____idf_esp_driver_tsens_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_tsens_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_tsens_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -1992,7 +1992,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_tsens_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_driver_twai_unscanned_Debug
+rule C_COMPILER____idf_esp_driver_twai_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -2002,7 +2002,7 @@ rule C_COMPILER____idf_esp_driver_twai_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_twai_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_twai_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -2011,7 +2011,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_driver_twai_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_eth_unscanned_Debug
+rule C_COMPILER____idf_esp_eth_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -2021,7 +2021,7 @@ rule C_COMPILER____idf_esp_eth_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_eth_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_eth_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -2030,7 +2030,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_eth_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_hal_lcd_unscanned_Debug
+rule C_COMPILER____idf_esp_hal_lcd_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -2040,7 +2040,7 @@ rule C_COMPILER____idf_esp_hal_lcd_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_lcd_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_lcd_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -2049,7 +2049,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_hal_lcd_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_hid_unscanned_Debug
+rule C_COMPILER____idf_esp_hid_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -2059,7 +2059,7 @@ rule C_COMPILER____idf_esp_hid_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_hid_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_hid_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -2068,7 +2068,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_hid_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_tcp_transport_unscanned_Debug
+rule C_COMPILER____idf_tcp_transport_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -2078,7 +2078,7 @@ rule C_COMPILER____idf_tcp_transport_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_tcp_transport_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_tcp_transport_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -2087,7 +2087,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_tcp_transport_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_http_client_unscanned_Debug
+rule C_COMPILER____idf_esp_http_client_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -2097,7 +2097,7 @@ rule C_COMPILER____idf_esp_http_client_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_http_client_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_http_client_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -2106,7 +2106,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_http_client_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_http_server_unscanned_Debug
+rule C_COMPILER____idf_esp_http_server_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -2116,7 +2116,7 @@ rule C_COMPILER____idf_esp_http_server_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_http_server_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_http_server_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -2125,7 +2125,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_http_server_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_https_ota_unscanned_Debug
+rule C_COMPILER____idf_esp_https_ota_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -2135,7 +2135,7 @@ rule C_COMPILER____idf_esp_https_ota_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_https_ota_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_https_ota_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -2144,7 +2144,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_https_ota_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_https_server_unscanned_Debug
+rule C_COMPILER____idf_esp_https_server_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -2154,7 +2154,7 @@ rule C_COMPILER____idf_esp_https_server_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_https_server_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_https_server_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -2163,7 +2163,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_https_server_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_lcd_unscanned_Debug
+rule C_COMPILER____idf_esp_lcd_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -2173,7 +2173,7 @@ rule C_COMPILER____idf_esp_lcd_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_lcd_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_lcd_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -2182,7 +2182,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_lcd_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_protobuf-c_unscanned_Debug
+rule C_COMPILER____idf_protobuf-c_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -2192,7 +2192,7 @@ rule C_COMPILER____idf_protobuf-c_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_protobuf-c_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_protobuf-c_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -2201,7 +2201,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_protobuf-c_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_protocomm_unscanned_Debug
+rule C_COMPILER____idf_protocomm_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -2211,7 +2211,7 @@ rule C_COMPILER____idf_protocomm_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_protocomm_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_protocomm_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -2220,7 +2220,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_protocomm_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_local_ctrl_unscanned_Debug
+rule C_COMPILER____idf_esp_local_ctrl_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -2230,7 +2230,7 @@ rule C_COMPILER____idf_esp_local_ctrl_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_local_ctrl_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_local_ctrl_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -2239,7 +2239,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_local_ctrl_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER____idf_wear_levelling_unscanned_Debug
+rule CXX_COMPILER____idf_wear_levelling_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-g++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -2249,7 +2249,7 @@ rule CXX_COMPILER____idf_wear_levelling_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_wear_levelling_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_wear_levelling_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -2258,7 +2258,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_wear_levelling_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_fatfs_unscanned_Debug
+rule C_COMPILER____idf_fatfs_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -2268,7 +2268,7 @@ rule C_COMPILER____idf_fatfs_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_fatfs_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_fatfs_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -2277,7 +2277,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_fatfs_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_perfmon_unscanned_Debug
+rule C_COMPILER____idf_perfmon_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -2287,7 +2287,7 @@ rule C_COMPILER____idf_perfmon_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_perfmon_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_perfmon_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -2296,7 +2296,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_perfmon_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_rt_unscanned_Debug
+rule C_COMPILER____idf_rt_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -2306,7 +2306,7 @@ rule C_COMPILER____idf_rt_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_rt_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_rt_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -2315,7 +2315,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_rt_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_spiffs_unscanned_Debug
+rule C_COMPILER____idf_spiffs_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -2325,7 +2325,7 @@ rule C_COMPILER____idf_spiffs_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_spiffs_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_spiffs_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -2334,7 +2334,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_spiffs_Debug
 #############################################
 # Rule for compiling ASM files.
 
-rule ASM_COMPILER____idf_espressif__esp-dsp_unscanned_Debug
+rule ASM_COMPILER____idf_espressif__esp-dsp_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -2344,7 +2344,7 @@ rule ASM_COMPILER____idf_espressif__esp-dsp_unscanned_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_espressif__esp-dsp_unscanned_Debug
+rule C_COMPILER____idf_espressif__esp-dsp_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -2354,7 +2354,7 @@ rule C_COMPILER____idf_espressif__esp-dsp_unscanned_Debug
 #############################################
 # Rule for compiling CXX files.
 
-rule CXX_COMPILER____idf_espressif__esp-dsp_unscanned_Debug
+rule CXX_COMPILER____idf_espressif__esp-dsp_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-g++ $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -2364,7 +2364,7 @@ rule CXX_COMPILER____idf_espressif__esp-dsp_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_espressif__esp-dsp_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_espressif__esp-dsp_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -2373,7 +2373,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_espressif__esp-dsp_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_type_utils_unscanned_Debug
+rule C_COMPILER____idf_esp_type_utils_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -2383,7 +2383,7 @@ rule C_COMPILER____idf_esp_type_utils_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_type_utils_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_type_utils_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -2392,7 +2392,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_type_utils_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_esp_as7341_unscanned_Debug
+rule C_COMPILER____idf_esp_as7341_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -2402,7 +2402,7 @@ rule C_COMPILER____idf_esp_as7341_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_esp_as7341_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_esp_as7341_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -2411,7 +2411,7 @@ rule C_STATIC_LIBRARY_LINKER____idf_esp_as7341_Debug
 #############################################
 # Rule for compiling ASM files.
 
-rule ASM_COMPILER____idf_main_unscanned_Debug
+rule ASM_COMPILER____idf_main_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -2421,7 +2421,7 @@ rule ASM_COMPILER____idf_main_unscanned_Debug
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER____idf_main_unscanned_Debug
+rule C_COMPILER____idf_main_unscanned_
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}/home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-gcc $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -2431,7 +2431,7 @@ rule C_COMPILER____idf_main_unscanned_Debug
 #############################################
 # Rule for linking C static library.
 
-rule C_STATIC_LIBRARY_LINKER____idf_main_Debug
+rule C_STATIC_LIBRARY_LINKER____idf_main_
   command = $PRE_LINK && /usr/bin/cmake -E rm -f $TARGET_FILE && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ar qc $TARGET_FILE $LINK_FLAGS $in && /home/user/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32s3-elf-ranlib $TARGET_FILE && $POST_BUILD
   description = Linking C static library $TARGET_FILE
   restat = $RESTAT
@@ -2458,7 +2458,7 @@ rule CLEAN_ADDITIONAL
 # Rule for cleaning all built files.
 
 rule CLEAN
-  command = /opt/clion/bin/ninja/linux/x64/ninja $FILE_ARG -t clean $TARGETS
+  command = /home/user/.espressif/tools/ninja/1.12.1/ninja $FILE_ARG -t clean $TARGETS
   description = Cleaning all built files...
 
 
@@ -2466,6 +2466,6 @@ rule CLEAN
 # Rule for printing all primary targets available.
 
 rule HELP
-  command = /opt/clion/bin/ninja/linux/x64/ninja -t targets
+  command = /home/user/.espressif/tools/ninja/1.12.1/ninja -t targets
   description = All primary targets available:
 

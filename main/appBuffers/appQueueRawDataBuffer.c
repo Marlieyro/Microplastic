@@ -11,7 +11,7 @@
 
 static const char *TAG = "MSG_BUFFER";
 
-#define BUFFER_SIZE 10 // Items
+#define BUFFER_SIZE 3 // Items
 // #define BUFFER_TRIGGER_LEVEL 1300 // Bytes
 
 static QueueHandle_t xQueueRawDataBuffer = NULL;

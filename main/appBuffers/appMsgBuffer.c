@@ -10,7 +10,7 @@
 static const char *TAG = "MSG_BUFFER";
 
 // TODO помніять це елементи чи ні
-#define BUFFER_SIZE 1400
+#define BUFFER_SIZE 4096
 // #define BUFFER_TRIGGER_LEVEL 1300 // Bytes
 
 static MessageBufferHandle_t xMsgBuffer = NULL;

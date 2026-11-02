@@ -5,6 +5,6 @@
 #ifndef MICROPLASTIC_MAIN_H
 #define MICROPLASTIC_MAIN_H
 
-void app_main();
+void app_main(void);
 
 #endif //MICROPLASTIC_MAIN_H

@@ -5,11 +5,11 @@
 #include "appSensor_I2CConfig.h"
 #include "esp_log.h"
 #include "driver/i2c_master.h"
+#include "appConfig.h"
 
-// Налаштування пінів (можна змінити на ті, що розведені на твоїй платі)
-// TODO піни
-#define I2C_MASTER_SCL_IO           9
-#define I2C_MASTER_SDA_IO           8
+// Піни за схемою KiCad (див. appConfig.h)
+#define I2C_MASTER_SCL_IO           APP_PIN_I2C_SCL
+#define I2C_MASTER_SDA_IO           APP_PIN_I2C_SDA
 #define I2C_MASTER_NUM              0      // Номер I2C порту (0 або 1)
 #define I2C_MASTER_FREQ_HZ          400000 // Частота шини (Fast Mode - 400kH)
 #define I2C_SLAVE_ADRR              (0x39)
