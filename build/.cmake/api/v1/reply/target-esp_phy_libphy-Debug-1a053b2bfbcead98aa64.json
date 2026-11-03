@@ -1,0 +1,78 @@
+{
+	"abstract" : true,
+	"artifacts" : 
+	[
+		{
+			"path" : "/home/user/esp/esp-idf/components/esp_phy/lib/esp32s3/libphy.a"
+		}
+	],
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"add_prebuilt_library",
+			"set_property"
+		],
+		"files" : 
+		[
+			"/home/user/esp/esp-idf/tools/cmake/utilities.cmake",
+			"/home/user/esp/esp-idf/components/esp_phy/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 153,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 402,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 408,
+				"parent" : 1
+			}
+		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 11
+	},
+	"id" : "esp_phy_libphy::@c4472d8d68a6cb344214",
+	"imported" : true,
+	"interfaceCompileDependencies" : 
+	[
+		{
+			"backtrace" : 3,
+			"id" : "__idf_esp_phy::@c4472d8d68a6cb344214"
+		}
+	],
+	"interfaceLinkLibraries" : 
+	[
+		{
+			"backtrace" : 3,
+			"id" : "__idf_esp_phy::@c4472d8d68a6cb344214"
+		}
+	],
+	"name" : "esp_phy_libphy",
+	"nameOnDisk" : "libphy.a",
+	"paths" : 
+	{
+		"build" : "esp-idf/esp_phy",
+		"source" : "/home/user/esp/esp-idf/components/esp_phy"
+	},
+	"sources" : [],
+	"type" : "STATIC_LIBRARY"
+}

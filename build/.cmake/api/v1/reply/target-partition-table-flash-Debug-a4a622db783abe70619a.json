@@ -1,0 +1,69 @@
+{
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"esptool_py_flash_target",
+			"add_dependencies"
+		],
+		"files" : 
+		[
+			"/home/user/esp/esp-idf/components/esptool_py/project_include.cmake",
+			"/home/user/esp/esp-idf/components/partition_table/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 177,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 192,
+				"parent" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 184,
+				"parent" : 0
+			}
+		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 11
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 3,
+			"id" : "partition-table::@8e7a60ee4fe55e1aaabf"
+		}
+	],
+	"id" : "partition-table-flash::@8e7a60ee4fe55e1aaabf",
+	"name" : "partition-table-flash",
+	"orderDependencies" : 
+	[
+		{
+			"backtrace" : 3,
+			"id" : "partition-table::@8e7a60ee4fe55e1aaabf"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "esp-idf/partition_table",
+		"source" : "/home/user/esp/esp-idf/components/partition_table"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

@@ -1,7 +1,7 @@
 {
     "version":            "1.3",
     "project_name":       "Microplastic",
-    "project_version":    "5acd3d9-dirty",
+    "project_version":    "1.1.0",
     "project_path":       "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic",
     "idf_path":           "/home/user/esp/esp-idf",
     "build_dir":          "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build",
@@ -1805,13 +1805,13 @@
             "dir": "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main",
             "type": "LIBRARY",
             "lib": "__idf_main",
-            "reqs": [ "esp_driver_i2c", "esp_driver_gpio", "esp_driver_gptimer", "esp_driver_uart", "esp_wifi", "esp_http_client", "esp-tls", "nvs_flash", "esp_event", "esp_netif", "espressif__esp-dsp", "esp_http_server", "esp_eth", "esp_as7341", "esp_type_utils", "lwip", "esp_rom", "esp_partition" ],
+            "reqs": [ "esp_driver_i2c", "esp_driver_gpio", "esp_wifi", "esp_http_client", "esp_http_server", "esp-tls", "nvs_flash", "esp_event", "esp_netif", "esp_partition", "esp_rom", "esp_timer", "esp_pm", "esp_app_format", "app_update", "lwip", "espressif__esp-dsp", "esp_as7341", "esp_type_utils", "esp_https_ota" ],
             "priv_reqs": [ "espressif__esp-dsp" ],
             "managed_reqs": [],
             "managed_priv_reqs": [ "espressif__esp-dsp" ],
             "file": "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/main/libmain.a",
-            "sources": [ "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/main.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appDSP/dsp_processor_v1.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appDSP/dsp_task.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appBuffers/appMsgBuffer.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appBuffers/appQueueRawDataBuffer.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appHTTP/appHTTPclient.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appHTTP/appHTTPserver.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appSensorAndI2C/appSensor_I2CConfig.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appSensorAndI2C/appSensor_Sensor.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appWiFi/appCaptivePortal.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appWiFi/appDNSServer.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appWiFi/appWiFiCredentials.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appWiFi/appWiFiManager.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appModes/appModes.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appStorage/appFlashStore.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appControl/appControl.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appControl/appAcq.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appJson/appJson.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appLed/appLed.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/root.html.S" ],
-            "include_dirs": [ ".", "appWiFi", "appDSP", "appBuffers", "appModes", "appHTTP", "appSensorAndI2C", "appStorage", "appControl", "appJson", "appLed" ]
+            "sources": [ "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/main.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appDSP/dsp_processor_v1.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appDSP/dsp_task.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appBuffers/appMsgBuffer.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appBuffers/appQueueRawDataBuffer.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appHTTP/appHTTPclient.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appHTTP/appHTTPserver.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appSensorAndI2C/appSensor_I2CConfig.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appSensorAndI2C/appSensor_Sensor.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appWiFi/appCaptivePortal.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appWiFi/appDNSServer.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appWiFi/appWiFiCredentials.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appWiFi/appWiFiManager.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appModes/appModes.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appStorage/appFlashStore.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appControl/appControl.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appControl/appAcq.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appContext/appCtxBuffer.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appJson/appJson.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appLed/appLed.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appButton/appButton.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appBattery/appBattery.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appPower/appPower.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appStats/appStats.c", "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/root.html.S" ],
+            "include_dirs": [ ".", "appWiFi", "appDSP", "appBuffers", "appModes", "appHTTP", "appSensorAndI2C", "appStorage", "appControl", "appContext", "appJson", "appLed", "appButton", "appBattery", "appPower", "appStats" ]
         },
         "mbedtls": {
             "alias": "idf::mbedtls",
@@ -3944,11 +3944,11 @@
             "dir": "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main",
             "source": "project_components",
             "lib": "__idf_main",
-            "reqs": [ "esp_driver_i2c", "esp_driver_gpio", "esp_driver_gptimer", "esp_driver_uart", "esp_wifi", "esp_http_client", "esp-tls", "nvs_flash", "esp_event", "esp_netif", "espressif__esp-dsp", "esp_http_server", "esp_eth", "esp_as7341", "esp_type_utils", "lwip", "esp_rom", "esp_partition" ],
+            "reqs": [ "esp_driver_i2c", "esp_driver_gpio", "esp_wifi", "esp_http_client", "esp_http_server", "esp-tls", "nvs_flash", "esp_event", "esp_netif", "esp_partition", "esp_rom", "esp_timer", "esp_pm", "esp_app_format", "app_update", "lwip", "espressif__esp-dsp", "esp_as7341", "esp_type_utils", "esp_https_ota" ],
             "priv_reqs": [ "espressif__esp-dsp" ],
             "managed_reqs": [],
             "managed_priv_reqs": [ "espressif__esp-dsp" ],
-            "include_dirs": [ ".", "appWiFi", "appDSP", "appBuffers", "appModes", "appHTTP", "appSensorAndI2C", "appStorage", "appControl", "appJson", "appLed" ]
+            "include_dirs": [ ".", "appWiFi", "appDSP", "appBuffers", "appModes", "appHTTP", "appSensorAndI2C", "appStorage", "appControl", "appContext", "appJson", "appLed", "appButton", "appBattery", "appPower", "appStats" ]
         },
         "esp_as7341": {
             "alias": "idf::esp_as7341",

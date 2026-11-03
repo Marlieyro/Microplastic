@@ -1,0 +1,59 @@
+{
+	"abstract" : true,
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"target_link_libraries"
+		],
+		"files" : 
+		[
+			"/home/user/esp/esp-idf/components/cxx/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 90,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 91,
+				"parent" : 0
+			}
+		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 11
+	},
+	"id" : "libgcc_cxx::@fc68b7334ac9a9392d41",
+	"interfaceLinkLibraries" : 
+	[
+		{
+			"backtrace" : 2,
+			"fragment" : "gcc"
+		},
+		{
+			"backtrace" : 2,
+			"fragment" : "/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/cxx/libcxx.a"
+		}
+	],
+	"name" : "libgcc_cxx",
+	"paths" : 
+	{
+		"build" : "esp-idf/cxx",
+		"source" : "/home/user/esp/esp-idf/components/cxx"
+	},
+	"sources" : [],
+	"type" : "INTERFACE_LIBRARY"
+}

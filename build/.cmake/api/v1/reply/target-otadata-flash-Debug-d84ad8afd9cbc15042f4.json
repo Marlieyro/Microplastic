@@ -1,0 +1,48 @@
+{
+	"backtrace" : 2,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_custom_target",
+			"esptool_py_flash_target"
+		],
+		"files" : 
+		[
+			"/home/user/esp/esp-idf/components/esptool_py/project_include.cmake",
+			"/home/user/esp/esp-idf/components/app_update/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 76,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 192,
+				"parent" : 1
+			}
+		]
+	},
+	"codemodelVersion" : 
+	{
+		"major" : 2,
+		"minor" : 11
+	},
+	"id" : "otadata-flash::@cc3b426666063acc9674",
+	"name" : "otadata-flash",
+	"paths" : 
+	{
+		"build" : "esp-idf/app_update",
+		"source" : "/home/user/esp/esp-idf/components/app_update"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

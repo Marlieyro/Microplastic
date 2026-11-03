@@ -14,6 +14,8 @@ typedef enum {
     TEST_MODE = 3,
     CONTINUE_MODE = 4,
     LOAD_OFF_LOCAL_STORAGE_MODE = 5,
+    CONFIGURATION_MODE = 6,     /* Captive Portal (налаштування Wi-Fi) */
+    OTA_MODE = 7,               /* очікування/прийом оновлення прошивки */
     APP_MODES_COUNT
 } applicationModes_t;
 

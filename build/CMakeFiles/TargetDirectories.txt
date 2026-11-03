@@ -133,6 +133,13 @@
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_bootloader_format/CMakeFiles/install/local.dir
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_bootloader_format/CMakeFiles/install/strip.dir
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/app_update/CMakeFiles/__idf_app_update.dir
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/app_update/CMakeFiles/blank_ota_data.dir
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/app_update/CMakeFiles/read-otadata.dir
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/app_update/CMakeFiles/read_otadata.dir
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/app_update/CMakeFiles/erase-otadata.dir
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/app_update/CMakeFiles/erase_otadata.dir
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/app_update/CMakeFiles/otadata-flash.dir
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/app_update/CMakeFiles/encrypted-otadata-flash.dir
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/app_update/CMakeFiles/edit_cache.dir
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/app_update/CMakeFiles/rebuild_cache.dir
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/app_update/CMakeFiles/list_install_components.dir

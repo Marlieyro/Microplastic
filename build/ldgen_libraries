@@ -48,6 +48,7 @@
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_driver_dma/libesp_driver_dma.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_mm/libesp_mm.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/efuse/libefuse.a
+/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_pm/libesp_pm.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_hal_wdt/libesp_hal_wdt.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_hal_ana_conv/libesp_hal_ana_conv.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_ringbuf/libesp_ringbuf.a
@@ -94,7 +95,6 @@
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_partition/libesp_partition.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_driver_gpio/libesp_driver_gpio.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_hal_uart/libesp_hal_uart.a
-/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_pm/libesp_pm.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_hal_timg/libesp_hal_timg.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_hal_wdt/libesp_hal_wdt.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_hal_ana_conv/libesp_hal_ana_conv.a
@@ -207,7 +207,5 @@
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_as7341/libesp_as7341.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_type_utils/libesp_type_utils.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/main/libmain.a
-/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_driver_gptimer/libesp_driver_gptimer.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/espressif__esp-dsp/libespressif__esp-dsp.a
-/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_eth/libesp_eth.a
 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/esp-idf/esp_as7341/libesp_as7341.a

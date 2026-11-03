@@ -7,9 +7,9 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/queue.h"
 #include "dsp_processor_v1.h"
-#include "appQueueRawDataBuffer.h"
+#include "../../../../mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appBuffers/appQueueRawDataBuffer.h"
 
-static const char *TAG = "MSG_BUFFER";
+static const char *TAG = "RAW_QUEUE";
 
 #define BUFFER_SIZE 3 // Items
 // #define BUFFER_TRIGGER_LEVEL 1300 // Bytes
@@ -30,7 +30,7 @@ QueueHandle_t getQueueRawDataBuffer() {
 }
 
 void app_QueueRawDataBuffer_destroy() {
-    vQueueUnregisterQueue(xQueueRawDataBuffer);
+    vQueueDelete(xQueueRawDataBuffer);
     xQueueRawDataBuffer = NULL;
     ESP_LOGI(TAG, "xQueueRawDataBuffer Delete succeeded");
 }

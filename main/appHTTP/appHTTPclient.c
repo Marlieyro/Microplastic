@@ -5,7 +5,8 @@
 //
 // Формат результату (POST /api/result, application/json) — усі поля DspResult;
 // сирі матриці 32x10 uint16 передаються бінарно, закодовані Base64
-// (little-endian, рядок за рядком, 640 Б -> 856 символів).
+// (little-endian, рядок за рядком, 640 Б -> 856 символів). Компактний варіант
+// (context_buffering, середня оцінка контексту) — без матриць, ~600 Б.
 //
 
 #include <stdio.h>
@@ -17,11 +18,13 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/semphr.h"
+#include "freertos/event_groups.h"
 #include "freertos/message_buffer.h"
 #include "esp_log.h"
 #include "esp_check.h"
 #include "esp_netif.h"
 #include "esp_http_client.h"
+#include "esp_app_desc.h"
 
 #include "appConfig.h"
 #include "appHTTPclient.h"
@@ -29,16 +32,19 @@
 #include "appJson.h"
 #include "appFlashStore.h"
 #include "appControl.h"
+#include "appCtxBuffer.h"
 #include "appModes.h"
+#include "appStats.h"
 #include "appWiFiManager.h"
 #include "dsp_processor_v1.h"
 
 static const char *TAG = "NET";
 
 static esp_http_client_handle_t s_client = NULL;
-static TaskHandle_t      s_task = NULL;
-static SemaphoreHandle_t s_host_lock = NULL;
-static char              s_host[16] = APP_SERVER_DEFAULT_HOST;
+static EventGroupHandle_t s_events = NULL;
+static SemaphoreHandle_t  s_host_lock = NULL;
+static char               s_host[16] = APP_SERVER_DEFAULT_HOST;
+static volatile bool      s_upload_abort = false;
 
 /* Статичні буфери задачі net */
 static DspResult s_res;
@@ -113,7 +119,9 @@ static void jw_b64(json_writer_t *w, const char *key, const uint8_t *data, size_
     jw_printf(w, "\"");
 }
 
-static int build_result_json(const DspResult *r, bool from_flash)
+/* ctx_score < 0 — результат звичайної буферизації (без полів контексту) */
+static int build_result_json(const DspResult *r, bool from_flash, bool include_raw,
+                             int ctx_score, const char *ctx_decision)
 {
     json_writer_t w = { .buf = s_json, .cap = sizeof(s_json), .len = 0, .ok = true };
 
@@ -123,6 +131,10 @@ static int build_result_json(const DspResult *r, bool from_flash)
     const size_t n_dom = sizeof(s_dominant_names) / sizeof(s_dominant_names[0]);
 
     jw_printf(&w, "{\"from_flash\":%s", from_flash ? "true" : "false");
+    jw_printf(&w, ",\"raw_included\":%s", include_raw ? "true" : "false");
+    if (ctx_score >= 0) {
+        jw_printf(&w, ",\"ctx_score\":%d,\"ctx_decision\":\"%s\"", ctx_score, ctx_decision);
+    }
     jw_printf(&w, ",\"status\":\"%s\"", st < n_st ? s_status_names[st] : "unknown");
     jw_printf(&w, ",\"flags\":%lu", (unsigned long)r->flags);
     jw_float(&w, "concentration_total_mg_l", r->concentration_total_mg_l);
@@ -143,12 +155,14 @@ static int build_result_json(const DspResult *r, bool from_flash)
     jw_float(&w, "temp_ir", r->raw.temp_ir);
     jw_float(&w, "temp_blue", r->raw.temp_blue);
 
-    /* Адреси матриць через offsetof — без вказівників на поля packed-структури */
-    const uint8_t *base = (const uint8_t *)r + offsetof(DspResult, raw);
-    const size_t   mlen = sizeof(uint16_t) * ROWS * COLS;
-    jw_b64(&w, "dark", base + offsetof(SensorData, dark_buf), mlen);
-    jw_b64(&w, "ir",   base + offsetof(SensorData, ir_buf),   mlen);
-    jw_b64(&w, "blue", base + offsetof(SensorData, blue_buf), mlen);
+    if (include_raw) {
+        /* Адреси матриць через offsetof — без вказівників на поля packed-структури */
+        const uint8_t *base = (const uint8_t *)r + offsetof(DspResult, raw);
+        const size_t   mlen = sizeof(uint16_t) * ROWS * COLS;
+        jw_b64(&w, "dark", base + offsetof(SensorData, dark_buf), mlen);
+        jw_b64(&w, "ir",   base + offsetof(SensorData, ir_buf),   mlen);
+        jw_b64(&w, "blue", base + offsetof(SensorData, blue_buf), mlen);
+    }
     jw_printf(&w, "}");
 
     return w.ok ? (int)w.len : -1;
@@ -172,9 +186,12 @@ static esp_err_t http_event_handler(esp_http_client_event_t *evt)
     return ESP_OK;
 }
 
-/* POST JSON на сервер. true — сервер відповів 2xx. Відповідь — у s_resp. */
-static bool http_post_json(const char *path, const char *body, int len)
+/* POST JSON на сервер. true — сервер відповів 2xx. Відповідь — у s_resp. dur_us — тривалість запиту. */
+static bool http_post_json(const char *path, const char *body, int len, int64_t *dur_us)
 {
+    if (dur_us != NULL) {
+        *dur_us = 0;
+    }
     if (!wifi_manager_is_connected()) {
         return false;
     }
@@ -190,7 +207,11 @@ static bool http_post_json(const char *path, const char *body, int len)
     esp_http_client_set_header(s_client, "Content-Type", "application/json");
     esp_http_client_set_post_field(s_client, body, len);
 
+    const int64_t t0 = app_stats_now();
     const esp_err_t err = esp_http_client_perform(s_client);
+    if (dur_us != NULL) {
+        *dur_us = app_stats_now() - t0;
+    }
     if (err != ESP_OK) {
         ESP_LOGW(TAG, "POST %s: %s", url, esp_err_to_name(err));
         esp_http_client_close(s_client);
@@ -204,37 +225,79 @@ static bool http_post_json(const char *path, const char *body, int len)
     return true;
 }
 
-static bool post_result(const DspResult *r, bool from_flash)
+static bool post_result(const DspResult *r, bool from_flash, bool include_raw, int ctx_score,
+                        const char *ctx_decision, int64_t *dur_us, size_t *bytes)
 {
-    const int len = build_result_json(r, from_flash);
+    const int len = build_result_json(r, from_flash, include_raw, ctx_score, ctx_decision);
+    *bytes = 0;
     if (len < 0) {
         ESP_LOGE(TAG, "JSON результату не вмістився в %u Б", (unsigned)sizeof(s_json));
+        *dur_us = 0;
         return false;
     }
-    return http_post_json("/api/result", s_json, len);
+    *bytes = (size_t)len;
+    return http_post_json("/api/result", s_json, len, dur_us);
 }
 
 /* ======================================================================
  *                         Дії задачі
  * ====================================================================== */
 
+/* Звичайна буферизація: сервер, інакше — FLASH */
 static void handle_result(void)
 {
-    const applicationModes_t mode = getApplicationMode();
+    app_cycle_meta_t meta = { 0 };
+    app_stats_meta_res_take(&meta);
+    meta.t_route_start = app_stats_now();
 
-    if (mode != CONTEXT_BUFFERING_MODE && post_result(&s_res, false)) {
+    int64_t us = 0;
+    size_t bytes = 0;
+    if (post_result(&s_res, false, true, -1, NULL, &us, &bytes)) {
         ESP_LOGI(TAG, "Результат надіслано на сервер");
+        app_stats_log_cycle(&meta, "net_full", us, bytes);
         app_ctrl_notify_result_done(true, NULL);
         return;
     }
 
-    /* Сервер недоступний або режим контекстної буферизації — у FLASH */
+    const int64_t t0 = app_stats_now();
     const esp_err_t err = app_store_push(&g_store_res, &s_res, sizeof(s_res));
+    us = app_stats_now() - t0;
     if (err == ESP_OK) {
-        ESP_LOGI(TAG, "Результат збережено у FLASH (записів: %u)", (unsigned)app_store_count(&g_store_res));
+        ESP_LOGI(TAG, "Сервер недоступний — результат збережено у FLASH (записів: %u)",
+                 (unsigned)app_store_count(&g_store_res));
+        app_stats_log_cycle(&meta, "flash", us, sizeof(s_res));
         app_ctrl_notify_result_done(true, NULL);
     } else {
         app_ctrl_notify_result_done(false, (err == ESP_ERR_NO_MEM) ? "res_store_full" : "res_store");
+    }
+}
+
+static void drain_msg_buffer(void)
+{
+    for (;;) {
+        const size_t n = xMessageBufferReceive(getAppMsgBuffer(), &s_res, sizeof(s_res), 0);
+        if (n == 0) {
+            return;
+        }
+        if (n != sizeof(DspResult)) {
+            ESP_LOGE(TAG, "Розмір повідомлення %u Б, очікувалось %u Б", (unsigned)n, (unsigned)sizeof(DspResult));
+            continue;
+        }
+        handle_result();
+    }
+}
+
+/* Контекстна буферизація: рішення вже прийнято задачею ctx */
+static void drain_ctx_queue(void)
+{
+    DspResult *p = NULL;
+    app_ctx_decision_t d;
+    int score = 0;
+    while (app_ctx_net_take(&p, &d, &score)) {
+        int64_t us = 0;
+        size_t bytes = 0;
+        const bool sent = post_result(p, false, d == APP_CTX_FULL, score, app_ctx_decision_name(d), &us, &bytes);
+        app_ctx_net_done(p, sent, us, bytes);
     }
 }
 
@@ -243,8 +306,15 @@ static void do_upload(void)
 {
     unsigned sent = 0;
     bool ok = true;
+    size_t total_bytes = 0;
+    const int64_t t_start = app_stats_now();
 
     while (app_store_count(&g_store_res) > 0) {
+        if (s_upload_abort) {
+            ok = false;
+            ESP_LOGW(TAG, "Вивантаження перервано командою");
+            break;
+        }
         size_t len = 0;
         const esp_err_t err = app_store_peek(&g_store_res, &s_res, sizeof(s_res), &len);
         if (err == ESP_ERR_NOT_FOUND) {
@@ -255,14 +325,22 @@ static void do_upload(void)
             app_store_pop(&g_store_res);
             continue;
         }
-        if (!post_result(&s_res, true)) {
+        int64_t us = 0;
+        size_t bytes = 0;
+        if (!post_result(&s_res, true, true, -1, NULL, &us, &bytes)) {
             ok = false;
             break;
         }
         app_store_pop(&g_store_res);
         sent++;
+        total_bytes += bytes;
+        ESP_LOGI(STAT_TAG, "upload: запис %u, %u Б за %.3f мс", sent, (unsigned)bytes, (double)us / 1000.0);
+        app_ctrl_notify_upload_progress();
     }
-    ESP_LOGI(TAG, "Вивантаження FLASH: надіслано %u, залишилось %u", sent, (unsigned)app_store_count(&g_store_res));
+    const double total_s = (double)(app_stats_now() - t_start) / 1e6;
+    ESP_LOGI(STAT_TAG, "upload: надіслано %u записів (%u Б) за %.3f с, %.2f зап/с; залишилось %u",
+             sent, (unsigned)total_bytes, total_s, total_s > 0 ? sent / total_s : 0.0,
+             (unsigned)app_store_count(&g_store_res));
     app_ctrl_notify_upload_done(ok);
 }
 
@@ -273,9 +351,10 @@ static void send_hello(void)
     if (sta == NULL || esp_netif_get_ip_info(sta, &ip_info) != ESP_OK) {
         return;
     }
-    char body[64];
-    const int len = snprintf(body, sizeof(body), "{\"ip\":\"" IPSTR "\"}", IP2STR(&ip_info.ip));
-    if (!http_post_json("/api/hello", body, len)) {
+    char body[96];
+    const int len = snprintf(body, sizeof(body), "{\"ip\":\"" IPSTR "\",\"fw\":\"%s\"}",
+                             IP2STR(&ip_info.ip), esp_app_get_description()->version);
+    if (!http_post_json("/api/hello", body, len, NULL)) {
         return;
     }
     double t = 0;
@@ -295,7 +374,7 @@ static void send_event(void)
                              app_ctrl_state_name(app_ctrl_get_state()),
                              appModes_toName(getApplicationMode()),
                              app_ctrl_last_error());
-    http_post_json("/api/event", body, len);
+    http_post_json("/api/event", body, len, NULL);
 }
 
 static void net_task(void *arg)
@@ -304,25 +383,23 @@ static void net_task(void *arg)
     ESP_LOGI(TAG, "Мережева задача запущена");
 
     for (;;) {
-        /* Короткий таймаут, щоб між результатами обробляти запити APP_NET_REQ_* */
-        const size_t n = xMessageBufferReceive(getAppMsgBuffer(), &s_res, sizeof(s_res), pdMS_TO_TICKS(100));
-        if (n == sizeof(DspResult)) {
-            handle_result();
-        } else if (n > 0) {
-            ESP_LOGE(TAG, "Розмір повідомлення %u Б, очікувалось %u Б", (unsigned)n, (unsigned)sizeof(DspResult));
-        }
+        /* Блокування без опитування: задача прокидається лише на запит (важливо для light sleep) */
+        const EventBits_t bits = xEventGroupWaitBits(s_events, APP_NET_REQ_ALL, pdTRUE, pdFALSE, portMAX_DELAY);
 
-        uint32_t bits = 0;
-        if (xTaskNotifyWait(0, UINT32_MAX, &bits, 0) == pdTRUE) {
-            if (bits & APP_NET_REQ_HELLO) {
-                send_hello();
-            }
-            if (bits & APP_NET_REQ_UPLOAD) {
-                do_upload();
-            }
-            if (bits & APP_NET_REQ_EVENT) {
-                send_event();
-            }
+        if (bits & APP_NET_REQ_HELLO) {
+            send_hello();
+        }
+        if (bits & APP_NET_REQ_RESULT) {
+            drain_msg_buffer();
+        }
+        if (bits & APP_NET_REQ_CTX) {
+            drain_ctx_queue();
+        }
+        if (bits & APP_NET_REQ_UPLOAD) {
+            do_upload();
+        }
+        if (bits & APP_NET_REQ_EVENT) {
+            send_event();
         }
     }
 }
@@ -334,7 +411,8 @@ static void net_task(void *arg)
 esp_err_t app_net_start(void)
 {
     s_host_lock = xSemaphoreCreateMutex();
-    ESP_RETURN_ON_FALSE(s_host_lock != NULL, ESP_ERR_NO_MEM, TAG, "Немає пам'яті");
+    s_events = xEventGroupCreate();
+    ESP_RETURN_ON_FALSE(s_host_lock != NULL && s_events != NULL, ESP_ERR_NO_MEM, TAG, "Немає пам'яті");
 
     char url[64];
     snprintf(url, sizeof(url), "http://%s:%d/api/hello", s_host, APP_SERVER_PORT);
@@ -351,16 +429,27 @@ esp_err_t app_net_start(void)
     s_client = esp_http_client_init(&cfg);
     ESP_RETURN_ON_FALSE(s_client != NULL, ESP_FAIL, TAG, "esp_http_client_init");
 
-    ESP_RETURN_ON_FALSE(xTaskCreate(net_task, "net", APP_TASK_NET_STACK, NULL, APP_TASK_NET_PRIO, &s_task) == pdPASS,
+    ESP_RETURN_ON_FALSE(xTaskCreate(net_task, "net", APP_TASK_NET_STACK, NULL, APP_TASK_NET_PRIO, NULL) == pdPASS,
                         ESP_ERR_NO_MEM, TAG, "Не вдалося створити задачу");
     return ESP_OK;
 }
 
 void app_net_request(uint32_t req_bits)
 {
-    if (s_task != NULL) {
-        xTaskNotify(s_task, req_bits, eSetBits);
+    if (s_events != NULL) {
+        xEventGroupSetBits(s_events, (EventBits_t)req_bits);
     }
+}
+
+void app_net_upload_start(void)
+{
+    s_upload_abort = false;
+    app_net_request(APP_NET_REQ_UPLOAD);
+}
+
+void app_net_upload_abort(void)
+{
+    s_upload_abort = true;
 }
 
 void app_net_set_server_host(const char *ip)

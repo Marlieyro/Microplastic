@@ -18,6 +18,8 @@ static const char *const s_mode_names[APP_MODES_COUNT] = {
     [TEST_MODE]                   = "test",
     [CONTINUE_MODE]               = "continue",
     [LOAD_OFF_LOCAL_STORAGE_MODE] = "load_off_local_storage",
+    [CONFIGURATION_MODE]          = "configuration",
+    [OTA_MODE]                    = "ota",
 };
 
 void setApplicationMode(applicationModes_t mode) {

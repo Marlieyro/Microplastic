@@ -45,6 +45,10 @@ esp_err_t app_store_push(app_store_t *s, const void *data, size_t len);
 /** @brief Читає найстаріший запис без видалення. ESP_ERR_NOT_FOUND — черга порожня. */
 esp_err_t app_store_peek(app_store_t *s, void *buf, size_t cap, size_t *out_len);
 
+/** @brief Читає n-й за віком запис (0 — найстаріший) без видалення.
+ *         Використовується, коли кілька кадрів одночасно перебувають в обробці. */
+esp_err_t app_store_peek_nth(app_store_t *s, uint32_t n, void *buf, size_t cap, size_t *out_len);
+
 /** @brief Видаляє найстаріший запис (позначає спожитим). */
 esp_err_t app_store_pop(app_store_t *s);
 

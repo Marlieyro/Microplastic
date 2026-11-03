@@ -17,8 +17,13 @@ idf_component_register(
         "appStorage/appFlashStore.c"
         "appControl/appControl.c"
         "appControl/appAcq.c"
+        "appContext/appCtxBuffer.c"
         "appJson/appJson.c"
         "appLed/appLed.c"
+        "appButton/appButton.c"
+        "appBattery/appBattery.c"
+        "appPower/appPower.c"
+        "appStats/appStats.c"
         INCLUDE_DIRS
         "."
         "appWiFi"
@@ -29,27 +34,35 @@ idf_component_register(
         "appSensorAndI2C"
         "appStorage"
         "appControl"
+        "appContext"
         "appJson"
         "appLed"
+        "appButton"
+        "appBattery"
+        "appPower"
+        "appStats"
         REQUIRES
         esp_driver_i2c
         esp_driver_gpio
-        esp_driver_gptimer
-        esp_driver_uart
         esp_wifi
         esp_http_client
+        esp_http_server
         esp-tls
         nvs_flash
         esp_event
         esp_netif
+        esp_partition
+        esp_rom
+        esp_timer
+        esp_pm
+        esp_app_format
+        app_update
+        lwip
         esp-dsp
-        esp_http_server
-        esp_eth
         esp_as7341
         esp_type_utils
-        lwip
-        esp_rom
-        esp_partition
+        app_update
+        esp_https_ota
         EMBED_FILES
         appWiFi/root.html
 )

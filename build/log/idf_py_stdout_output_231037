@@ -1,0 +1,128 @@
+Command: /home/user/.espressif/python_env/idf6.0_py3.14_env/bin/python /home/user/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyACM0 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/Microplastic.elf /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/bootloader/bootloader.elf -m '/home/user/.espressif/python_env/idf6.0_py3.14_env/bin/python' '/home/user/esp/esp-idf/tools/idf.py' '-B'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x2b (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40048df6
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x14f0
+load:0x403c8700,len:0xda0
+load:0x403cb700,len:0x2f54
+entry 0x403c8908
+[0;32mI (24) boot: ESP-IDF v6.0.2-dirty 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Oct 30 2026 17:24:47[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.4[0m
+[0;32mI (32) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (36) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 8MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (48) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (70) boot:  2 factory          factory app      00 00 00010000 00300000[0m
+[0;32mI (76) boot:  3 rawstore         Unknown data     01 40 00310000 00100000[0m
+[0;32mI (83) boot:  4 resstore         Unknown data     01 41 00410000 00200000[0m
+[0;32mI (89) boot: End of partition table[0m
+[0;32mI (92) esp_image: segment 0: paddr=00010020 vaddr=3c0b0020 size=262c0h (156352) map[0m
+[0;32mI (128) esp_image: segment 1: paddr=000362e8 vaddr=3fc97b00 size=050e0h ( 20704) load[0m
+[0;32mI (133) esp_image: segment 2: paddr=0003b3d0 vaddr=40374000 size=04c48h ( 19528) load[0m
+[0;32mI (138) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=aed28h (716072) map[0m
+[0;32mI (270) esp_image: segment 4: paddr=000eed50 vaddr=40378c48 size=0ede4h ( 60900) load[0m
+[0;32mI (285) esp_image: segment 5: paddr=000fdb3c vaddr=50000000 size=00024h (    36) load[0m
+[0;32mI (294) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (294) boot: Disabling RNG early entropy source...[0m
+[0;32mI (304) cpu_start: Multicore app[0m
+[0;32mI (312) cpu_start: GPIO 44 and 43 are used as console UART I/O pins[0m
+[0;32mI (313) cpu_start: Pro cpu start user code[0m
+[0;32mI (313) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (315) app_init: Application information:[0m
+[0;32mI (318) app_init: Project name:     Microplastic[0m
+[0;32mI (323) app_init: App version:      ea6dbc7-dirty[0m
+[0;32mI (327) app_init: Compile time:     Nov  2 2026 10:50:50[0m
+[0;32mI (332) app_init: ELF file SHA256:  7c9fffb23...[0m
+[0;32mI (337) app_init: ESP-IDF:          v6.0.2-dirty[0m
+[0;32mI (341) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (345) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (349) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (353) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (359) heap_init: At 3FCA5100 len 00044610 (273 KiB): RAM[0m
+[0;32mI (364) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (369) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (374) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (381) spi_flash: detected chip: mxic[0m
+[0;32mI (383) spi_flash: flash io: dio[0m
+[0;33mW (386) spi_flash: Detected size(16384k) larger than the size in the binary image header(8192k). Using the size in the binary image header.[0m
+[0;32mI (399) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (405) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (412) main_task: Started on CPU0[0m
+[0;32mI (412) main_task: Calling app_main()[0m
+[0;32mI (432) MSG_BUFFER: xQueueRawDataBuffer succeeded[0m
+[0;32mI (432) MSG_BUFFER: xMessageBufferCreate succeeded[0m
+[0;32mI (462) FLASH_STORE: «rawstore»: 1024 КБ, слотів 512, записів 1[0m
+[0;32mI (532) FLASH_STORE: «resstore»: 2048 КБ, слотів 1024, записів 0[0m
+[0;32mI (532) APP_CTRL: Задача керування запущена, стан: init[0m
+[0;32mI (542) DSP_TASK: DSP task запущено; очікування SensorData у FreeRTOS queue.[0m
+[0;32mI (542) NET: Мережева задача запущена[0m
+[0;32mI (542) pp: pp rom version: e7ae62f[0m
+[0;32mI (552) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (572) wifi:wifi driver task: 3fcb3a20, prio:23, stack:6656, core=0[0m
+[0;32mI (572) wifi:wifi firmware version: 00ad238[0m
+[0;32mI (572) wifi:wifi certification version: v7.0[0m
+[0;32mI (572) wifi:config NVS flash: enabled[0m
+[0;32mI (582) wifi:config nano formatting: disabled[0m
+[0;32mI (582) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (582) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (592) wifi:Init management short buffer num: 32[0m
+[0;32mI (592) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (602) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (602) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (602) wifi:Init static rx buffer num: 10[0m
+[0;32mI (612) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (612) wifi_init: rx ba win: 6[0m
+[0;32mI (622) wifi_init: accept mbox: 6[0m
+[0;32mI (622) wifi_init: tcpip mbox: 32[0m
+[0;32mI (622) wifi_init: udp mbox: 6[0m
+[0;32mI (622) wifi_init: tcp mbox: 6[0m
+[0;32mI (632) wifi_init: tcp tx win: 5760[0m
+[0;32mI (632) wifi_init: tcp rx win: 5760[0m
+[0;32mI (632) wifi_init: tcp mss: 1440[0m
+[0;32mI (642) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (642) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (642) WIFI_MGR: Кнопка скидання Wi-Fi: GPIO0, утримання 3000 мс[0m
+[0;32mI (652) WIFI_MGR: Знайдено збережену мережу «LinkaStar1913» — підключення[0m
+[0;32mI (662) phy_init: phy_version 712,87e8c20e,Apr 13 2026,18:51:10[0m
+[0;32mI (702) wifi:mode : sta (ac:27:6e:aa:86:ac)[0m
+[0;32mI (702) wifi:enable tsf[0m
+[0;32mI (712) WIFI_MGR: Спроба підключення 1/5[0m
+[0;32mI (712) MAIN: Ініціалізацію завершено, джерело даних: HIL-симулятор (FLASH)[0m
+[0;32mI (712) main_task: Returned from app_main()[0m
+[0;32mI (3192) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (3192) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (3192) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (3202) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (3502) wifi:[ADDBA]RX DELBA, reason:39, delete tid:5, initiator:1(originator)[0m
+[0;32mI (3502) wifi:<ba-add>idx:0 (ifx:0, 9c:53:22:7f:19:13), tid:5, ssn:5, winSize:64[0m
+[0;32mI (3522) wifi:connected with LinkaStar1913, aid = 5, channel 6, BW20, bssid = 9c:53:22:7f:19:13[0m
+[0;32mI (3522) wifi:security: WPA2-PSK, phy: bgn, rssi: -46, cipher(pairwise:0x3, group:0x3), pmf:0[0m
+[0;32mI (3522) wifi:pm start, type: 1[0m
+
+[0;32mI (3532) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (3542) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (3542) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (4572) esp_netif_handlers: sta ip: 192.168.0.161, mask: 255.255.255.0, gw: 192.168.0.1[0m
+[0;32mI (4572) WIFI_MGR: Отримано IP: 192.168.0.161[0m
+[0;32mI (4572) WIFI_MGR: Підключено до Wi-Fi[0m
+[0;32mI (4572) HTTP_SERVER: Запуск HTTP-сервера на порту 80[0m
+[0;32mI (4572) wifi:Set ps type: 1, coexist: 0[0m
+
+[0;32mI (4582) APP_CTRL: Modem sleep: MIN_MODEM (ESP_OK)[0m
+[0;32mI (4592) APP_CTRL: Стан: init -> waiting[0m
+[0;32mI (40642) wifi:<ba-add>idx:1 (ifx:0, 9c:53:22:7f:19:13), tid:0, ssn:3, winSize:64[0m
+[0;32mI (57012) APP_CTRL: Режим: load_off_local_storage (у FLASH результатів: 0)[0m
+[0;32mI (57012) APP_CTRL: Стан: waiting -> uploading[0m
+[0;32mI (57012) HTTP_SERVER: Режим «load_off_local_storage»: ok[0m
+[0;32mI (135052) HTTP_SERVER: Команда «stop_work»: wrong_state[0m
+[0;32mI (146932) HTTP_SERVER: Режим «normal»: busy[0m

@@ -11,6 +11,8 @@
 #include "esp_event.h"
 #include "esp_http_server.h"
 #include "lwip/sockets.h"
+#include "esp_ota_ops.h"
+#include "esp_app_desc.h"
 
 #include "appConfig.h"
 #include "appHTTPserver.h"
@@ -20,6 +22,8 @@
 #include "appJson.h"
 #include "appFlashStore.h"
 #include "appWiFiManager.h"
+#include "appBattery.h"
+#include "appStats.h"
 #include "dsp_processor_v1.h"
 
 #define RECV_TIMEOUT_RETRIES    3
@@ -221,28 +225,40 @@ static esp_err_t mode_post_handler(httpd_req_t *req)
     if (r != APP_REPLY_OK) {
         return send_error(req, reply_http_status(r), app_ctrl_reply_name(r));
     }
-    char resp[64];
-    snprintf(resp, sizeof(resp), "{\"ok\":true,\"mode\":\"%s\"}", appModes_toName(getApplicationMode()));
+    char resp[96];
+    if (mode == CONFIGURATION_MODE) {
+        /* Через APP_PORTAL_DELAY_MS ESP32 запустить Captive Portal і зникне з мережі */
+        snprintf(resp, sizeof(resp), "{\"ok\":true,\"mode\":\"configuration\",\"warning\":\"connection_will_be_lost\"}");
+    } else {
+        snprintf(resp, sizeof(resp), "{\"ok\":true,\"mode\":\"%s\"}", appModes_toName(getApplicationMode()));
+    }
     return send_json(req, "200 OK", resp);
 }
 
 static esp_err_t status_get_handler(httpd_req_t *req)
 {
-    char resp[160];
+    char resp[224];
+    float batt = -1.0f;
+    app_battery_get(&batt, NULL);
 
     learn_server_ip(req);
-    snprintf(resp, sizeof(resp), "{\"state\":\"%s\",\"mode\":\"%s\",\"raw\":%u,\"res\":%u,\"err\":\"%s\"}",
+    snprintf(resp, sizeof(resp),
+             "{\"state\":\"%s\",\"mode\":\"%s\",\"raw\":%u,\"res\":%u,\"err\":\"%s\",\"battery\":%.1f,\"fw\":\"%s\"}",
              app_ctrl_state_name(app_ctrl_get_state()),
              appModes_toName(getApplicationMode()),
              (unsigned)app_store_count(&g_store_raw),
              (unsigned)app_store_count(&g_store_res),
-             app_ctrl_last_error());
+             app_ctrl_last_error(),
+             (double)batt,
+             esp_app_get_description()->version);
     return send_json(req, "200 OK", resp);
 }
 
 static esp_err_t raw_post_handler(httpd_req_t *req)
 {
     learn_server_ip(req);
+    const int64_t t_start = app_stats_now();
+    int64_t t_recv = t_start;
 
     char ctype[48] = { 0 };
     httpd_req_get_hdr_value_str(req, "Content-Type", ctype, sizeof(ctype));
@@ -263,6 +279,7 @@ static esp_err_t raw_post_handler(httpd_req_t *req)
         } else if (recv_body(req, (char *)frame, len) != ESP_OK) {
             err = ESP_FAIL;
         }
+        t_recv = app_stats_now();
     } else {
         if (len == 0 || len > APP_RAW_TEXT_MAX_LEN) {
             fail = "size";
@@ -274,6 +291,7 @@ static esp_err_t raw_post_handler(httpd_req_t *req)
                 if (recv_body(req, text, len) != ESP_OK) {
                     err = ESP_FAIL;
                 } else {
+                    t_recv = app_stats_now();
                     text[len] = '\0';
                     if (!parse_raw_text(text, frame)) {
                         fail = "format";
@@ -294,8 +312,14 @@ static esp_err_t raw_post_handler(httpd_req_t *req)
         return send_error(req, "400 Bad Request", fail);
     }
 
+    const int64_t t_parsed = app_stats_now();
     err = app_store_push(&g_store_raw, frame, sizeof(SensorData));
     free(frame);
+    const int64_t t_end = app_stats_now();
+    ESP_LOGI(STAT_TAG, "raw upload (%s, %u Б): прийом %.3f мс, розбір %.3f мс, запис FLASH %.3f мс, разом %.3f мс",
+             binary ? "bin" : "text", (unsigned)len, (double)(t_recv - t_start) / 1000.0,
+             (double)(t_parsed - t_recv) / 1000.0, (double)(t_end - t_parsed) / 1000.0,
+             (double)(t_end - t_start) / 1000.0);
     if (err == ESP_ERR_NO_MEM) {
         return send_error(req, "507 Insufficient Storage", "full");
     }
@@ -310,10 +334,80 @@ static esp_err_t raw_post_handler(httpd_req_t *req)
     return send_json(req, "200 OK", resp);
 }
 
+/*
+ * Прийом прошивки (режим ota). Образ потоково пишеться в неактивний OTA-слот
+ * (OTA_WITH_SEQUENTIAL_WRITES — сектори стираються поступово, а не всі на старті),
+ * esp_ota_end() перевіряє заголовок і контрольну суму образу, після чого слот
+ * стає завантажувальним і задача керування перезапускає MCU.
+ */
+static esp_err_t ota_post_handler(httpd_req_t *req)
+{
+    learn_server_ip(req);
+    const app_reply_t r = app_ctrl_ota_begin();
+    if (r != APP_REPLY_OK) {
+        return send_error(req, "409 Conflict", "not_in_ota_mode");
+    }
+
+    const esp_partition_t *part = esp_ota_get_next_update_partition(NULL);
+    const size_t total = req->content_len;
+    if (part == NULL || total == 0 || total > part->size) {
+        app_ctrl_notify_ota_done(false);
+        return send_error(req, "400 Bad Request", part == NULL ? "no_ota_partition" : "size");
+    }
+    char *buf = malloc(APP_OTA_CHUNK);
+    if (buf == NULL) {
+        app_ctrl_notify_ota_done(false);
+        return send_error(req, "500 Internal Server Error", "no_mem");
+    }
+
+    ESP_LOGW(TAG, "OTA: прийом %u Б у розділ «%s» (0x%06x)", (unsigned)total, part->label, (unsigned)part->address);
+    const int64_t t0 = app_stats_now();
+    esp_ota_handle_t ota = 0;
+    esp_err_t err = esp_ota_begin(part, OTA_WITH_SEQUENTIAL_WRITES, &ota);
+    size_t got = 0;
+    int retries = 0;
+    while (err == ESP_OK && got < total) {
+        const size_t want = (total - got < APP_OTA_CHUNK) ? total - got : APP_OTA_CHUNK;
+        const int n = httpd_req_recv(req, buf, want);
+        if (n == HTTPD_SOCK_ERR_TIMEOUT && ++retries <= RECV_TIMEOUT_RETRIES) {
+            continue;
+        }
+        if (n <= 0) {
+            err = ESP_FAIL;
+            break;
+        }
+        retries = 0;
+        err = esp_ota_write(ota, buf, (size_t)n);
+        got += (size_t)n;
+    }
+    free(buf);
+
+    if (err == ESP_OK) {
+        err = esp_ota_end(ota);                 /* перевірка образу */
+    } else if (ota != 0) {
+        esp_ota_abort(ota);
+    }
+    if (err == ESP_OK) {
+        err = esp_ota_set_boot_partition(part);
+    }
+    const double sec = (double)(app_stats_now() - t0) / 1e6;
+    ESP_LOGI(STAT_TAG, "ota: %u Б за %.2f с (%.1f КБ/с), результат %s",
+             (unsigned)got, sec, sec > 0 ? (double)got / 1024.0 / sec : 0.0, esp_err_to_name(err));
+
+    if (err != ESP_OK) {
+        app_ctrl_notify_ota_done(false);
+        return send_error(req, "400 Bad Request", "ota_failed");
+    }
+    send_json(req, "200 OK", "{\"ok\":true,\"restart\":true}");
+    app_ctrl_notify_ota_done(true);             /* перезапуск через APP_RESTART_DELAY_MS */
+    return ESP_OK;
+}
+
 static const httpd_uri_t s_uri_command = { .uri = "/api/command", .method = HTTP_POST, .handler = command_post_handler };
 static const httpd_uri_t s_uri_mode    = { .uri = "/api/mode",    .method = HTTP_POST, .handler = mode_post_handler };
 static const httpd_uri_t s_uri_status  = { .uri = "/api/status",  .method = HTTP_GET,  .handler = status_get_handler };
 static const httpd_uri_t s_uri_raw     = { .uri = "/api/raw",     .method = HTTP_POST, .handler = raw_post_handler };
+static const httpd_uri_t s_uri_ota     = { .uri = "/api/ota",     .method = HTTP_POST, .handler = ota_post_handler };
 
 /* ======================================================================
  *                         Запуск / зупинка
@@ -336,6 +430,7 @@ static httpd_handle_t start_webserver(void)
     httpd_register_uri_handler(server, &s_uri_mode);
     httpd_register_uri_handler(server, &s_uri_status);
     httpd_register_uri_handler(server, &s_uri_raw);
+    httpd_register_uri_handler(server, &s_uri_ota);
     return server;
 }
 

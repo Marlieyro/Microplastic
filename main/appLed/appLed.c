@@ -1,18 +1,22 @@
 //
 // Індикація стану системи сигнальним світлодіодом (GPIO4, D2).
 //
-// Кожен шаблон — це бітова маска на часовій сітці з кроком 50 мс:
-// біт i = 1 — LED увімкнено в i-му кроці періоду. Задача щокроку обирає
-// шаблон за поточним станом, тому зміна стану відображається одразу.
+// Кожен шаблон — бітова маска на часовій сітці з кроком 50 мс:
+// біт i = 1 — LED увімкнено в i-му кроці періоду.
+// Задача прокидається ЛИШЕ в моменти зміни рівня (або за app_led_kick()),
+// а не кожні 50 мс, — це дозволяє чипу засинати в режимі light sleep.
 //
 //   Ситуація                         Шаблон
-//   INIT                             10 Гц (50 мс увімк / 50 мс вимк)
-//   Captive Portal                   подвійний спалах кожні 2 с
+//   INIT                             10 Гц
+//   Captive Portal / configuration   подвійний спалах кожні 2 с
 //   Підключення до Wi-Fi             2 Гц
 //   WAITING                          спалах 50 мс кожні 3 с
 //   WORKING                          світиться постійно
-//   UPLOADING (вивантаження FLASH)   5 Гц
+//   UPLOADING                        5 Гц
+//   UPDATING / режим ota             2 спалахи кожні 0.5 с
 //   ERROR                            3 швидкі спалахи, пауза 1.5 с
+//   Сигнал «відхилено» (кнопка)      2 короткі спалахи
+//   Сигнал «перезапуск»              10 Гц протягом 0.5 с
 //
 
 #include <stdint.h>
@@ -24,6 +28,7 @@
 #include "appConfig.h"
 #include "appLed.h"
 #include "appControl.h"
+#include "appModes.h"
 #include "appWiFiManager.h"
 
 #define LED_STEP_MS 50
@@ -34,25 +39,43 @@ typedef struct {
 } led_pattern_t;
 
 static const led_pattern_t PAT_INIT       = { 2,  0x1ULL };
-static const led_pattern_t PAT_PORTAL     = { 40, 0x33ULL };          /* кроки 0,1 і 4,5 */
-static const led_pattern_t PAT_CONNECTING = { 10, 0x1FULL };          /* 250 мс / 250 мс */
-static const led_pattern_t PAT_WAITING    = { 60, 0x1ULL };           /* 50 мс з 3 с */
+static const led_pattern_t PAT_PORTAL     = { 40, 0x33ULL };
+static const led_pattern_t PAT_CONNECTING = { 10, 0x1FULL };
+static const led_pattern_t PAT_WAITING    = { 60, 0x1ULL };
 static const led_pattern_t PAT_WORKING    = { 1,  0x1ULL };
-static const led_pattern_t PAT_UPLOADING  = { 4,  0x3ULL };           /* 100 мс / 100 мс */
-static const led_pattern_t PAT_ERROR      = { 36, 0x15ULL };          /* кроки 0,2,4 */
+static const led_pattern_t PAT_UPLOADING  = { 4,  0x3ULL };
+static const led_pattern_t PAT_UPDATING   = { 10, 0x5ULL };
+static const led_pattern_t PAT_ERROR      = { 36, 0x15ULL };
+static const led_pattern_t PAT_REJECT     = { 8,  0x5ULL };
+static const led_pattern_t PAT_REBOOT     = { 2,  0x1ULL };
 
 static const char *TAG = "LED";
 
+static TaskHandle_t s_task = NULL;
+static const led_pattern_t *volatile s_overlay = NULL;
+static volatile TickType_t s_overlay_until = 0;
+
 static const led_pattern_t *select_pattern(void)
 {
-    const app_state_t st = app_ctrl_get_state();
+    const led_pattern_t *ov = s_overlay;
+    if (ov != NULL) {
+        if ((int32_t)(s_overlay_until - xTaskGetTickCount()) > 0) {
+            return ov;
+        }
+        s_overlay = NULL;
+    }
 
-    /* Пріоритет: ERROR > WORKING > UPLOADING > стан Wi-Fi > WAITING/INIT */
+    const app_state_t st = app_ctrl_get_state();
+    const applicationModes_t mode = getApplicationMode();
+
     if (st == APP_STATE_ERROR) {
         return &PAT_ERROR;
     }
     if (st == APP_STATE_WORKING) {
         return &PAT_WORKING;
+    }
+    if (st == APP_STATE_UPDATING || mode == OTA_MODE) {
+        return &PAT_UPDATING;
     }
     if (st == APP_STATE_UPLOADING) {
         return &PAT_UPLOADING;
@@ -72,22 +95,43 @@ static const led_pattern_t *select_pattern(void)
     return (st == APP_STATE_WAITING) ? &PAT_WAITING : &PAT_INIT;
 }
 
+static int bit_at(const led_pattern_t *p, uint32_t step)
+{
+    return (int)((p->mask >> (step % p->period)) & 1ULL);
+}
+
 static void led_task(void *arg)
 {
     (void)arg;
     const led_pattern_t *current = NULL;
     uint32_t step = 0;
-    TickType_t last_wake = xTaskGetTickCount();
 
     for (;;) {
         const led_pattern_t *p = select_pattern();
         if (p != current) {
             current = p;
-            step = 0;                       /* новий шаблон — з початку періоду */
+            step = 0;
         }
-        gpio_set_level(APP_PIN_LED_STATUS, (int)((current->mask >> step) & 1ULL));
-        step = (step + 1) % current->period;
-        vTaskDelayUntil(&last_wake, pdMS_TO_TICKS(LED_STEP_MS));
+        const int level = bit_at(current, step);
+        gpio_set_level(APP_PIN_LED_STATUS, (uint32_t)level);
+
+        /* Скільки кроків рівень не змінюватиметься */
+        uint32_t k = 1;
+        while (k < current->period && bit_at(current, step + k) == level) {
+            k++;
+        }
+        if (current->period == 1) {
+            k = 20;                     /* постійне світіння: перевірка раз на 1 с */
+        }
+        if (s_overlay != NULL) {
+            const int32_t left = (int32_t)(s_overlay_until - xTaskGetTickCount());
+            const uint32_t left_steps = (left > 0) ? (uint32_t)left / pdMS_TO_TICKS(LED_STEP_MS) + 1 : 1;
+            if (k > left_steps) {
+                k = left_steps;
+            }
+        }
+        step = (step + k) % current->period;
+        ulTaskNotifyTake(pdTRUE, pdMS_TO_TICKS(k * LED_STEP_MS));
     }
 }
 
@@ -103,7 +147,23 @@ esp_err_t app_led_start(void)
     ESP_RETURN_ON_ERROR(gpio_config(&io), TAG, "gpio_config");
     gpio_set_level(APP_PIN_LED_STATUS, 0);
 
-    ESP_RETURN_ON_FALSE(xTaskCreate(led_task, "led", APP_TASK_LED_STACK, NULL, APP_TASK_LED_PRIO, NULL) == pdPASS,
+    ESP_RETURN_ON_FALSE(xTaskCreate(led_task, "led", APP_TASK_LED_STACK, NULL, APP_TASK_LED_PRIO, &s_task) == pdPASS,
                         ESP_ERR_NO_MEM, TAG, "Не вдалося створити задачу");
     return ESP_OK;
+}
+
+void app_led_kick(void)
+{
+    if (s_task != NULL) {
+        xTaskNotifyGive(s_task);
+    }
+}
+
+void app_led_signal(app_led_signal_t sig)
+{
+    const led_pattern_t *p = (sig == APP_LED_SIGNAL_REBOOT) ? &PAT_REBOOT : &PAT_REJECT;
+    const uint32_t dur_ms = (sig == APP_LED_SIGNAL_REBOOT) ? 500 : (uint32_t)p->period * LED_STEP_MS;
+    s_overlay_until = xTaskGetTickCount() + pdMS_TO_TICKS(dur_ms);
+    s_overlay = p;
+    app_led_kick();
 }

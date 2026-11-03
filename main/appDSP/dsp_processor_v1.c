@@ -12,7 +12,7 @@
 #include "freertos/queue.h"
 #include "freertos/message_buffer.h"
 
-#include "dsp_processor_v1.h"
+#include "../../../../mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appDSP/dsp_processor_v1.h"
 #include "appBuffers/appQueueRawDataBuffer.h"
 
 #define TAG "WATER_DSP"

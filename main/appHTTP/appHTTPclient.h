@@ -4,11 +4,14 @@
 // Мережева задача "net" — ЄДИНИЙ власник HTTP-клієнта (esp_http_client не
 // потокобезпечний). Відповідає за:
 //   * POST /api/result  — результат DspResult (JSON + сирі дані в Base64);
-//   * збереження результату у FLASH, якщо сервер недоступний або режим
-//     CONTEXT_BUFFERING;
+//                         звичайна буферизація: якщо сервер недоступний — у FLASH;
+//                         context_buffering: повний або компактний (без сирих даних);
 //   * вивантаження FLASH у режимі LOAD_OFF_LOCAL_STORAGE;
 //   * POST /api/hello   — реєстрація пристрою + синхронізація часу;
-//   * POST /api/event   — повідомлення про зміну стану.
+//   * POST /api/event   — повідомлення про зміну стану/режиму.
+//
+// Запити до задачі передаються бітами EventGroup (НЕ task notification:
+// індекс 0 сповіщень задачі використовує message buffer FreeRTOS).
 //
 
 #ifndef MICROPLASTIC_APPHTTPCLIENT_H
@@ -22,12 +25,22 @@
 #define APP_NET_REQ_HELLO    (1u << 0)
 #define APP_NET_REQ_EVENT    (1u << 1)
 #define APP_NET_REQ_UPLOAD   (1u << 2)
+#define APP_NET_REQ_RESULT   (1u << 3)   /* у message buffer є результат (звичайна буферизація) */
+#define APP_NET_REQ_CTX      (1u << 4)   /* у черзі пулу є результат (контекстна буферизація) */
+#define APP_NET_REQ_ALL      (APP_NET_REQ_HELLO | APP_NET_REQ_EVENT | APP_NET_REQ_UPLOAD | \
+                              APP_NET_REQ_RESULT | APP_NET_REQ_CTX)
 
 /** @brief Ініціалізує HTTP-клієнт і створює задачу net. */
 esp_err_t app_net_start(void);
 
 /** @brief Асинхронний запит до задачі net (комбінація APP_NET_REQ_*). */
 void app_net_request(uint32_t req_bits);
+
+/** @brief Почати вивантаження FLASH (скидає прапорець переривання). */
+void app_net_upload_start(void);
+
+/** @brief Перервати вивантаження після поточного запису. */
+void app_net_upload_abort(void);
 
 /** @brief Оновлює IP-адресу сервера (якщо змінилась — повторний /api/hello). */
 void app_net_set_server_host(const char *ip);

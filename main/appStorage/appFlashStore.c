@@ -24,6 +24,7 @@
 #include "esp_rom_crc.h"
 #include "appFlashStore.h"
 #include "appConfig.h"
+#include "appStats.h"
 
 #define HDR_MAGIC       0x3153504DU     /* "MPS1" */
 #define ST_EMPTY        0xFFFFU
@@ -52,6 +53,8 @@ static const char *TAG = "FLASH_STORE";
 
 app_store_t g_store_raw = { .label = APP_STORE_RAW_LABEL };
 app_store_t g_store_res = { .label = APP_STORE_RES_LABEL };
+
+static int64_t s_last_erase_us = 0;     /* тривалість останнього стирання (для статистики) */
 
 static size_t slot_offset(const app_store_t *s, uint32_t slot)
 {
@@ -171,8 +174,10 @@ static esp_err_t prepare_write_slot(app_store_t *s)
             }
             if (dirty) {
                 const size_t sector_size = (size_t)s->slots_per_sector * APP_STORE_SLOT_SIZE;
+                const int64_t t0 = app_stats_now();
                 ESP_RETURN_ON_ERROR(esp_partition_erase_range(s->part, slot_offset(s, slot), sector_size),
                                     TAG, "Помилка стирання сектора");
+                s_last_erase_us = app_stats_now() - t0;
             }
             return ESP_OK;
         }
@@ -192,7 +197,9 @@ esp_err_t app_store_push(app_store_t *s, const void *data, size_t len)
     ESP_RETURN_ON_FALSE(s != NULL && s->part != NULL && data != NULL, ESP_ERR_INVALID_STATE, TAG, "Сховище не ініціалізоване");
     ESP_RETURN_ON_FALSE(len > 0 && len <= APP_STORE_MAX_PAYLOAD, ESP_ERR_INVALID_SIZE, TAG, "Задовгий запис");
 
+    const int64_t t0 = app_stats_now();
     xSemaphoreTake(s->lock, portMAX_DELAY);
+    s_last_erase_us = 0;
     esp_err_t err = prepare_write_slot(s);
     if (err == ESP_OK) {
         const uint32_t slot = s->write_slot;
@@ -222,8 +229,13 @@ esp_err_t app_store_push(app_store_t *s, const void *data, size_t len)
             s->write_slot = (slot + 1) % s->slots;
         }
     }
+    const int64_t erase_us = s_last_erase_us;
     xSemaphoreGive(s->lock);
 
+    if (err == ESP_OK) {
+        ESP_LOGI(STAT_TAG, "flash write «%s»: %u Б за %.3f мс (з них стирання сектора %.3f мс)",
+                 s->label, (unsigned)len, (double)(app_stats_now() - t0) / 1000.0, (double)erase_us / 1000.0);
+    }
     if (err == ESP_ERR_NO_MEM) {
         ESP_LOGW(TAG, "«%s» заповнене", s->label);
     } else if (err != ESP_OK) {
@@ -248,36 +260,61 @@ static bool seek_valid(app_store_t *s, slot_hdr_t *h)
     return false;
 }
 
-esp_err_t app_store_peek(app_store_t *s, void *buf, size_t cap, size_t *out_len)
+esp_err_t app_store_peek_nth(app_store_t *s, uint32_t n, void *buf, size_t cap, size_t *out_len)
 {
     ESP_RETURN_ON_FALSE(s != NULL && s->part != NULL && buf != NULL, ESP_ERR_INVALID_STATE, TAG, "Сховище не ініціалізоване");
 
     esp_err_t err = ESP_ERR_NOT_FOUND;
+    const int64_t t0 = app_stats_now();
     xSemaphoreTake(s->lock, portMAX_DELAY);
     slot_hdr_t h;
-    while (s->count > 0 && seek_valid(s, &h)) {
-        if (h.len > cap) {
-            err = ESP_ERR_INVALID_SIZE;
-            break;
-        }
-        err = esp_partition_read(s->part, slot_offset(s, s->read_slot) + APP_STORE_HDR_SIZE, buf, h.len);
-        if (err != ESP_OK) {
-            break;
-        }
-        if (esp_rom_crc32_le(0, (const uint8_t *)buf, h.len) == h.crc) {
-            if (out_len != NULL) {
-                *out_len = h.len;
+    if (n < s->count && seek_valid(s, &h)) {
+        /* Обхід кільця від найстарішого запису в порядку запису; n-й дійсний — шуканий */
+        uint32_t slot = s->read_slot;
+        uint32_t seen = 0;
+        for (uint32_t step = 0; step < s->slots; step++, slot = (slot + 1) % s->slots) {
+            if (read_hdr(s, slot, &h) != ESP_OK) {
+                err = ESP_FAIL;
+                break;
             }
-            break;
+            if (classify(&h) != SLOT_VALID) {
+                continue;
+            }
+            if (seen++ < n) {
+                continue;
+            }
+            if (h.len > cap) {
+                err = ESP_ERR_INVALID_SIZE;
+                break;
+            }
+            err = esp_partition_read(s->part, slot_offset(s, slot) + APP_STORE_HDR_SIZE, buf, h.len);
+            if (err != ESP_OK) {
+                break;
+            }
+            if (esp_rom_crc32_le(0, (const uint8_t *)buf, h.len) == h.crc) {
+                if (out_len != NULL) {
+                    *out_len = h.len;
+                }
+                break;
+            }
+            ESP_LOGW(TAG, "«%s»: CRC запису seq=%u не збігається — запис відкинуто", s->label, (unsigned)h.seq);
+            write_state(s, slot, ST_CONSUMED);
+            s->count--;
+            seen--;
+            err = ESP_ERR_NOT_FOUND;
         }
-        ESP_LOGW(TAG, "«%s»: CRC запису seq=%u не збігається — запис відкинуто", s->label, (unsigned)h.seq);
-        write_state(s, s->read_slot, ST_CONSUMED);
-        s->count--;
-        s->read_slot = (s->read_slot + 1) % s->slots;
-        err = ESP_ERR_NOT_FOUND;
     }
     xSemaphoreGive(s->lock);
+    if (err == ESP_OK) {
+        ESP_LOGI(STAT_TAG, "flash read «%s» [%u]: %u Б + CRC-32 за %.3f мс", s->label, (unsigned)n,
+                 out_len ? (unsigned)*out_len : 0u, (double)(app_stats_now() - t0) / 1000.0);
+    }
     return err;
+}
+
+esp_err_t app_store_peek(app_store_t *s, void *buf, size_t cap, size_t *out_len)
+{
+    return app_store_peek_nth(s, 0, buf, cap, out_len);
 }
 
 esp_err_t app_store_pop(app_store_t *s)
