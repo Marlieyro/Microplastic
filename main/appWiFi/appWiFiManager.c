@@ -22,7 +22,6 @@
 #include "esp_event.h"
 #include "esp_netif.h"
 #include "esp_wifi.h"
-#include "driver/gpio.h"
 
 #include "appwifiConfig.h"
 #include "appWiFiManager.h"
@@ -50,7 +49,6 @@ static const char *TAG = "WIFI_MGR";
 typedef enum {
     MSG_STA_GOT_IP = 0,
     MSG_STA_DISCONNECTED,
-    MSG_BUTTON_EDGE,
     MSG_CMD_PORTAL_SUBMIT,
     MSG_CMD_SCAN,
     MSG_CMD_START_PORTAL,
@@ -73,8 +71,6 @@ typedef enum {
     TMR_ATTEMPT_TIMEOUT,    /* спроба триває задовго */
     TMR_PORTAL_SHUTDOWN,    /* вимкнення порталу після успіху */
     TMR_SAVED_RETRY,        /* фонова спроба збереженої мережі */
-    TMR_BUTTON_DEBOUNCE,
-    TMR_BUTTON_HOLD,
     TMR_COUNT
 } mgr_timer_t;
 
@@ -98,7 +94,6 @@ static uint32_t s_backoff_ms = WIFI_MGR_RECONNECT_BACKOFF_MIN_MS;
 static char     s_ap_ssid[WIFI_CRED_SSID_MAX_LEN + 1];
 
 static wifi_credentials_t s_pending;            /* дані, що перевіряються з порталу */
-static volatile bool      s_btn_msg_pending = false;
 
 /* Дані для сторінки порталу (захищені s_data_mutex) */
 static wifi_ap_record_t         s_scan_records[WIFI_MGR_SCAN_MAX_APS];
@@ -119,11 +114,6 @@ static void timer_arm(mgr_timer_t t, uint32_t ms)
 static void timer_disarm(mgr_timer_t t)
 {
     s_tmr_armed[t] = false;
-}
-
-static bool timer_is_armed(mgr_timer_t t)
-{
-    return s_tmr_armed[t];
 }
 
 /* Скільки тиків можна спати до найближчого таймера */
@@ -577,10 +567,6 @@ static void handle_msg(mgr_msg_t *msg)
         handle_disconnected(msg->data.reason);
         break;
 
-    case MSG_BUTTON_EDGE:
-        timer_arm(TMR_BUTTON_DEBOUNCE, WIFI_MGR_RESET_DEBOUNCE_MS);
-        break;
-
     case MSG_CMD_PORTAL_SUBMIT:
         if (s_state != WIFI_MGR_STATE_PORTAL && s_state != WIFI_MGR_STATE_PORTAL_TESTING &&
             s_state != WIFI_MGR_STATE_PORTAL_RETRY_SAVED) {
@@ -658,24 +644,6 @@ static void handle_timer(mgr_timer_t t)
         memset(&creds, 0, sizeof(creds));
         break;
     }
-
-    case TMR_BUTTON_DEBOUNCE: {
-        s_btn_msg_pending = false;      /* знову дозволити повідомлення з ISR */
-        const bool pressed = (gpio_get_level(WIFI_MGR_RESET_GPIO) == WIFI_MGR_RESET_ACTIVE_LEVEL);
-        if (pressed && !timer_is_armed(TMR_BUTTON_HOLD)) {
-            timer_arm(TMR_BUTTON_HOLD, WIFI_MGR_RESET_HOLD_MS);
-        } else if (!pressed) {
-            timer_disarm(TMR_BUTTON_HOLD);
-        }
-        break;
-    }
-
-    case TMR_BUTTON_HOLD:
-        if (gpio_get_level(WIFI_MGR_RESET_GPIO) == WIFI_MGR_RESET_ACTIVE_LEVEL) {
-            ESP_LOGW(TAG, "Кнопку скидання утримано — стирання даних Wi-Fi і запуск порталу");
-            handle_reset_credentials();
-        }
-        break;
 
     default:
         break;
@@ -778,53 +746,6 @@ static void wifi_event_handler(void *arg, esp_event_base_t base, int32_t id, voi
     }
 }
 
-static void reset_button_isr(void *arg)
-{
-    (void)arg;
-    if (s_btn_msg_pending) {
-        return;             /* брязкіт контактів: одне повідомлення на серію фронтів */
-    }
-    s_btn_msg_pending = true;
-    mgr_msg_t msg = { .type = MSG_BUTTON_EDGE };
-    BaseType_t woken = pdFALSE;
-    if (xQueueSendFromISR(s_queue, &msg, &woken) != pdTRUE) {
-        s_btn_msg_pending = false;
-    }
-    if (woken == pdTRUE) {
-        portYIELD_FROM_ISR();
-    }
-}
-
-static void reset_button_init(void)
-{
-    const gpio_num_t pin = WIFI_MGR_RESET_GPIO;
-    if (pin == GPIO_NUM_NC) {
-        return;
-    }
-    const gpio_config_t io = {
-        .pin_bit_mask = 1ULL << (uint32_t)pin,
-        .mode = GPIO_MODE_INPUT,
-        .pull_up_en = (WIFI_MGR_RESET_ACTIVE_LEVEL == 0) ? GPIO_PULLUP_ENABLE : GPIO_PULLUP_DISABLE,
-        .pull_down_en = (WIFI_MGR_RESET_ACTIVE_LEVEL == 0) ? GPIO_PULLDOWN_DISABLE : GPIO_PULLDOWN_ENABLE,
-        .intr_type = GPIO_INTR_ANYEDGE,
-    };
-    esp_err_t err = gpio_config(&io);
-    if (err == ESP_OK) {
-        err = gpio_install_isr_service(0);
-        if (err == ESP_ERR_INVALID_STATE) {
-            err = ESP_OK;   /* сервіс уже встановлений іншим модулем */
-        }
-    }
-    if (err == ESP_OK) {
-        err = gpio_isr_handler_add(pin, reset_button_isr, NULL);
-    }
-    if (err != ESP_OK) {
-        ESP_LOGW(TAG, "Кнопку скидання не налаштовано: %s", esp_err_to_name(err));
-    } else {
-        ESP_LOGI(TAG, "Кнопка скидання Wi-Fi: GPIO%d, утримання %d мс", (int)pin, WIFI_MGR_RESET_HOLD_MS);
-    }
-}
-
 /* ======================================================================
  *                         Публічний API
  * ====================================================================== */
@@ -857,8 +778,6 @@ esp_err_t wifi_manager_start(void)
     uint8_t mac[6] = {0};
     esp_read_mac(mac, ESP_MAC_WIFI_SOFTAP);
     snprintf(s_ap_ssid, sizeof(s_ap_ssid), "%s%02X%02X", WIFI_MGR_AP_SSID_PREFIX, mac[4], mac[5]);
-
-    reset_button_init();
 
     ESP_RETURN_ON_FALSE(xTaskCreate(mgr_task, "wifi_mgr", WIFI_MGR_TASK_STACK_SIZE, NULL,
                                     WIFI_MGR_TASK_PRIORITY, NULL) == pdPASS,

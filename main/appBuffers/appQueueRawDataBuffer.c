@@ -7,7 +7,7 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/queue.h"
 #include "dsp_processor_v1.h"
-#include "../../../../mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appBuffers/appQueueRawDataBuffer.h"
+#include "appQueueRawDataBuffer.h"
 
 static const char *TAG = "RAW_QUEUE";
 
