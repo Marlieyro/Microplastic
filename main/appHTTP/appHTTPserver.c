@@ -172,9 +172,9 @@ static bool parse_raw_text(const char *s, SensorData *out)
     if (idx != RAW_TEXT_NUMBERS) {
         return false;
     }
-    out->temp_dark = temps[0];
+    /*out->temp_dark = temps[0];
     out->temp_ir = temps[1];
-    out->temp_blue = temps[2];
+    out->temp_blue = temps[2];*/
     return true;
 }
 

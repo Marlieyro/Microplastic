@@ -130,9 +130,9 @@ esp_err_t appSensorStart_Work(as7341_handle_t dev_hdl, volatile const bool *abor
     }
 
     // TODO прибрати температуру взагалі (AS7341 не має датчика температури)
-    sensor_data->temp_dark = 0.0f;
+    /*sensor_data->temp_dark = 0.0f;
     sensor_data->temp_ir = 0.0f;
-    sensor_data->temp_blue = 0.0f;
+    sensor_data->temp_blue = 0.0f;*/
 
     esp_err_t ret = ESP_OK;
     for (int i = 0; i < MEASUREMENTS_COUNT && ret == ESP_OK; i++) {

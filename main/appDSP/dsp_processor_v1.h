@@ -20,9 +20,9 @@
  */
 typedef struct __attribute__((packed)) {
     // TODO прибрати температуру взагалі!!
-    float temp_dark;
+    /*float temp_dark;
     float temp_ir;
-    float temp_blue;
+    float temp_blue;*/
     uint16_t dark_buf[ROWS][COLS];
     uint16_t ir_buf[ROWS][COLS];
     uint16_t blue_buf[ROWS][COLS];

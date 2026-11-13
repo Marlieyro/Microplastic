@@ -12,7 +12,7 @@
 #include "freertos/queue.h"
 #include "freertos/message_buffer.h"
 
-#include "../../../../mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/main/appDSP/dsp_processor_v1.h"
+#include "dsp_processor_v1.h"
 #include "appBuffers/appQueueRawDataBuffer.h"
 
 #define TAG "WATER_DSP"
@@ -163,10 +163,10 @@ static bool sensor_data_is_valid(const SensorData *input, bool *saturated)
     };*/
 
     *saturated = false;
-    if (!isfinite(input->temp_dark) || !isfinite(input->temp_ir) ||
+    /*if (!isfinite(input->temp_dark) || !isfinite(input->temp_ir) ||
         !isfinite(input->temp_blue)) {
         return false;
-    }
+    }*/
 
     /*for (size_t b = 0; b < sizeof(buffers) / sizeof(buffers[0]); ++b) {
         for (int i = 0; i < ROWS * COLS; ++i) {
@@ -466,16 +466,16 @@ esp_err_t dsp_process_sensor_data(const SensorData *input, DspResult *result)
     calculate_mean_and_sem(temp_buf, mean_blue, sem_blue);
 
     /* Крок 2: локальна лінійна поправка темнового рівня за температурою. */
-    dark_to_ir_factor =
-        1.0f + s_calibration.alpha_dark_per_c *
-                   (input->temp_ir - input->temp_dark);
-    dark_to_blue_factor =
-        1.0f + s_calibration.alpha_dark_per_c *
-                   (input->temp_blue - input->temp_dark);
-    if (!isfinite(dark_to_ir_factor) || !isfinite(dark_to_blue_factor)) {
+    dark_to_ir_factor = 1;
+        /*1.0f + s_calibration.alpha_dark_per_c *
+                   (input->temp_ir - input->temp_dark);*/
+    dark_to_blue_factor = 1;
+        /*1.0f + s_calibration.alpha_dark_per_c *
+                   (input->temp_blue - input->temp_dark);*/
+    /*if (!isfinite(dark_to_ir_factor) || !isfinite(dark_to_blue_factor)) {
         set_error_result(result, DSP_RESULT_ERROR_NUMERIC);
         return ESP_ERR_INVALID_RESPONSE;
-    }
+    }*/
 
     /*
      * Крок 3: каламутність отримується тільки з IR-фази, NIR-канал.

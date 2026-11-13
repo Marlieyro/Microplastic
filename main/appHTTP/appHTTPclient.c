@@ -151,9 +151,9 @@ static int build_result_json(const DspResult *r, bool from_flash, bool include_r
     jw_float(&w, "lod_polar_mg_l", r->lod_polar_mg_l);
     jw_printf(&w, ",\"timestamp\":%llu", (unsigned long long)r->timestamp);
     jw_printf(&w, ",\"timestamp_valid\":%s", r->timestamp_valid ? "true" : "false");
-    jw_float(&w, "temp_dark", r->raw.temp_dark);
+    /*jw_float(&w, "temp_dark", r->raw.temp_dark);
     jw_float(&w, "temp_ir", r->raw.temp_ir);
-    jw_float(&w, "temp_blue", r->raw.temp_blue);
+    jw_float(&w, "temp_blue", r->raw.temp_blue);*/
 
     if (include_raw) {
         /* Адреси матриць через offsetof — без вказівників на поля packed-структури */

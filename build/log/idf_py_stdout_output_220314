@@ -1,0 +1,147 @@
+Command: /home/user/.espressif/python_env/idf6.0_py3.14_env/bin/python /home/user/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyACM0 -b 115200 --toolchain-prefix xtensa-esp32s3-elf- --target esp32s3 --revision 0 /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/Microplastic.elf /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/bootloader/bootloader.elf -m '/home/user/.espressif/python_env/idf6.0_py3.14_env/bin/python' '/home/user/esp/esp-idf/tools/idf.py' '-B'
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0xb (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403755dd
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x14f0
+load:0x403c8700,len:0xda0
+load:0x403cb700,len:0x2f54
+entry 0x403c8908
+[0;32mI (24) boot: ESP-IDF v6.0.2-dirty 2nd stage bootloader[0m
+[0;32mI (24) boot: compile time Nov 13 2026 13:33:37[0m
+[0;32mI (25) boot: Multicore bootloader[0m
+[0;32mI (25) boot: chip revision: v0.2[0m
+[0;32mI (28) boot: efuse block revision: v1.4[0m
+[0;32mI (32) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (35) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (39) boot.esp32s3: SPI Flash Size : 8MB[0m
+[0;32mI (43) boot: Enabling RNG early entropy source...[0m
+[0;32mI (48) boot: Partition Table:[0m
+[0;32mI (50) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (56) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (63) boot:  1 otadata          OTA data         01 00 0000f000 00002000[0m
+[0;32mI (69) boot:  2 phy_init         RF data          01 01 00011000 00001000[0m
+[0;32mI (76) boot:  3 ota_0            OTA app          00 10 00020000 00280000[0m
+[0;32mI (82) boot:  4 ota_1            OTA app          00 11 002a0000 00280000[0m
+[0;32mI (89) boot:  5 rawstore         Unknown data     01 40 00520000 00100000[0m
+[0;32mI (95) boot:  6 resstore         Unknown data     01 41 00620000 001e0000[0m
+[0;32mI (102) boot: End of partition table[0m
+[0;32mI (106) esp_image: segment 0: paddr=00020020 vaddr=3c0c0020 size=29e0ch (171532) map[0m
+[0;32mI (144) esp_image: segment 1: paddr=00049e34 vaddr=3fc9b600 size=0548ch ( 21644) load[0m
+[0;32mI (149) esp_image: segment 2: paddr=0004f2c8 vaddr=40374000 size=00d50h (  3408) load[0m
+[0;32mI (151) esp_image: segment 3: paddr=00050020 vaddr=42000020 size=b7940h (751936) map[0m
+[0;32mI (293) esp_image: segment 4: paddr=00107968 vaddr=40374d50 size=16854h ( 92244) load[0m
+[0;32mI (314) esp_image: segment 5: paddr=0011e1c4 vaddr=50000000 size=00024h (    36) load[0m
+[0;32mI (315) esp_image: segment 6: paddr=0011e1f0 vaddr=600fe000 size=00058h (    88) load[0m
+[0;32mI (328) boot: Loaded app from partition at offset 0x20000[0m
+[0;32mI (328) boot: Disabling RNG early entropy source...[0m
+[0;32mI (340) cpu_start: Multicore app[0m
+[0;32mI (348) cpu_start: GPIO 44 and 43 are used as console UART I/O pins[0m
+[0;32mI (349) cpu_start: Pro cpu start user code[0m
+[0;32mI (349) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (350) app_init: Application information:[0m
+[0;32mI (354) app_init: Project name:     Microplastic[0m
+[0;32mI (358) app_init: App version:      1.1.0[0m
+[0;32mI (362) app_init: Compile time:     Nov 13 2026 13:33:30[0m
+[0;32mI (367) app_init: ELF file SHA256:  5e8ceff7d...[0m
+[0;32mI (372) app_init: ESP-IDF:          v6.0.2-dirty[0m
+[0;32mI (376) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (380) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (384) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (388) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (394) heap_init: At 3FCABB90 len 0003DB80 (246 KiB): RAM[0m
+[0;32mI (399) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (404) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (409) heap_init: At 600FE058 len 00001F90 (7 KiB): RTCRAM[0m
+[0;32mI (416) spi_flash: detected chip: mxic[0m
+[0;32mI (418) spi_flash: flash io: dio[0m
+[0;33mW (421) spi_flash: Detected size(16384k) larger than the size in the binary image header(8192k). Using the size in the binary image header.[0m
+[0;32mI (434) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (440) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (459) main_task: Started on CPU0[0m
+[0;32mI (459) main_task: Calling app_main()[0m
+[0;32mI (459) MAIN: Прошивка 1.1.0, розділ «ota_0»[0m
+[0;32mI (479) RAW_QUEUE: xQueueRawDataBuffer succeeded[0m
+[0;32mI (479) MSG_BUFFER: xMessageBufferCreate succeeded[0m
+[0;32mI (519) FLASH_STORE: «rawstore»: 1024 КБ, слотів 512, записів 0[0m
+[0;32mI (589) FLASH_STORE: «resstore»: 1920 КБ, слотів 960, записів 0[0m
+[0;32mI (589) i2c_master: I2C шина успішно ініціалізована[0m
+[0;32mI (589) i2c_master: Пристрій успішно додано на шину[0m
+[0;33mW (599) BATTERY: MAX17043 не знайдено за адресою 0x36 — заряд невідомий[0m
+[0;32mI (609) BUTTON: Кнопка GPIO1: 1 натискання — старт, 2 — скидання Wi-Fi, утримання 3 с — перезапуск[0m
+[0;32mI (619) CTX_BUF: Пул мультибуферизації: N = ceil(10000 / 2500) + 1 = 5 буферів x 1985 Б[0m
+[0;32mI (629) DSP_TASK: DSP task запущено; очікування SensorData у FreeRTOS queue.[0m
+[0;32mI (629) NET: Мережева задача запущена[0m
+[0;32mI (639) pp: pp rom version: e7ae62f[0m
+[0;32mI (649) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (669) wifi:wifi driver task: 3fcbeebc, prio:23, stack:6656, core=0[0m
+[0;32mI (669) wifi:wifi firmware version: 00ad238[0m
+[0;32mI (669) wifi:wifi certification version: v7.0[0m
+[0;32mI (669) wifi:config NVS flash: enabled[0m
+[0;32mI (669) wifi:config nano formatting: disabled[0m
+[0;32mI (679) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (679) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (689) wifi:Init management short buffer num: 32[0m
+[0;32mI (689) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (689) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (699) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (699) wifi:Init static rx buffer num: 10[0m
+[0;32mI (709) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (709) wifi_init: rx ba win: 6[0m
+[0;32mI (709) wifi_init: accept mbox: 6[0m
+[0;32mI (719) wifi_init: tcpip mbox: 32[0m
+[0;32mI (719) wifi_init: udp mbox: 6[0m
+[0;32mI (719) wifi_init: tcp mbox: 6[0m
+[0;32mI (719) wifi_init: tcp tx win: 5760[0m
+[0;32mI (729) wifi_init: tcp rx win: 5760[0m
+[0;32mI (729) wifi_init: tcp mss: 1440[0m
+[0;32mI (729) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (739) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (739) wifi_init: WiFi SLP IRAM OP enabled[0m
+[0;32mI (739) WIFI_MGR: Збережених даних Wi-Fi немає — запуск Captive Portal[0m
+[0;32mI (749) phy_init: phy_version 712,87e8c20e,Apr 13 2026,18:51:10[0m
+[0;33mW (759) phy_init: failed to load RF calibration data (0x1102), falling back to full calibration[0m
+[0;32mI (799) phy_init: Saving new calibration data due to checksum failure or outdated calibration data, mode(2)[0m
+[0;32mI (809) wifi:mode : sta (ac:27:6e:aa:86:ac) + softAP (ac:27:6e:aa:86:ad)[0m
+[0;32mI (809) wifi:enable tsf[0m
+[0;32mI (809) wifi:Total power save buffer number: 16[0m
+[0;32mI (809) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (819) wifi:Init max length of beacon: 752/752[0m
+[0;32mI (819) MAIN: Ініціалізацію завершено, джерело даних: HIL-симулятор (FLASH)[0m
+[0;32mI (819) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (839) STAT: boot: ініціалізацію завершено через 422.8 мс після старту застосунку[0m
+[0;32mI (839) DNS_SERVER: DNS-сервер запущено (порт 53)[0m
+[0;32mI (839) CAPTIVE_PORTAL: Портал запущено: http://192.168.4.1/[0m
+[0;32mI (859) main_task: Returned from app_main()[0m
+[0;32mI (859) WIFI_MGR: Captive Portal активний: мережа «Microplastic-86AD», адреса http://192.168.4.1/[0m
+[0;32mI (3779) WIFI_MGR: Знайдено мереж: 9[0m
+[0;32mI (30629) STAT: ==== знімок системи: uptime 30.2 с, CPU 160 МГц, стан=init, режим=configuration, енергозбереження=modem sleep MIN ====[0m
+[0;32mI (30629) STAT: heap: вільно 165560 Б, мінімум за весь час 161000 Б, найбільший блок 118784 Б, внутрішня RAM 165560 Б[0m
+[0;32mI (30639) STAT: ipc: черга сирих даних 0 елем., message buffer вільно 4096 Б, пул контексту вільно 5/5[0m
+[0;32mI (30659) STAT: wifi: не підключено[0m
+[0;32mI (30659) STAT: battery: датчик недоступний[0m
+[0;32mI (30669) STAT: flash: rawstore 0/512 (0.0%), resstore 0/960 (0.0%)[0m
+[0;32mI (30679) STAT: tasks: 21 (CPU% — частка одного ядра за період; IDLE0/IDLE1 — простій ядер)[0m
+[0;32mI (30679) STAT:   stats            prio= 1 stack_free_min= 2688 Б CPU=  0.00%[0m
+[0;32mI (30689) STAT:   IDLE1            prio= 0 stack_free_min=  756 Б CPU=  0.00%[0m
+[0;32mI (30699) STAT:   IDLE0            prio= 0 stack_free_min=  764 Б CPU=  0.00%[0m
+[0;32mI (30709) STAT:   dns_server       prio= 5 stack_free_min= 1744 Б CPU=  0.00%[0m
+[0;32mI (30709) STAT:   led              prio= 1 stack_free_min= 1360 Б CPU=  0.00%[0m
+[0;32mI (30719) STAT:   tcpip            prio=18 stack_free_min= 2232 Б CPU=  0.00%[0m
+[0;32mI (30729) STAT:   button           prio= 5 stack_free_min= 2392 Б CPU=  0.00%[0m
+[0;32mI (30729) STAT:   ipc0             prio= 1 stack_free_min=  472 Б CPU=  0.00%[0m
+[0;32mI (30739) STAT:   ctx              prio= 5 stack_free_min= 2248 Б CPU=  0.00%[0m
+[0;32mI (30749) STAT:   store            prio= 4 stack_free_min= 2320 Б CPU=  0.00%[0m
+[0;32mI (30749) STAT:   acq              prio= 5 stack_free_min= 3336 Б CPU=  0.00%[0m
+[0;32mI (30759) STAT:   dsp              prio= 5 stack_free_min= 6912 Б CPU=  0.00%[0m
+[0;32mI (30769) STAT:   ipc1             prio=24 stack_free_min=  576 Б CPU=  0.00%[0m
+[0;32mI (30769) STAT:   httpd            prio= 5 stack_free_min= 5004 Б CPU=  0.00%[0m
+[0;32mI (30779) STAT:   sys_evt          prio=20 stack_free_min= 1552 Б CPU=  0.00%[0m
+[0;32mI (30789) STAT:   app_ctrl         prio= 6 stack_free_min= 3368 Б CPU=  0.00%[0m
+[0;32mI (30799) STAT:   wifi_mgr         prio= 5 stack_free_min= 3916 Б CPU=  0.00%[0m
+[0;32mI (30799) STAT:   net              prio= 4 stack_free_min= 4936 Б CPU=  0.00%[0m
+[0;32mI (30809) STAT:   esp_timer        prio=22 stack_free_min= 3152 Б CPU=  0.00%[0m
+[0;32mI (30819) STAT:   wifi             prio=23 stack_free_min= 4648 Б CPU=  0.00%[0m
+[0;32mI (30819) STAT:   Tmr Svc          prio= 1 stack_free_min= 1388 Б CPU=  0.00%[0m

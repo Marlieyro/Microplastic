@@ -167,7 +167,6 @@ static void set_mode(applicationModes_t mode)
     if (mode == getApplicationMode()) {
         return;
     }
-    ESP_LOGI(TAG, "Режим: %s -> %s", appModes_toName(getApplicationMode()), appModes_toName(mode));
     setApplicationMode(mode);
     const bool low = (mode == LOW_ENERGY_MODE);
     if (low != app_power_is_low()) {
@@ -212,7 +211,7 @@ static app_reply_t start_cycle(void)
     }
     const bool ctx = (mode == CONTEXT_BUFFERING_MODE);
     if (ctx && app_ctx_free_count() == 0) {
-        return APP_REPLY_BUSY;               /* усі буфери пулу зайняті */
+        return APP_REPLY_BUSY;
     }
     uint32_t raw_index = 0;
     if (APP_DATA_SOURCE_SIM) {
@@ -549,8 +548,6 @@ static void handle_timer(ctrl_timer_t t)
 static void ctrl_task(void *arg)
 {
     (void)arg;
-    ESP_LOGI(TAG, "Задача керування запущена, стан: %s", s_state_names[s_state]);
-
     for (;;) {
         ctrl_ev_t ev;
         if (xQueueReceive(s_queue, &ev, timer_next_wait()) == pdTRUE) {

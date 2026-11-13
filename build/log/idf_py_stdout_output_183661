@@ -1,0 +1,26 @@
+Command: ninja size
+[0/1] cd /mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build && /usr/bin/cmake -D "IDF_SIZE_TOOL=/home/user/.espressif/python_env/idf6.0_py3.14_env/bin/python;-m;esp_idf_size" -D MAP_FILE=/mnt/Data/InfoTech/ESP-IDFProjects/Microplastic/build/Microplastic.map -D OUTPUT_JSON= -P /home/user/esp/esp-idf/tools/cmake/run_size_tool.cmake
+                            Memory Type Usage Summary                             
+┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓
+┃ Memory Type/Section ┃ Used [bytes] ┃ Used [%] ┃ Remain [bytes] ┃ Total [bytes] ┃
+┡━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩
+│ Flash Code          │       751934 │          │                │               │
+│    .text            │       751934 │          │                │               │
+│ Flash Data          │       171532 │          │                │               │
+│    .rodata          │       171260 │          │                │               │
+│    .appdesc         │          256 │          │                │               │
+│    .tdata           │           16 │          │                │               │
+│ DIRAM               │       146223 │    42.79 │         195537 │        341760 │
+│    .text            │        79267 │    23.19 │                │               │
+│    .bss             │        45312 │    13.26 │                │               │
+│    .data            │        21644 │     6.33 │                │               │
+│ IRAM                │        16384 │    100.0 │              0 │         16384 │
+│    .text            │        15356 │    93.73 │                │               │
+│    .vectors         │         1028 │     6.27 │                │               │
+│ RTC FAST            │          112 │     1.37 │           8080 │          8192 │
+│    .text            │           84 │     1.03 │                │               │
+│    .rtc_reserved    │           24 │     0.29 │                │               │
+│    .force_fast      │            4 │     0.05 │                │               │
+│ RTC SLOW            │           36 │     0.44 │           8156 │          8192 │
+│    .force_slow      │           36 │     0.44 │                │               │
+└─────────────────────┴──────────────┴──────────┴────────────────┴───────────────┘
